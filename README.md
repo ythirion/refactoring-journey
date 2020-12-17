@@ -5,6 +5,8 @@
 * [Intellij shortcuts](https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf)
 * [Eclipse shortcuts](https://www.eclipse.org/getting_started/content/eclipse-ide-keybindings.pdf)
 
+![refactoring-journey](refactoring-journey.png)
+
 ## Composing methods
 ### Extract Method
 * Extract the new method by using your IDE feature
@@ -23,8 +25,8 @@
 #### Shortcuts :
 | IntelliJ | Eclipse |
 |---|---|
-|Ctrl+Alt+M|Alt+Shift+M|
-|⌘+⌥+M|Alt+Shift+M|
+| Ctrl+Alt+M | Alt+Shift+M |
+| ⌘+⌥+M | ⌥+⌘+M |
 
 Before any changes :
 * Check the tests
