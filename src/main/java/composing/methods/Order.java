@@ -13,8 +13,8 @@ public class Order {
     private final Customer customer;
     private final ArrayList<Product> products;
 
-    public String generateStatement(){
-        if(customer != null && !customer.getName().isEmpty() && products.size() > 0){
+    public String generateStatement() {
+        if (customer != null && !customer.getName().isEmpty() && products.size() > 0) {
             StringBuilder statement = new StringBuilder();
 
             //Add banner
@@ -28,7 +28,10 @@ public class Order {
             statement.append("Total: " + total + "€");
 
             return statement.toString();
-        }
-        else throw new IllegalArgumentException("InvalidOrder");
+        } else throw new IllegalArgumentException("InvalidOrder");
+    }
+
+    public Double totalPrice() {
+        return getProducts().stream().map(Product::getPrice).reduce(0.0, Double::sum);
     }
 }

@@ -46,3 +46,13 @@ Before any changes :
 | ⌘+⌥+V | ⌥+⌘+L |
 
 ### Inline Temp
+* Replace the references to the variable with the expression itself
+
+#### Practice 1
+* Open `OrderHelper` in `composing.methods` package
+* Replace the price reference with the expression itself
+
+#### Practice 2
+* Refactor the `deserveDiscountBasedOnCustomer` by using previous learnings
+
+`Faker library (or alternatives) can really help you save a lot of time when needing data for your tests.` 
