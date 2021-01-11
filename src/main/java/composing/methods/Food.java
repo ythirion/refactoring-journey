@@ -1,11 +1,14 @@
 package composing.methods;
 
+import lombok.Builder;
+
 import java.time.LocalDate;
 
+@Builder
 public class Food {
-    private LocalDate expirationDate;
-    private Boolean approvedForConsumption;
-    private Integer inspectorId;
+    private final LocalDate expirationDate;
+    private final Boolean approvedForConsumption;
+    private final Integer inspectorId;
 
     public Food(LocalDate expirationDate, Boolean approvedForConsumption, Integer inspectorId) {
         this.expirationDate = expirationDate;
