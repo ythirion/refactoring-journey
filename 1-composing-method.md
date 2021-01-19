@@ -21,8 +21,16 @@
 * Open `AmountCalculator` in `composing.methods` package
 * Extract methods to remove code duplication
 * `The power of your IDE you will use`
-
-### Shortcuts :
+    * Start by the trying to extract this piece of code
+    ```java
+              double discountBasedOnAge = 0;
+              if (age <= 16) {
+                  discountBasedOnAge = 0.35 * result;
+              } else if (age >= 60) {
+                  discountBasedOnAge = 0.2 * result;
+              }
+ 
+### Shortcuts
 | IntelliJ | Eclipse |
 |---|---|
 | Ctrl+Alt+M | Alt+Shift+M |
@@ -43,7 +51,7 @@
 * Open `Food` in `composing.methods` package
 * Extract variables from the `isEdible` method
 
-### Shortcuts :
+### Shortcuts
 | IntelliJ | Eclipse |
 |---|---|
 | Ctrl+Alt+V | Alt+Shift+L |
@@ -112,13 +120,16 @@ More readable code
 
 ### Practice
 * Open `Warehouse` in `composing.methods` package  
-* Select the content of the `generateStockReport`
-    * Go into your **Refactor** menu and select **Replace Method with Method Object...**
-    ![refactoring-journey](img/replaceMethodWithMethodObject.png)
-    * Extract it in a `StockReportGenerator` class
+* Extract the content of the `generateStockReport` method in a `StockReportGenerator` class
 * Inject the Warehouse instance to it
 * Refactor the code until you are happy with it
 * What are the side effects on the consumers of the Warehouse class ?
+
+### Shortcuts
+* With IntelliJ select the content of the `generateStockReport` method
+* Go into your **Refactor** menu and select **Replace Method with Method Object...**
+![refactoring-journey](img/replaceMethodWithMethodObject.png)
+* More info [here](https://www.jetbrains.com/help/idea/extract-into-class-refactorings.html#extract_method_object)
 
 ### Benefits
 * Stop a method from growing
