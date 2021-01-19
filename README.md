@@ -5,7 +5,7 @@
 * [Intellij shortcuts](https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf)
 * [Eclipse shortcuts](https://www.eclipse.org/getting_started/content/eclipse-ide-keybindings.pdf)
 
-![refactoring-journey](refactoring-journey.png)
+![refactoring-journey](img/refactoring-journey.png)
 
 ## Don't forget the Golden Rule 
 Before any changes :
@@ -124,7 +124,14 @@ More readable code
 * Split the method into several methods within the same class
 
 #### Practice
-
+* Open `Warehouse` in `composing.methods` package  
+* Select the content of the `generateStockReport`
+    * Go into your **Refactor** menu and select **Replace Method with Method Object...**
+    ![refactoring-journey](img/replaceMethodWithMethodObject.png)
+    * Extract it in a `StockReportGenerator` class
+* Inject the Warehouse instance to it
+* Refactor the code until you are happy with it
+* What are the side effects on the consumers of the Warehouse class ?
 
 #### Benefits
 * Stop a method from growing
