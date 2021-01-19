@@ -56,3 +56,14 @@ Before any changes :
 * Refactor the `deserveDiscountBasedOnCustomer` by using previous learnings
 
 `Faker library (or alternatives) can really help you save a lot of time when needing data for your tests.` 
+
+### Remove Assignments to Parameters
+* Use a local variable instead of a parameter.
+
+#### Practice 1
+* Open `OrderHelper` in `composing.methods` package  
+* Reflect on the method, which concept does it break ?
+* Add a new test for the `calculateNewStock` method
+
+#### Practice 2
+* Refactor the `calculateNewStock` into a Pure Function
