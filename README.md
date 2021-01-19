@@ -7,8 +7,21 @@
 
 ![refactoring-journey](refactoring-journey.png)
 
+## Don't forget the Golden Rule 
+Before any changes :
+* Check the tests
+* Make sure they are all Green
+
 ## Composing methods
 ### Extract Method
+#### Code Smells
+* Too many responsibilities in a single method
+* Method that breaks the single responsibility principle
+* Long methods
+* Comments on part of the method
+* `And` in the method name
+
+#### Technique
 * Extract the new method by using your IDE feature
     * Makes its purpose self-evident
 * Be careful with the needed variables before extracting otherwise you will have to move them by yourself
@@ -28,12 +41,16 @@
 | Ctrl+Alt+M | Alt+Shift+M |
 | ⌘+⌥+M | ⌥+⌘+M |
 
-Before any changes :
-* Check the tests
-* Make sure they are all Green
+#### Benefits
+* More readable code
+* Avoid code duplication
 
 ### Extract variable
-`Place the result of the expression or its parts in separate variables that are self-explanatory.`
+#### Code Smells
+* Hard to understand expressions
+
+#### Technique
+* Place the result of the expression or its parts in separate variables that are self-explanatory.
 
 #### Practice
 * Open `Food` in `composing.methods` package
@@ -45,7 +62,20 @@ Before any changes :
 | Ctrl+Alt+V | Alt+Shift+L |
 | ⌘+⌥+V | ⌥+⌘+L |
 
+#### Benefits
+More readable code
+
+#### Drawbacks
+* More variables
+* Performance
+    * Expressions will always be called
+
 ### Inline Temp
+#### Code Smells
+* Temporary variable assigning the result of a simple expression
+    * And nothing more
+
+#### Technique
 * Replace the references to the variable with the expression itself
 
 #### Practice 1
@@ -57,13 +87,48 @@ Before any changes :
 
 `Faker library (or alternatives) can really help you save a lot of time when needing data for your tests.` 
 
+#### Benefits
+* Less code
+* Less noise
+
 ### Remove Assignments to Parameters
+#### Code Smells
+* A value is assigned to a parameter inside method’s body
+
+#### Technique
 * Use a local variable instead of a parameter.
 
 #### Practice 1
 * Open `OrderHelper` in `composing.methods` package  
-* Reflect on the method, which concept does it break ?
+* Reflect on the method
+    * Its signature
+    * Which concept does it break ?
 * Add a new test for the `calculateNewStock` method
 
 #### Practice 2
 * Refactor the `calculateNewStock` into a Pure Function
+
+#### Benefits
+* Avoid side effects
+* Create pure functions
+    * Easier to maintain / test
+    
+### Replace long method with Method Object (composition)
+#### Code Smells
+* Long methods : local variables are so intertwined that you can’t apply *Extract Method*
+* Break often Single Responsibility Principle
+
+#### Technique
+* Transform the method into a separate class
+    * Local variables become fields of the class
+* Split the method into several methods within the same class
+
+#### Practice
+
+
+#### Benefits
+* Stop a method from growing
+
+#### Drawbacks
+* Another class is added
+* Increase the overall complexity of the program
