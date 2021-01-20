@@ -21,7 +21,7 @@
 * Open `AmountCalculator` in `composing.methods` package
 * Extract methods to remove code duplication
 * `The power of your IDE you will use`
-    * Start by the trying to extract this piece of code
+    * Start by trying to extract this piece of code
     ```java
               double discountBasedOnAge = 0;
               if (age <= 16) {

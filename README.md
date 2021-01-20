@@ -1,4 +1,5 @@
 # Refactoring journey
+
 * Clone the repository
 
 `Lazy you will be`-> use your IDE
