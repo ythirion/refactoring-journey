@@ -45,7 +45,8 @@ One of the pillars of object-oriented programming is Encapsulation : the ability
 
 ### Shortcuts
 * Right Click in the file
-* Refactor | Encapsulate Fields
+* Refactor | Encapsulate Fields  
+
 ![extract class](img/encapsulateFields.png)
 * Then configure the encapsulation
 * More info [here](https://www.jetbrains.com/help/idea/encapsulate-fields.html)

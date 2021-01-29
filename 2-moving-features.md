@@ -39,7 +39,8 @@ For each method of the delegate-class called by the client
 ### Practice
 * Open `ChampionsLeague` in `moving.features` package
 * Hide Delegate
-![hide delegate](img/hidedelegate.png)
+
+![hide delegate](img/hideDelegate.png)
 
 ### Benefits
 * Hides delegation from the client
@@ -62,8 +63,9 @@ For each method of the delegate-class called by the client
 ### Shortcuts
 * Open the class in the editor, and position the caret at the name of the delegating field
 * On the main or context menu, select Refactor | Remove Middleman in Intellij
-* More info [here](https://www.jetbrains.com/help/idea/remove-middleman.html)
+
 ![hide delegate](img/removeMiddleman.png)
+* More info [here](https://www.jetbrains.com/help/idea/remove-middleman.html)
 
 ### Drawbacks
 * Bound objects together
