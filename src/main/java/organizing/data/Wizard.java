@@ -1,13 +1,12 @@
 package organizing.data;
 
 public class Wizard {
-    public static void validatePassword(String password) {
-        if (password.length() < 12) {
-            throw new IllegalArgumentException("minimum password length is not respected");
-        }
-    }
+    public String weapon;
+    public String magicStick;
+    public String name;
+    public int life;
 
-    public static double calculatePotentialEnergy(double mass, double height) {
-        return mass * height * 9.81;
+    public Wizard(String name) {
+        this.name = name;
     }
 }
