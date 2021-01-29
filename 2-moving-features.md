@@ -15,7 +15,7 @@
 ### Shortcuts
 * Right Click in the file
 * Refactor | Extract Delegate
-![refactoring-journey](img/extract-delegate.png)
+![extract class](img/extract-delegate.png)
 * Then configure the extraction
 * More info [here](https://www.jetbrains.com/help/idea/extract-into-class-refactorings.html#extract_delegate)
 
@@ -23,4 +23,27 @@
 * Maintain adherence to the Single Responsibility Principle
 
 ### Drawbacks
-* Could create a lot of Inline Class
+* Could create a lot of (Inline) classes
+
+## Hide Delegate
+### Code Smells
+* [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) : call chain appears when a client requests an object from another object, then the second object requests another one, and so on. 
+    * Stuff like : *person.getFirstAccount().getLastWithdrawal().getAmount()*
+> Any changes in these interrelationships will require changes on the client side.
+
+### Technique
+For each method of the delegate-class called by the client
+* Create a method in the `server-class that delegates the call to the delegate-class
+* Change the `client` code so that it calls the methods of the server-class
+
+### Practice
+* Open `ChampionsLeague` in `moving.features` package
+* Hide Delegate
+![hide delegate](img/hidedelegate.png)
+
+### Benefits
+* Hides delegation from the client
+   * Make it easier to make changes to the system
+
+### Drawbacks
+* Could lead to an excess of Middle Man
