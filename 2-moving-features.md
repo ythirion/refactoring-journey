@@ -47,3 +47,23 @@ For each method of the delegate-class called by the client
 
 ### Drawbacks
 * Could lead to an excess of Middle Man
+
+## Remove Middle Man
+### Code Smells
+* A class has too many methods that delegates to other objects
+
+### Technique
+* Create a getter for accessing the delegate(s)
+* Replace calls to delegating methods in the server-class
+
+### Practice
+* Remove the Middle Man introduced in the previous exercise
+
+### Shortcuts
+* Open the class in the editor, and position the caret at the name of the delegating field
+* On the main or context menu, select Refactor | Remove Middleman in Intellij
+* More info [here](https://www.jetbrains.com/help/idea/remove-middleman.html)
+![hide delegate](img/removeMiddleman.png)
+
+### Drawbacks
+* Bound objects together
