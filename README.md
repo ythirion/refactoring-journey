@@ -17,3 +17,4 @@ Follow the links to go on the detailed exercises :
 ### [1) Composing method](1-composing-method.md)
 ### [2) Moving features](2-moving-features.md)
 ### [3) Organizing data](3-organizing-data.md)
+### [4) Simplifying Conditional Expressions](4-simplifying-conditional-expressions.md)
