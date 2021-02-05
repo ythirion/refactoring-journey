@@ -13,6 +13,8 @@
 * Simplify if else
 
 `Before touching this kind of code always check the Code Coverage`
+* Let's cover the missing branch
+* Only then simplify if else
 
 ### Benefits
 * Eliminates duplicate control flow code
@@ -23,5 +25,38 @@
 ### Drawbacks
 * N/A
 
-BONUS : what do you think about the tests ?
-`Would you favor mocks over instantiating concrete objects ?`
+### BONUS : what do you think about the tests ?  
+* Would you favor mocks over instantiating concrete objects ?
+
+## Consolidate Duplicate Conditional Fragments
+### Code Smells
+* Identical code in all branches of a conditional
+
+### Technique
+* Move the code outside of the conditional :
+    * If the duplicated code is `at the beginning` of the conditional branches
+        * Move the code to a place before the conditional
+    * If the code is `at the end` of the branches
+        * Place it after the conditional
+    * If the duplicate code is `randomly located`  inside the branches
+        * First try to move the code to the beginning or end of the branch
+        * Depending on whether it changes the result of the subsequent code
+* If appropriate, and the duplicate code is longer than one line, try using Extract Method.
+
+### Practice
+* Open `PriceCalculator` in `simplifying.conditional.expressions` package
+* Remove duplicate code by using your IDE
+
+### Shortcuts
+* Put your cursor on the if line and use this shortcut (Show intention actions and quick-fixes )
+
+| IntelliJ |
+|---|
+| Alt+Enter |
+| ⌥+↩ |
+
+### Benefits
+* Code deduplication.
+
+### Drawbacks
+* N/A
