@@ -48,7 +48,7 @@
 * Remove duplicate code by using your IDE
 
 ### Shortcuts
-* Put your cursor on the if line and use this shortcut (Show intention actions and quick-fixes )
+* Put your cursor on the if line and use this shortcut (`Show intention actions and quick-fixes`)
 
 | IntelliJ |
 |---|
@@ -60,7 +60,6 @@
 
 ### Drawbacks
 * N/A
-
 
 ## Decompose Conditional
 ### Code Smells
@@ -89,6 +88,34 @@ Extract method :
 
 ### Benefits
 * More maintainable / understandable code
+
+### Drawbacks
+* N/A
+
+## Replace Conditional with Polymorphism
+### Code Smells
+* Conditional which performs various actions depending on object type or properties
+
+### Technique
+* Create subclasses matching the branches of the conditional
+* Create a shared method and move code from the corresponding branch of the conditional to it
+* Then replace the conditional with the relevant method calls
+
+### Practice
+* Open `Calculator` in `simplifying.conditional.expressions` package
+* Extract behaviors into class hierarchies
+
+### Shortcuts
+Replace Method with Method Object by using `Refactor | Replace Method with Method Object` menu in IntelliJ
+
+![Replace Method with Method Object](img/extract-method-object.png)
+
+### Benefits
+* If you need to add a new execution variant
+    * All you need to do is add a new subclass without touching the existing code (Open/Closed Principle)
+* Adheres to the Tell-Don’t-Ask principle :
+    * Instead of asking an object about its state and then performing actions based on this
+    * Much easier to simply tell the object what it needs to do and let it decide for itself how to do that
 
 ### Drawbacks
 * N/A

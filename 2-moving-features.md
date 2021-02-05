@@ -14,7 +14,7 @@
 
 ### Shortcuts
 * Right Click in the file
-* Refactor | Extract Delegate
+* ` Refactor | Extract Delegate`
 ![extract class](img/extract-delegate.png)
 * Then configure the extraction
 * More info [here](https://www.jetbrains.com/help/idea/extract-into-class-refactorings.html#extract_delegate)
@@ -62,7 +62,7 @@ For each method of the delegate-class called by the client
 
 ### Shortcuts
 * Open the class in the editor, and position the caret at the name of the delegating field
-* On the main or context menu, select Refactor | Remove Middleman in Intellij
+* On the main or context menu, select `Refactor | Remove Middleman` in Intellij
 
 ![hide delegate](img/removeMiddleman.png)
 * More info [here](https://www.jetbrains.com/help/idea/remove-middleman.html)

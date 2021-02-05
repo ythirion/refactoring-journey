@@ -16,6 +16,8 @@ Make it harder to understand the program and refactor the code
 * Extract magic stuff
 
 ### Shortcuts
+Extract Constant :
+
 | IntelliJ |
 |---|
 | Ctrl+Alt+C |

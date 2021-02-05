@@ -31,6 +31,8 @@
               }
  
 ### Shortcuts
+Extract method :
+
 | IntelliJ | Eclipse |
 |---|---|
 | Ctrl+Alt+M | Alt+Shift+M |
@@ -52,6 +54,8 @@
 * Extract variables from the `isEdible` method
 
 ### Shortcuts
+Extract Variable :
+
 | IntelliJ | Eclipse |
 |---|---|
 | Ctrl+Alt+V | Alt+Shift+L |
