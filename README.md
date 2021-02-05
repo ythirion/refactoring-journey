@@ -13,6 +13,10 @@ Before any changes :
 * Check the tests
 * Make sure they are all Green
 
+I strongly advise to use the Split Feature of your IDE to organize your work :  
+![refactoring-journey](img/split-screen.png)
+
+
 Follow the links to go on the detailed exercises :
 ### [1) Composing method](1-composing-method.md)
 ### [2) Moving features](2-moving-features.md)
