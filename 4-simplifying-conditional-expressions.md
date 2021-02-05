@@ -56,7 +56,38 @@
 | ⌥+↩ |
 
 ### Benefits
-* Code deduplication.
+* Code deduplication
+
+### Drawbacks
+* N/A
+
+
+## Decompose Conditional
+### Code Smells
+* Complex conditional 
+    * `if...else`
+    * `switch`
+* The longer a piece of code is the harder it is to understand.
+
+### Technique
+* Decompose the complicated parts of the conditional into separated methods :
+    * The condition : then and else
+    * Use your `Extract Method` feature
+* Repeat the process for each block
+
+### Practice
+* 
+
+### Shortcuts
+Extract method :
+
+| IntelliJ | Eclipse |
+|---|---|
+| Ctrl+Alt+M | Alt+Shift+M |
+| ⌘+⌥+M | ⌥+⌘+M |
+
+### Benefits
+* More maintainable / understandable code
 
 ### Drawbacks
 * N/A
