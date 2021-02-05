@@ -76,7 +76,8 @@
 * Repeat the process for each block
 
 ### Practice
-* 
+* Open `RoomPriceCalculator` in `simplifying.conditional.expressions` package
+* Decompose conditional by extracting methods
 
 ### Shortcuts
 Extract method :
