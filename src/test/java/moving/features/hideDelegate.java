@@ -1,9 +1,10 @@
 package moving.features;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class hideDelegate {
     private final League liga = new League("Spain");
@@ -32,7 +33,7 @@ public class hideDelegate {
 
     @Test
     public void nextStageTable() {
-        Assertions.assertEquals("FC Barcelone - Spain\n" +
+        assertEquals("FC Barcelone - Spain\n" +
                         "PSG - France\n" +
                         "RB Leipzig - German\n" +
                         "FC Liverpool - England\n" +

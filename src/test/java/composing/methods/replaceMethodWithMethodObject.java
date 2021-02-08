@@ -1,9 +1,10 @@
 package composing.methods;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class replaceMethodWithMethodObject {
     private final Warehouse warehouse = new Warehouse(9, new LinkedHashMap<>() {{
@@ -15,7 +16,7 @@ public class replaceMethodWithMethodObject {
 
     @Test
     public void generateStockReport() {
-        Assertions.assertEquals("Report for warehouse : 9\n" +
+        assertEquals("Report for warehouse : 9\n" +
                 "Product: Iphone 12 Price: 989.0 Stock : 568 units\n" +
                 "Product: Super Mario 3D World Price: 59.67 Stock : 98 units\n" +
                 "Product: Blu Ray Avengers End Game Price: 28.99 Stock : 568 units\n" +

@@ -1,7 +1,8 @@
 package organizing.data;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class encapsulateFields {
     @Test
@@ -11,6 +12,6 @@ public class encapsulateFields {
         harryPotter.magicStick = "Bâton de la Mort";
         harryPotter.weapon = "None";
 
-        Assertions.assertEquals(100, harryPotter.life);
+        assertEquals(100, harryPotter.life);
     }
 }

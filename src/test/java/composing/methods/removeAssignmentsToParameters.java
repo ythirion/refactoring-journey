@@ -1,7 +1,8 @@
 package composing.methods;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class removeAssignmentsToParameters {
     @Test
@@ -9,7 +10,7 @@ public class removeAssignmentsToParameters {
         Stock stock = new Stock(5);
         int newStock = OrderHelper.calculateNewStock(stock, 3);
 
-        Assertions.assertEquals(2, stock.getNbOfItems());
-        Assertions.assertEquals(12, newStock);
+        assertEquals(2, stock.getNbOfItems());
+        assertEquals(12, newStock);
     }
 }

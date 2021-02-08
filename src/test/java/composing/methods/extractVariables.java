@@ -1,9 +1,11 @@
 package composing.methods;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class extractVariables {
     private final Integer IDENTIFIED_INSPECTOR = 1;
@@ -17,14 +19,14 @@ public class extractVariables {
 
     @Test
     public void edibleFood() {
-        Assertions.assertTrue(edible1.isEdible());
-        Assertions.assertTrue(edible2.isEdible());
+        assertTrue(edible1.isEdible());
+        assertTrue(edible2.isEdible());
     }
 
     @Test
     public void notEdibleFood() {
-        Assertions.assertFalse(notInspectedFood.isEdible());
-        Assertions.assertFalse(notApprovedForConsumptionFood.isEdible());
-        Assertions.assertFalse(expiredFood.isEdible());
+        assertFalse(notInspectedFood.isEdible());
+        assertFalse(notApprovedForConsumptionFood.isEdible());
+        assertFalse(expiredFood.isEdible());
     }
 }

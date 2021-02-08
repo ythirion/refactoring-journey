@@ -1,9 +1,11 @@
 package moving.features;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class extractClass {
     private final Player mane = Player.builder()
@@ -38,16 +40,16 @@ public class extractClass {
 
     @Test
     public void mane_can_dribble_pogba() {
-        Assertions.assertTrue(mane.canDribble(pogba));
+        assertTrue(mane.canDribble(pogba));
     }
 
     @Test
     public void pogba_can_dribble_mane() {
-        Assertions.assertTrue(pogba.canDribble(mane));
+        assertTrue(pogba.canDribble(mane));
     }
 
     @Test
     public void pogba_cannot_dribble_vanDijk() {
-        Assertions.assertFalse(pogba.canDribble(vanDijk));
+        assertFalse(pogba.canDribble(vanDijk));
     }
 }
