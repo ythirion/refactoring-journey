@@ -22,3 +22,5 @@ Follow the links to go on the detailed exercises :
 ### [2) Moving features](2-moving-features.md)
 ### [3) Organizing data](3-organizing-data.md)
 ### [4) Simplifying Conditional Expressions](4-simplifying-conditional-expressions.md)
+### [5) Simplifying Method Calls](5-simplifying-method-calls.md)
+### [6) Dealing with generalization](6-dealing-with-generalization.md)
