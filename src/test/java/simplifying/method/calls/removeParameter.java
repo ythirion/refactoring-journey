@@ -1,11 +1,12 @@
 package simplifying.method.calls;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.UUID;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class removeParameter {
     private Lottery lottery;
@@ -23,13 +24,13 @@ public class removeParameter {
         String customerName = "Mando";
         String ticketNumber = lottery.purchaseTicketForCustomer(customerId, customerName);
 
-        Assertions.assertEquals(6, ticketNumber.length());
-        Assertions.assertTrue(ticketNumber.matches("\\d+"));
+        assertEquals(6, ticketNumber.length());
+        assertTrue(ticketNumber.matches("\\d+"));
     }
 
     @Test
     public void lottery_throws_an_exception_on_draw_without_tickets() {
-        Assertions.assertThrows(IllegalStateException.class, () -> lottery.drawWinner(TICKET_PRICE, PRIZE_AMOUNT));
+        assertThrows(IllegalStateException.class, () -> lottery.drawWinner(TICKET_PRICE, PRIZE_AMOUNT));
     }
 
     @Test
@@ -41,7 +42,7 @@ public class removeParameter {
 
         LotteryTicket winningTicket = lottery.drawWinner(TICKET_PRICE, PRIZE_AMOUNT);
 
-        Assertions.assertNotNull(winningTicket);
-        Assertions.assertTrue(purchasedTickets.contains(winningTicket.getNumber()));
+        assertNotNull(winningTicket);
+        assertTrue(purchasedTickets.contains(winningTicket.getNumber()));
     }
 }
