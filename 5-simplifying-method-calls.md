@@ -74,7 +74,12 @@ To know more read about [Command-query separation](https://en.wikipedia.org/wiki
 * Apply the technique explained
 
 ### Shortcuts
-?
+Extract method :
+
+| IntelliJ | Eclipse |
+|---|---|
+| Ctrl+Alt+M | Alt+Shift+M |
+| ⌘+⌥+M | ⌥+⌘+M |
 
 ### Benefits
 * Avoid side effects in your programs
@@ -82,3 +87,27 @@ To know more read about [Command-query separation](https://en.wikipedia.org/wiki
 ### Drawbacks
 * N/A
 
+## Introduce Parameter Object
+### Code Smells
+* Methods contain a repeating group of parameters
+
+### Technique
+* Replace these parameters with an object
+* Create a new immutable class representing the group of parameters
+* In all method calls, pass the object created from old method parameters to this parameter
+    
+### Practice
+* Open `AccountingService` in `simplifying.method.calls` package
+* Apply the technique explained
+
+### Shortcuts
+?
+
+### Benefits
+* Instead of a lot of parameters
+    * You see a single object with a comprehensible name
+
+### Drawbacks
+* N/A
+
+### BONUS : Add a minimumAmount parameter to each find method and change the code accordingly
