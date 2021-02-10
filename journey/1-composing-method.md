@@ -18,6 +18,7 @@ nav_order: 1
 
 ## Extract Method
 ### Code Smells
+{: .no_toc}
 * Too many responsibilities in a single method
 * Method that breaks the single responsibility principle
 * Long methods
@@ -25,15 +26,18 @@ nav_order: 1
 * `And` in the method name
 
 ### Technique
+{: .no_toc}
 * Extract the new method by using your IDE feature
     * Makes its purpose self-evident
 * Be careful with the needed variables before extracting otherwise you will have to move them by yourself
 
 ### Practice 1
+{: .no_toc}
 * Open `Order` in `composing.methods` package
 * Extract methods to improve readability / reduce complexity
 
 ### Practice 2
+{: .no_toc}
 * Open `AmountCalculator` in `composing.methods` package
 * Extract methods to remove code duplication
 * `The power of your IDE you will use`
@@ -47,6 +51,7 @@ nav_order: 1
               }
  
 ### Shortcuts
+{: .no_toc}
 Extract method :
 
 | IntelliJ | Eclipse |
@@ -55,6 +60,7 @@ Extract method :
 | ⌘+⌥+M | ⌥+⌘+M |
 
 ### Benefits
+{: .no_toc}
 * More readable code
 * Avoid code duplication
 
