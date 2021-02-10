@@ -1,4 +1,4 @@
-![refactoring-journey](img/2-moving-features.webp)
+![refactoring-journey](../img/2-moving-features.webp)
 
 ## Extract Class
 ### Code Smells
@@ -15,7 +15,7 @@
 ### Shortcuts
 * Right Click in the file
 * ` Refactor | Extract Delegate`
-![extract class](img/extract-delegate.webp)
+![extract class](../img/extract-delegate.webp)
 * Then configure the extraction
 * More info [here](https://www.jetbrains.com/help/idea/extract-into-class-refactorings.html#extract_delegate)
 
@@ -40,7 +40,7 @@ For each method of the delegate-class called by the client
 * Open `ChampionsLeague` in `moving.features` package
 * Hide Delegate
 
-![hide delegate](img/hideDelegate.webp)
+![hide delegate](../img/hideDelegate.webp)
 
 ### Benefits
 * Hides delegation from the client
@@ -64,7 +64,7 @@ For each method of the delegate-class called by the client
 * Open the class in the editor, and position the caret at the name of the delegating field
 * On the main or context menu, select `Refactor | Remove Middleman` in Intellij
 
-![hide delegate](img/removeMiddleman.webp)
+![hide delegate](../img/removeMiddleman.webp)
 * More info [here](https://www.jetbrains.com/help/idea/remove-middleman.html)
 
 ### Drawbacks

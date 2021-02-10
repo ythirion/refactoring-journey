@@ -1,4 +1,4 @@
-![refactoring-journey](img/5-simplifying-method-calls.webp)
+![refactoring-journey](../img/5-simplifying-method-calls.webp)
 
 ## Rename method
 ### Code Smells

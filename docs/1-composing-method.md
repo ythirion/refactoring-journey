@@ -1,4 +1,4 @@
-![refactoring-journey](img/1-composing-method.webp)
+![refactoring-journey](../img/1-composing-method.webp)
 
 ## Extract Method
 ### Code Smells
@@ -132,7 +132,7 @@ More readable code
 ### Shortcuts
 * With IntelliJ select the content of the `generateStockReport` method
 * Go into your **Refactor** menu and select **Replace Method with Method Object...**
-![refactoring-journey](img/replaceMethodWithMethodObject.webp)
+![refactoring-journey](../img/replaceMethodWithMethodObject.webp)
 * More info [here](https://www.jetbrains.com/help/idea/extract-into-class-refactorings.html#extract_method_object)
 
 ### Benefits
