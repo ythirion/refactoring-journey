@@ -7,6 +7,8 @@ nav_order: 1
 
 ![refactoring-journey](../img/1-composing-method.webp)
 
+{:toc}
+
 ## Extract Method
 ### Code Smells
 * Too many responsibilities in a single method
