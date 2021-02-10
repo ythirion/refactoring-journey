@@ -7,15 +7,27 @@ nav_order: 4
 
 ![refactoring-journey](../img/4-simplifying-conditional-expressions.webp)
 
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
 ## Consolidate Conditional Expression
 ### Code Smells
+{: .no_toc}
 * Multiple conditionals that lead to the same result or action
 
 ### Technique
+{: .no_toc}
 * Consolidate the conditionals in a single expression by using AND and OR As a general rule when consolidating
 * Perform Extract Method on the operator conditions and give the method a name that reflects the expression’s purpose
 
 ### Practice
+{: .no_toc}
 * Open `AuthorizationService` in `simplifying.conditional.expressions` package
 * Simplify if else
 
@@ -24,22 +36,25 @@ nav_order: 4
 * Only then simplify if else
 
 ### Benefits
+{: .no_toc}
 * Eliminates duplicate control flow code
     * More readable code  
 * By consolidating all operators
     * Isolate the complex expression in a method with a name that explains the conditional’s purpose
 
 ### Drawbacks
+{: .no_toc}
 * N/A
 
-### BONUS : what do you think about the tests ?  
-* Would you favor mocks over instantiating concrete objects ?
+> BONUS : what do you think about the tests ?  / Would you favor mocks over instantiating concrete objects ?
 
 ## Consolidate Duplicate Conditional Fragments
 ### Code Smells
+{: .no_toc}
 * Identical code in all branches of a conditional
 
 ### Technique
+{: .no_toc}
 * Move the code outside of the conditional :
     * If the duplicated code is `at the beginning` of the conditional branches
         * Move the code to a place before the conditional
@@ -51,10 +66,12 @@ nav_order: 4
 * If appropriate, and the duplicate code is longer than one line, try using Extract Method.
 
 ### Practice
+{: .no_toc}
 * Open `PriceCalculator` in `simplifying.conditional.expressions` package
 * Remove duplicate code by using your IDE
 
 ### Shortcuts
+{: .no_toc}
 * Put your cursor on the if line and use this shortcut (`Show intention actions and quick-fixes`)
 
 | IntelliJ |
@@ -63,29 +80,35 @@ nav_order: 4
 | ⌥+↩ |
 
 ### Benefits
+{: .no_toc}
 * Code deduplication
 
 ### Drawbacks
+{: .no_toc}
 * N/A
 
 ## Decompose Conditional
 ### Code Smells
+{: .no_toc}
 * Complex conditional 
     * `if...else`
     * `switch`
 * The longer a piece of code is the harder it is to understand.
 
 ### Technique
+{: .no_toc}
 * Decompose the complicated parts of the conditional into separated methods :
     * The condition : then and else
     * Use your `Extract Method` feature
 * Repeat the process for each block
 
 ### Practice
+{: .no_toc}
 * Open `RoomPriceCalculator` in `simplifying.conditional.expressions` package
 * Decompose conditional by extracting methods
 
 ### Shortcuts
+{: .no_toc}
 Extract method :
 
 | IntelliJ | Eclipse |
@@ -94,30 +117,37 @@ Extract method :
 | ⌘+⌥+M | ⌥+⌘+M |
 
 ### Benefits
+{: .no_toc}
 * More maintainable / understandable code
 
 ### Drawbacks
+{: .no_toc}
 * N/A
 
 ## Replace Conditional with Polymorphism
 ### Code Smells
+{: .no_toc}
 * Conditional which performs various actions depending on object type or properties
 
 ### Technique
+{: .no_toc}
 * Create subclasses matching the branches of the conditional
 * Create a shared method and move code from the corresponding branch of the conditional to it
 * Then replace the conditional with the relevant method calls
 
 ### Practice
+{: .no_toc}
 * Open `Calculator` in `simplifying.conditional.expressions` package
 * Extract behaviors into class hierarchies
 
 ### Shortcuts
+{: .no_toc}
 Replace Method with Method Object by using `Refactor | Replace Method with Method Object` menu in IntelliJ
 
 ![Replace Method with Method Object](../img/extract-method-object.webp)
 
 ### Benefits
+{: .no_toc}
 * If you need to add a new execution variant
     * All you need to do is add a new subclass without touching the existing code (Open/Closed Principle)
 * Adheres to the Tell-Don’t-Ask principle :
@@ -125,4 +155,5 @@ Replace Method with Method Object by using `Refactor | Replace Method with Metho
     * Much easier to simply tell the object what it needs to do and let it decide for itself how to do that
 
 ### Drawbacks
+{: .no_toc}
 * N/A

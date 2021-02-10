@@ -66,16 +66,20 @@ Extract method :
 
 ## Extract variable
 ### Code Smells
+{: .no_toc}
 * Hard to understand expressions
 
 ### Technique
+{: .no_toc}
 * Place the result of the expression or its parts in separate variables that are self-explanatory.
 
 ### Practice
+{: .no_toc}
 * Open `Food` in `composing.methods` package
 * Extract variables from the `isEdible` method
 
 ### Shortcuts
+{: .no_toc}
 Extract Variable :
 
 | IntelliJ | Eclipse |
@@ -84,42 +88,52 @@ Extract Variable :
 | ⌘+⌥+V | ⌥+⌘+L |
 
 ### Benefits
+{: .no_toc}
 More readable code
 
 ### Drawbacks
+{: .no_toc}
 * More variables
 * Performance
     * Expressions will always be called
 
 ## Inline Temp
 ### Code Smells
+{: .no_toc}
 * Temporary variable assigning the result of a simple expression
     * And nothing more
 
 ### Technique
+{: .no_toc}
 * Replace the references to the variable with the expression itself
 
 ### Practice 1
+{: .no_toc}
 * Open `OrderHelper` in `composing.methods` package
 * Replace the price reference with the expression itself
 
 ### Practice 2
+{: .no_toc}
 * Refactor the `deserveDiscountBasedOnCustomer` by using previous learnings
 
 `Faker library (or alternatives) can really help you save a lot of time when needing data for your tests.` 
 
 ### Benefits
+{: .no_toc}
 * Less code
 * Less noise
 
 ## Remove Assignments to Parameters
 ### Code Smells
+{: .no_toc}
 * A value is assigned to a parameter inside method’s body
 
 ### Technique
+{: .no_toc}
 * Use a local variable instead of a parameter.
 
 ### Practice 1
+{: .no_toc}
 * Open `OrderHelper` in `composing.methods` package  
 * Reflect on the method
     * Its signature
@@ -127,24 +141,29 @@ More readable code
 * Add a new test for the `calculateNewStock` method
 
 ### Practice 2
+{: .no_toc}
 * Refactor the `calculateNewStock` into a Pure Function
 
 ### Benefits
+{: .no_toc}
 * Avoid side effects
 * Create pure functions
     * Easier to maintain / test
     
 ## Replace long method with Method Object (composition)
 ### Code Smells
+{: .no_toc}
 * Long methods : local variables are so intertwined that you can’t apply *Extract Method*
 * Break often Single Responsibility Principle
 
 ### Technique
+{: .no_toc}
 * Transform the method into a separate class
     * Local variables become fields of the class
 * Split the method into several methods within the same class
 
 ### Practice
+{: .no_toc}
 * Open `Warehouse` in `composing.methods` package  
 * Extract the content of the `generateStockReport` method in a `StockReportGenerator` class
 * Inject the Warehouse instance to it
@@ -152,14 +171,17 @@ More readable code
 * What are the side effects on the consumers of the Warehouse class ?
 
 ### Shortcuts
+{: .no_toc}
 * With IntelliJ select the content of the `generateStockReport` method
 * Go into your **Refactor** menu and select **Replace Method with Method Object...**
 ![refactoring-journey](../img/replaceMethodWithMethodObject.webp)
 * More info [here](https://www.jetbrains.com/help/idea/extract-into-class-refactorings.html#extract_method_object)
 
 ### Benefits
+{: .no_toc}
 * Stop a method from growing
 
 ### Drawbacks
+{: .no_toc}
 * Another class is added
 * Increase the overall complexity of the program
