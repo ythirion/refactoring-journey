@@ -1,3 +1,9 @@
+---
+layout: default
+title: Refactoring journey
+has_children: true
+---
+
 # Refactoring journey
 
 * Clone the repository
@@ -19,10 +25,10 @@ I strongly advise to use the Split Feature of your IDE to organize your work :
 
 
 Follow the links to go on the detailed exercises :
-### [1) Composing method](/docs/1-composing-method.md)
-### [2) Moving features](/docs/2-moving-features.md)
-### [3) Organizing data](/docs/3-organizing-data.md)
-### [4) Simplifying Conditional Expressions](/docs/4-simplifying-conditional-expressions.md)
-### [5) Simplifying Method Calls](/docs/5-simplifying-method-calls.md)
-### [6) Dealing with generalization](/docs/6-dealing-with-generalization.md)
+### [1) Composing method](journey/1-composing-method.md)
+### [2) Moving features](journey/2-moving-features.md)
+### [3) Organizing data](journey/3-organizing-data.md)
+### [4) Simplifying Conditional Expressions](journey/4-simplifying-conditional-expressions.md)
+### [5) Simplifying Method Calls](journey/5-simplifying-method-calls.md)
+### [6) Dealing with generalization](journey/6-dealing-with-generalization.md)
 
