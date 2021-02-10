@@ -1,1 +1,1 @@
-![refactoring-journey](img/6-dealing-with-generalization.png)
+![refactoring-journey](img/6-dealing-with-generalization.webp)

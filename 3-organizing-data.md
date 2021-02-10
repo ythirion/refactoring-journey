@@ -1,4 +1,4 @@
-![refactoring-journey](img/3-organizing-data.png)
+![refactoring-journey](img/3-organizing-data.webp)
 
 ## Replace Magic Stuff with Constants
 ### Code Smells
@@ -49,7 +49,7 @@ One of the pillars of object-oriented programming is Encapsulation : the ability
 * Right Click in the file
 * Refactor | Encapsulate Fields  
 
-![extract class](img/encapsulateFields.png)
+![extract class](img/encapsulateFields.webp)
 * Then configure the encapsulation
 * More info [here](https://www.jetbrains.com/help/idea/encapsulate-fields.html)
 

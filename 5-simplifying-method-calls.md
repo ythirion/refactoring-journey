@@ -1,4 +1,4 @@
-![refactoring-journey](img/5-simplifying-method-calls.png)
+![refactoring-journey](img/5-simplifying-method-calls.webp)
 
 ## Rename method
 ### Code Smells
@@ -96,6 +96,29 @@ Extract method :
 * Create a new immutable class representing the group of parameters
 * In all method calls, pass the object created from old method parameters to this parameter
     
+### Practice
+* Open `AccountingService` in `simplifying.method.calls` package
+* Apply the technique explained
+
+### Shortcuts
+?
+
+### Benefits
+* Instead of a lot of parameters
+    * You see a single object with a comprehensible name
+
+### Drawbacks
+* N/A
+
+### BONUS : Add a minimumAmount parameter to each find method and change the code accordingly
+
+## Use Factory or Factory Methods
+### Code Smells
+* Complex constructor that does something more than just setting parameter values in object fields
+
+### Technique
+* Create a factory method and use it to replace constructor calls.
+
 ### Practice
 * Open `AccountingService` in `simplifying.method.calls` package
 * Apply the technique explained

@@ -1,4 +1,4 @@
-![refactoring-journey](img/4-simplifying-conditional-expressions.png)
+![refactoring-journey](img/4-simplifying-conditional-expressions.webp)
 
 ## Consolidate Conditional Expression
 ### Code Smells
@@ -108,7 +108,7 @@ Extract method :
 ### Shortcuts
 Replace Method with Method Object by using `Refactor | Replace Method with Method Object` menu in IntelliJ
 
-![Replace Method with Method Object](img/extract-method-object.png)
+![Replace Method with Method Object](img/extract-method-object.webp)
 
 ### Benefits
 * If you need to add a new execution variant
