@@ -7,7 +7,14 @@ nav_order: 1
 
 ![refactoring-journey](../img/1-composing-method.webp)
 
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
 {:toc}
+</details>
 
 ## Extract Method
 ### Code Smells
