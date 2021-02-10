@@ -6,8 +6,7 @@ has_children: true
 
 # Refactoring journey
 
-* Clone the repository
-* If you prefer you can access this kata through on github pages [here](https://ythirion.github.io/refactoring-journey/)
+* Clone the [repository](https://github.com/ythirion/refactoring-journey)
 
 `Lazy you will be`-> use your IDE
 * [Intellij shortcuts](https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf)
