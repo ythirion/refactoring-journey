@@ -19,10 +19,10 @@ I strongly advise to use the Split Feature of your IDE to organize your work :
 
 
 Follow the links to go on the detailed exercises :
-### [1) Composing method](1-composing-method.md)
-### [2) Moving features](2-moving-features.md)
-### [3) Organizing data](3-organizing-data.md)
-### [4) Simplifying Conditional Expressions](4-simplifying-conditional-expressions.md)
-### [5) Simplifying Method Calls](5-simplifying-method-calls.md)
-### [6) Dealing with generalization](6-dealing-with-generalization.md)
+### [1) Composing method](/docs/1-composing-method.md)
+### [2) Moving features](/docs/2-moving-features.md)
+### [3) Organizing data](/docs/3-organizing-data.md)
+### [4) Simplifying Conditional Expressions](/docs/4-simplifying-conditional-expressions.md)
+### [5) Simplifying Method Calls](/docs/5-simplifying-method-calls.md)
+### [6) Dealing with generalization](/docs/6-dealing-with-generalization.md)
 

@@ -1,3 +1,10 @@
+---
+layout: default
+title: Organizing Data
+parent: Refactoring journey
+nav_order: 3
+---
+
 ![refactoring-journey](../img/3-organizing-data.webp)
 
 ## Replace Magic Stuff with Constants

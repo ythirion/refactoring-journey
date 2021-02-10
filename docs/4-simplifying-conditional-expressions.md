@@ -1,3 +1,10 @@
+---
+layout: default
+title: Simplifying Conditional Expressions
+parent: Refactoring journey
+nav_order: 4
+---
+
 ![refactoring-journey](../img/4-simplifying-conditional-expressions.webp)
 
 ## Consolidate Conditional Expression

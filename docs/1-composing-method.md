@@ -1,3 +1,10 @@
+---
+layout: default
+title: Composing Methods
+parent: Refactoring journey
+nav_order: 1
+---
+
 ![refactoring-journey](../img/1-composing-method.webp)
 
 ## Extract Method

@@ -1,3 +1,10 @@
+---
+layout: default
+title: Simplifying Method Calls
+parent: Refactoring journey
+nav_order: 5
+---
+
 ![refactoring-journey](../img/5-simplifying-method-calls.webp)
 
 ## Rename method

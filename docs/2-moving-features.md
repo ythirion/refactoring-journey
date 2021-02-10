@@ -1,3 +1,10 @@
+---
+layout: default
+title: Moving Features
+parent: Refactoring journey
+nav_order: 2
+---
+
 ![refactoring-journey](../img/2-moving-features.webp)
 
 ## Extract Class
