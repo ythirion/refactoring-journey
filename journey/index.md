@@ -6,7 +6,7 @@ has_children: true
 
 # Refactoring journey
 
-* Clone the repository
+* Clone the repository [here](https://github.com/ythirion/refactoring-journey.git)
 * If you prefer you can access this kata through on github pages [here](https://ythirion.github.io/refactoring-journey/)
 
 `Lazy you will be`-> use your IDE
