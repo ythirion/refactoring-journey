@@ -16,15 +16,6 @@ nav_order: 2
 {:toc}
 </details>
 
-<details open markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-</details>
-
 ## Extract Class
 ### Code Smells
 {: .no_toc}
