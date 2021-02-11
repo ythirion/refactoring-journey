@@ -31,6 +31,29 @@ nav_order: 4
 * Open `AuthorizationService` in `simplifying.conditional.expressions` package
 * Simplify if else
 
+```java
+public class AuthorizationService {
+    public boolean isAuthorized(User user, String action) {
+        if (action == null) {
+            return false;
+        }
+        if (action.equals("")) {
+            return false;
+        }
+        if (user.getAge() < 18) {
+            return false;
+        }
+        if (user.isDisabled()) {
+            return false;
+        }
+        if (!user.isLoyal()) {
+            return false;
+        }
+        return true;
+    }
+}
+```
+
 `Before touching this kind of code always check the Code Coverage`
 * Let's cover the missing branch
 * Only then simplify if else
@@ -70,6 +93,31 @@ nav_order: 4
 * Open `PriceCalculator` in `simplifying.conditional.expressions` package
 * Remove duplicate code by using your IDE
 
+```java
+@AllArgsConstructor
+public class PriceCalculator {
+    private final boolean isSaleDay;
+
+    public double calculatePrice(double price) {
+        double total;
+
+        if (isSaleDay) {
+            total = price * 0.5;
+            notifySales(total);
+        } else {
+            total = price * 0.98;
+            notifySales(total);
+        }
+        return total;
+    }
+
+    private void notifySales(double amount) {
+
+    }
+}
+
+```
+
 ### Shortcuts
 {: .no_toc}
 * Put your cursor on the if line and use this shortcut (`Show intention actions and quick-fixes`)
@@ -107,6 +155,41 @@ nav_order: 4
 * Open `RoomPriceCalculator` in `simplifying.conditional.expressions` package
 * Decompose conditional by extracting methods
 
+```java
+@AllArgsConstructor
+public class RoomPriceCalculator {
+    private static final LocalDate HIGH_SEASON_START_DATE = LocalDate.of(LocalDate.now().getYear(), 6, 30);
+    private static final LocalDate HIGH_SEASON_END_DATE = LocalDate.of(LocalDate.now().getYear(), 10, 31);
+
+    private final LocalDate today;
+    private final double regularPrice;
+    private final double highSeasonRate;
+    private final double lowSeasonRate;
+    private final double lowSeasonExtraCharge;
+
+    public double calculatePriceFor(int numberOfRooms,
+                                    LocalDate selectedDate) {
+        double price;
+
+        if (selectedDate.isAfter(today) && (selectedDate.isBefore(HIGH_SEASON_START_DATE) || selectedDate.isAfter(HIGH_SEASON_END_DATE))) {
+            if (numberOfRooms <= 0) {
+                throw new IllegalArgumentException("Invalid Number of Rooms");
+            }
+            price = numberOfRooms * regularPrice * lowSeasonRate + lowSeasonExtraCharge;
+        } else if (selectedDate.isAfter(today)) {
+            price = numberOfRooms * regularPrice * highSeasonRate;
+
+            if (numberOfRooms <= 0) {
+                throw new IllegalArgumentException("Invalid Number of Rooms");
+            }
+        } else {
+            throw new IllegalArgumentException("Selected date should be in the future");
+        }
+        return price;
+    }
+}
+```
+
 ### Shortcuts
 {: .no_toc}
 Extract method :
@@ -139,6 +222,27 @@ Extract method :
 {: .no_toc}
 * Open `Calculator` in `simplifying.conditional.expressions` package
 * Extract behaviors into class hierarchies
+
+```java
+public class Calculator {
+    public static int calculate(int a, int b, String operator) {
+        int result;
+
+        if ("add".equals(operator)) {
+            result = a + b;
+        } else if ("multiply".equals(operator)) {
+            result = a * b;
+        } else if ("divide".equals(operator)) {
+            result = a / b;
+        } else if ("subtract".equals(operator)) {
+            result = a - b;
+        } else {
+            throw new IllegalArgumentException("Not supported operator");
+        }
+        return result;
+    }
+}
+```
 
 ### Shortcuts
 {: .no_toc}

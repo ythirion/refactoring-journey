@@ -31,8 +31,22 @@ Make it harder to understand the program and refactor the code
 
 ### Practice
 {: .no_toc}
-* Open `Wizard` in `organizing.data` package
+* Open `Utils` in `organizing.data` package
 * Extract magic stuff
+
+```java
+public class Utils {
+    public static void validatePassword(String password) {
+        if (password.length() < 12) {
+            throw new IllegalArgumentException("minimum password length is not respected");
+        }
+    }
+
+    public static double calculatePotentialEnergy(double mass, double height) {
+        return mass * height * 9.81;
+    }
+}
+```
 
 ### Shortcuts
 {: .no_toc}
@@ -62,13 +76,25 @@ One of the pillars of object-oriented programming is Encapsulation : the ability
 
 ### Technique
 {: .no_toc}
-* Extract the magic stuff by using your IDE feature
-  * Makes its name self-evident
+* Make the field private and create access methods for it
 
 ### Practice
 {: .no_toc}
 * Open `Wizard` in `organizing.data` package
-* Extract magic stuff
+* Encapsulate fields
+
+```java
+public class Wizard {
+    public String weapon;
+    public String magicStick;
+    public String name;
+    public int life;
+
+    public Wizard(String name) {
+        this.name = name;
+    }
+}
+```
 
 ### Shortcuts
 {: .no_toc}

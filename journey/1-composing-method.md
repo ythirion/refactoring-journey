@@ -36,6 +36,38 @@ nav_order: 1
 * Open `Order` in `composing.methods` package
 * Extract methods to improve readability / reduce complexity
 
+```java
+@AllArgsConstructor
+@Getter
+@Builder
+public class Order {
+    private final Customer customer;
+    private final ArrayList<Product> products;
+
+    public String generateStatement() {
+        if (customer != null && !customer.getName().isEmpty() && products.size() > 0) {
+            StringBuilder statement = new StringBuilder();
+
+            //Add banner
+            statement.append("Statement for : " + customer + "\n");
+
+            for (Product p : products) {
+                // Add details.
+                statement.append("Product: " + p.getName() + " Price: " + p.getPrice() + "\n");
+            }
+            double total = AmountCalculator.calculatePrice(this, true, customer.getAge());
+            statement.append("Total: " + total + "€");
+
+            return statement.toString();
+        } else throw new IllegalArgumentException("InvalidOrder");
+    }
+
+    public Double totalPrice() {
+        return getProducts().stream().map(Product::getPrice).reduce(0.0, Double::sum);
+    }
+}
+```
+
 ### Practice 2
 {: .no_toc}
 * Open `AmountCalculator` in `composing.methods` package
@@ -78,6 +110,29 @@ Extract method :
 * Open `Food` in `composing.methods` package
 * Extract variables from the `isEdible` method
 
+```java
+@Builder
+public class Food {
+    private final LocalDate expirationDate;
+    private final Boolean approvedForConsumption;
+    private final Integer inspectorId;
+
+    public Food(LocalDate expirationDate, Boolean approvedForConsumption, Integer inspectorId) {
+        this.expirationDate = expirationDate;
+        this.approvedForConsumption = approvedForConsumption;
+        this.inspectorId = inspectorId;
+    }
+
+    public boolean isEdible() {
+        if (this.expirationDate.isAfter(LocalDate.now()) && this.approvedForConsumption == true && this.inspectorId != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+```
+
 ### Shortcuts
 {: .no_toc}
 Extract Variable :
@@ -115,6 +170,35 @@ More readable code
 ### Practice 2
 {: .no_toc}
 * Refactor the `deserveDiscountBasedOnCustomer` by using previous learnings
+
+````java
+public class OrderHelper {
+    private static final int MINIMUM_ITEMS_IN_STOCK = 10;
+
+    public static boolean deserveDiscount(Order order) {
+        double price = order.totalPrice();
+        return price > 1000;
+    }
+
+    // Customer deserves a discount if customer age / number of products < 5
+    public static boolean deserveDiscountBasedOnCustomer(Order order) {
+        double nbOfProducts = order.getProducts().size();
+        int customerAge = order.getCustomer().getAge();
+        int result = (int) (customerAge / nbOfProducts);
+
+        return result < 5;
+    }
+
+    public static int calculateNewStock(Stock stock, int outFromStock) {
+        stock.setNbOfItems(stock.getNbOfItems() - outFromStock);
+
+        if (stock.getNbOfItems() < MINIMUM_ITEMS_IN_STOCK) {
+            return stock.getNbOfItems() + MINIMUM_ITEMS_IN_STOCK;
+        }
+        return stock.getNbOfItems();
+    }
+}
+````
 
 `Faker library (or alternatives) can really help you save a lot of time when needing data for your tests.` 
 
@@ -169,6 +253,25 @@ More readable code
 * Inject the Warehouse instance to it
 * Refactor the code until you are happy with it
 * What are the side effects on the consumers of the Warehouse class ?
+
+```java
+@AllArgsConstructor
+public class Warehouse {
+    private final int id;
+    private final LinkedHashMap<Product, Integer> stock;
+
+    public String generateStockReport() {
+        StringBuilder report = new StringBuilder();
+        report.append("Report for warehouse : " + id + "\n");
+
+        stock.forEach((key, value) -> report.append("Product: " + key.getName() + " Price: " + key.getPrice() + " Stock : " + value + " units\n"));
+
+        report.append("Total: " + stock.entrySet().stream().map(kvp -> kvp.getKey().getPrice() * kvp.getValue()).reduce(0.0, Double::sum) + "€");
+
+        return report.toString();
+    }
+}
+```
 
 ### Shortcuts
 {: .no_toc}

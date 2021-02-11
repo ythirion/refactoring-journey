@@ -29,7 +29,31 @@ nav_order: 2
 ### Practice
 {: .no_toc}
 * Open `Player` in `moving.features` package
-* Extract "*attributes*" into a new class 
+* Extract "*attributes*" into a new class
+
+```java
+@AllArgsConstructor
+@Getter
+@Builder
+public class Player {
+    private final String firstName;
+    private final String lastName;
+    private final LocalDate birthDate;
+    private final int height;
+    private final int weight;
+    private final int rating;
+    private final int pace;
+    private final int shooting;
+    private final int passing;
+    private final int dribbling;
+    private final int defending;
+    private final int physicality;
+
+    public boolean canDribble(Player otherPlayer) {
+        return physicality + dribbling > otherPlayer.physicality + otherPlayer.defending;
+    }
+}
+```
 
 ### Shortcuts
 {: .no_toc}
@@ -65,6 +89,20 @@ For each method of the delegate-class called by the client
 * Open `ChampionsLeague` in `moving.features` package
 * Hide Delegate
 
+```java
+@AllArgsConstructor
+@Getter
+public class ChampionsLeague {
+    private final List<Team> teams;
+
+    public String nextStageTable() {
+        return teams.stream()
+                .map(team -> team.getName() + " - " + team.getLeague().getCountry())
+                .collect(Collectors.joining("\n"));
+    }
+}
+```
+
 ![hide delegate](../img/hideDelegate.webp)
 
 ### Benefits
@@ -88,7 +126,7 @@ For each method of the delegate-class called by the client
 
 ### Practice
 {: .no_toc}
-* Remove the Middle Man introduced in the previous exercise
+* Remove the Middle Man introduced in the previous exercise (in `ChampionsLeague`)
 
 ### Shortcuts
 {: .no_toc}
