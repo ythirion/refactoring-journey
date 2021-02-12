@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class introduceParameterObject {
     private final AccountingService accountingService = new AccountingService(List.of(
@@ -56,23 +56,23 @@ public class introduceParameterObject {
     public void findBillsInvoicedBetween2Dates() {
         ArrayList<Bill> bills = accountingService.findBillsInvoicedBetween(LocalDate.of(2020, 1, 1), LocalDate.of(2020, 12, 31));
 
-        assertEquals(6, bills.size());
-        assertEquals(372792.99, bills.stream().mapToDouble(Bill::getAmount).sum());
+        assertThat(bills.size()).isEqualTo(6);
+        assertThat(bills.stream().mapToDouble(Bill::getAmount).sum()).isEqualTo(372792.99);
     }
 
     @Test
     public void findBillsDueBetween2Dates() {
         ArrayList<Bill> bills = accountingService.findBillsDueBetween(LocalDate.of(1980, 10, 1), LocalDate.of(2019, 1, 31));
 
-        assertEquals(1, bills.size());
-        assertEquals(23_789, bills.stream().mapToDouble(Bill::getAmount).sum());
+        assertThat(bills.size()).isEqualTo(1);
+        assertThat(bills.stream().mapToDouble(Bill::getAmount).sum()).isEqualTo(23_789);
     }
 
     @Test
     public void findBillsPaidBetween2Dates() {
         ArrayList<Bill> bills = accountingService.findBillsPaidBetween(LocalDate.of(1980, 10, 1), LocalDate.of(2020, 12, 31));
 
-        assertEquals(4, bills.size());
-        assertEquals(194_929.99, bills.stream().mapToDouble(Bill::getAmount).sum());
+        assertThat(bills.size()).isEqualTo(4);
+        assertThat(bills.stream().mapToDouble(Bill::getAmount).sum()).isEqualTo(194_929.99);
     }
 }

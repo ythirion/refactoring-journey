@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class extractVariables {
     private final Integer IDENTIFIED_INSPECTOR = 1;
@@ -19,14 +19,14 @@ public class extractVariables {
 
     @Test
     public void edibleFood() {
-        assertTrue(edible1.isEdible());
-        assertTrue(edible2.isEdible());
+        assertThat(edible1.isEdible()).isTrue();
+        assertThat(edible2.isEdible()).isTrue();
     }
 
     @Test
     public void notEdibleFood() {
-        assertFalse(notInspectedFood.isEdible());
-        assertFalse(notApprovedForConsumptionFood.isEdible());
-        assertFalse(expiredFood.isEdible());
+        assertThat(notInspectedFood.isEdible()).isFalse();
+        assertThat(notApprovedForConsumptionFood.isEdible()).isFalse();
+        assertThat(expiredFood.isEdible()).isFalse();
     }
 }

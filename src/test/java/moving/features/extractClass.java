@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class extractClass {
     private final Player mane = Player.builder()
@@ -40,16 +39,16 @@ public class extractClass {
 
     @Test
     public void mane_can_dribble_pogba() {
-        assertTrue(mane.canDribble(pogba));
+        assertThat(mane.canDribble(pogba)).isTrue();
     }
 
     @Test
     public void pogba_can_dribble_mane() {
-        assertTrue(pogba.canDribble(mane));
+        assertThat(pogba.canDribble(mane)).isTrue();
     }
 
     @Test
     public void pogba_cannot_dribble_vanDijk() {
-        assertFalse(pogba.canDribble(vanDijk));
+        assertThat(pogba.canDribble(vanDijk)).isFalse();
     }
 }

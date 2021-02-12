@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class hideDelegate {
     private final League liga = new League("Spain");
@@ -33,7 +33,8 @@ public class hideDelegate {
 
     @Test
     public void nextStageTable() {
-        assertEquals("FC Barcelone - Spain\n" +
+        assertThat(championsLeague2020.nextStageTable())
+                .isEqualTo("FC Barcelone - Spain\n" +
                         "PSG - France\n" +
                         "RB Leipzig - German\n" +
                         "FC Liverpool - England\n" +
@@ -48,7 +49,6 @@ public class hideDelegate {
                         "Atalanta Bergame - Italy\n" +
                         "Real Madrid - Spain\n" +
                         "Borussia M'Gladbach - German\n" +
-                        "Manchester City - England",
-                championsLeague2020.nextStageTable());
+                        "Manchester City - England");
     }
 }

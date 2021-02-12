@@ -6,7 +6,8 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class removeParameter {
     private Lottery lottery;
@@ -24,13 +25,14 @@ public class removeParameter {
         String customerName = "Mando";
         String ticketNumber = lottery.purchaseTicketForCustomer(customerId, customerName);
 
-        assertEquals(6, ticketNumber.length());
-        assertTrue(ticketNumber.matches("\\d+"));
+        assertThat(ticketNumber.length()).isEqualTo(6);
+        assertThat(ticketNumber.matches("\\d+")).isTrue();
     }
 
     @Test
     public void lottery_throws_an_exception_on_draw_without_tickets() {
-        assertThrows(IllegalStateException.class, () -> lottery.drawWinner(TICKET_PRICE, PRIZE_AMOUNT));
+        assertThatExceptionOfType(IllegalStateException.class)
+                .isThrownBy(() -> lottery.drawWinner(TICKET_PRICE, PRIZE_AMOUNT));
     }
 
     @Test
@@ -42,7 +44,7 @@ public class removeParameter {
 
         LotteryTicket winningTicket = lottery.drawWinner(TICKET_PRICE, PRIZE_AMOUNT);
 
-        assertNotNull(winningTicket);
-        assertTrue(purchasedTickets.contains(winningTicket.getNumber()));
+        assertThat(winningTicket).isNotNull();
+        assertThat(purchasedTickets).contains(winningTicket.getNumber());
     }
 }

@@ -2,7 +2,7 @@ package organizing.data;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class encapsulateFields {
     @Test
@@ -12,6 +12,6 @@ public class encapsulateFields {
         harryPotter.magicStick = "Bâton de la Mort";
         harryPotter.weapon = "None";
 
-        assertEquals(100, harryPotter.life);
+        assertThat(harryPotter.life).isEqualTo(100);
     }
 }

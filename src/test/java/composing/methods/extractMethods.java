@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
 
 public class extractMethods {
     private final ArrayList<Product> products = new ArrayList<>(
@@ -18,28 +19,29 @@ public class extractMethods {
 
     @Test
     public void generateStatement() {
-        assertEquals("Statement for : Customer{name='Mando', age=35}\n" +
-                "Product: Blu Ray Tenet Price: 31.0\n" +
-                "Product: Book Fundamentals of Software Architecture Price: 54.22\n" +
-                "Product: T-Shirt Geek Kaamelott Price: 25.9\n" +
-                "Total: 111.12€", order.generateStatement());
+        assertThat(order.generateStatement())
+                .isEqualTo("Statement for : Customer{name='Mando', age=35}\n" +
+                        "Product: Blu Ray Tenet Price: 31.0\n" +
+                        "Product: Book Fundamentals of Software Architecture Price: 54.22\n" +
+                        "Product: T-Shirt Geek Kaamelott Price: 25.9\n" +
+                        "Total: 111.12€");
     }
 
     @Test
     public void calculatePrice() {
-        assertEquals(9.425, AmountCalculator.calculatePrice(14.5, 16));
-        assertEquals(9.425, AmountCalculator.calculatePrice(14.5, 12));
-        assertEquals(14.5, AmountCalculator.calculatePrice(14.5, 30));
-        assertEquals(11.6, AmountCalculator.calculatePrice(14.5, 60));
-        assertEquals(11.6, AmountCalculator.calculatePrice(14.5, 80));
+        assertThat(AmountCalculator.calculatePrice(14.5, 16)).isEqualTo(9.425);
+        assertThat(AmountCalculator.calculatePrice(14.5, 12)).isEqualTo(9.425);
+        assertThat(AmountCalculator.calculatePrice(14.5, 30)).isEqualTo(14.5);
+        assertThat(AmountCalculator.calculatePrice(14.5, 60)).isEqualTo(11.6);
+        assertThat(AmountCalculator.calculatePrice(14.5, 80)).isEqualTo(11.6);
     }
 
     @Test
     public void calculatePriceForOrders() {
-        assertEquals(72.22, AmountCalculator.calculatePrice(order, true, 16), 0.01);
-        assertEquals(111.12, AmountCalculator.calculatePrice(order, false, 16), 0.01);
-        assertEquals(111.12, AmountCalculator.calculatePrice(order, true, 40), 0.01);
-        assertEquals(88.89, AmountCalculator.calculatePrice(order, true, 70), 0.01);
-        assertEquals(111.12, AmountCalculator.calculatePrice(order, false, 70), 0.01);
+        assertThat(AmountCalculator.calculatePrice(order, true, 16)).isEqualTo(72.22, offset(0.01));
+        assertThat(AmountCalculator.calculatePrice(order, false, 16)).isEqualTo(111.12, offset(0.01));
+        assertThat(AmountCalculator.calculatePrice(order, true, 40)).isEqualTo(111.12, offset(0.01));
+        assertThat(AmountCalculator.calculatePrice(order, true, 70)).isEqualTo(88.89, offset(0.01));
+        assertThat(AmountCalculator.calculatePrice(order, false, 70)).isEqualTo(111.12, offset(0.01));
     }
 }

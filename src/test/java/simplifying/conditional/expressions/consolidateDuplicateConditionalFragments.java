@@ -2,7 +2,8 @@ package simplifying.conditional.expressions;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
 
 public class consolidateDuplicateConditionalFragments {
     @Test
@@ -10,7 +11,7 @@ public class consolidateDuplicateConditionalFragments {
         PriceCalculator priceCalculator = new PriceCalculator(true);
         double result = priceCalculator.calculatePrice(90.65);
 
-        assertEquals(45.32, result, 0.01);
+        assertThat(result).isEqualTo(45.32, offset(0.01));
     }
 
     @Test
@@ -18,6 +19,6 @@ public class consolidateDuplicateConditionalFragments {
         PriceCalculator priceCalculator = new PriceCalculator(false);
         double result = priceCalculator.calculatePrice(90.65);
 
-        assertEquals(88.83, result, 0.01);
+        assertThat(result).isEqualTo(88.83, offset(0.01));
     }
 }

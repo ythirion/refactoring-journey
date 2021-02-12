@@ -1,50 +1,59 @@
 package simplifying.method.calls;
 
+import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class useFactoryMethod {
     @Nested
     public class notification_should {
         @Nested
         public class throw_an_illegal_argument_exception {
+            private void assertExceptionThrown(ThrowableAssert.ThrowingCallable throwingCallable) {
+                assertThatExceptionOfType(IllegalArgumentException.class)
+                        .isThrownBy(throwingCallable);
+            }
+
             @Test
             public void when_channel_is_null() {
-                assertThrows(IllegalArgumentException.class, () -> new Notification(null));
+                assertExceptionThrown(() -> new Notification(null));
             }
 
             @Test
             public void when_channel_is_empty() {
-                assertThrows(IllegalArgumentException.class, () -> new Notification(""));
+                assertExceptionThrown(() -> new Notification(""));
             }
 
             @Test
             public void when_channel_is_not_authorized() {
-                assertThrows(IllegalArgumentException.class, () -> new Notification("Unauthorized"));
+                assertExceptionThrown(() -> new Notification("Unauthorized"));
             }
         }
 
         @Nested
         public class instantiate {
+            private void assertNotificationNotNull(String channel) {
+                Notification notification = new Notification(channel);
+                assertThat(notification).isNotNull();
+            }
+
             @Test
             public void when_channel_is_SMS() {
-                Notification notification = new Notification("SMS");
-                assertNotNull(notification);
+                assertNotificationNotNull("SMS");
             }
 
             @Test
             public void when_channel_is_EMAIL() {
-                Notification notification = new Notification("PUSH");
-                assertNotNull(notification);
+                assertNotificationNotNull("EMAIL");
+
             }
 
             @Test
             public void when_channel_is_PUSH() {
-                Notification notification = new Notification("PUSH");
-                assertNotNull(notification);
+                assertNotificationNotNull("PUSH");
             }
         }
     }

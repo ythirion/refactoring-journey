@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class inlineTemps {
     private final Faker faker = new Faker();
@@ -19,8 +18,8 @@ public class inlineTemps {
         Order orderDeservingDiscount = Order.builder().products(new ArrayList<>(List.of(Product.builder().name("Something expensive").price(1000.01).build()))).build();
         Order orderNotDeservingDiscount = Order.builder().products(new ArrayList<>(List.of(Product.builder().name("Something less expensive").price(1000).build()))).build();
 
-        assertTrue(OrderHelper.deserveDiscount(orderDeservingDiscount));
-        assertFalse(OrderHelper.deserveDiscount(orderNotDeservingDiscount));
+        assertThat(OrderHelper.deserveDiscount(orderDeservingDiscount)).isTrue();
+        assertThat(OrderHelper.deserveDiscount(orderNotDeservingDiscount)).isFalse();
     }
 
     @Test
@@ -29,8 +28,8 @@ public class inlineTemps {
         Order orderDeservingDiscount = Order.builder().customer(customer).products(generateFakeProducts(12)).build();
         Order orderNotDeservingDiscount = Order.builder().customer(customer).products(generateFakeProducts(9)).build();
 
-        assertTrue(OrderHelper.deserveDiscountBasedOnCustomer(orderDeservingDiscount));
-        assertFalse(OrderHelper.deserveDiscountBasedOnCustomer(orderNotDeservingDiscount));
+        assertThat(OrderHelper.deserveDiscountBasedOnCustomer(orderDeservingDiscount)).isTrue();
+        assertThat(OrderHelper.deserveDiscountBasedOnCustomer(orderNotDeservingDiscount)).isFalse();
     }
 
     private ArrayList<Product> generateFakeProducts(int times) {
