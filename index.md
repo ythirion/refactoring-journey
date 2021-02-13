@@ -25,10 +25,10 @@ Before any changes :
 
 ## IDE Cheat sheets
 ### IntelliJ
-![shortcuts-intellij](img/shortcuts-intellij.webp)
+![shortcuts-intellij](img/shortcuts-intelliJ.webp)
 
 ### IntelliJ on Mac
-![shortcuts-intellij-mac](img/shortcuts-intellij-mac.webp)
+![shortcuts-intellij-mac](img/shortcuts-intelliJ-mac.webp)
 
 ### Eclipse
 ![shortcuts-eclipse](img/shortcuts-eclipse.webp)
