@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Start your journey
+title: Refactoring journey
 has_children: true
+nav_order: 1
 ---
 
 # Refactoring journey
