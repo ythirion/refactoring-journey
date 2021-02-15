@@ -23,13 +23,3 @@ Before any changes :
 > I strongly advise to use the Split Feature of your IDE to organize your work :  
 
 >![refactoring-journey](img/split-screen.webp)
-
-## IDE Cheat sheets
-### IntelliJ
-![shortcuts-intellij](img/shortcuts-intelliJ.webp)
-
-### IntelliJ on Mac
-![shortcuts-intellij-mac](img/shortcuts-intelliJ-mac.webp)
-
-### Eclipse
-![shortcuts-eclipse](img/shortcuts-eclipse.webp)
