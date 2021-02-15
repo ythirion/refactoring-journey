@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Refactoring journey
+title: Start your journey
 has_children: true
 ---
 
