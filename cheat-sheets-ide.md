@@ -6,10 +6,10 @@ nav_order: 2
 
 ## IDE Cheat sheets
 ### IntelliJ
-![shortcuts-intellij](img/shortcuts-intellij.webp)
+![shortcuts-intellij](img/intellij-shortcuts.webp)
 
 ### IntelliJ on Mac
-![shortcuts-intellij-mac](img/shortcuts-intellij-mac.webp)
+![shortcuts-intellij-mac](img/intellij-mac-shortcuts.webp)
 
 ### Eclipse
-![shortcuts-eclipse](img/shortcuts-eclipse.webp)
+![shortcuts-eclipse](img/eclipse-shortcuts.webp)
