@@ -1,15 +1,10 @@
 package dealing.with.generalization;
 
-import lombok.AllArgsConstructor;
-
 import java.time.LocalDate;
 import java.util.List;
 
-@AllArgsConstructor
-public class Prospect {
-    private final String name;
-    private final String email;
-    private final String phone;
-    private final LocalDate creationDate;
-    private final List<String> messages;
+public class Prospect extends Party {
+    public Prospect(String name, String email, String phone, LocalDate creationDate, List<String> messages) {
+        super(name, email, phone, creationDate, messages);
+    }
 }

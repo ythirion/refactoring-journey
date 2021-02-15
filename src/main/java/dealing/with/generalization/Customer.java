@@ -1,16 +1,13 @@
 package dealing.with.generalization;
 
-import lombok.AllArgsConstructor;
-
 import java.time.LocalDate;
 import java.util.List;
 
-@AllArgsConstructor
-public class Customer {
-    private final String name;
-    private final String email;
-    private final String phone;
-    private final LocalDate creationDate;
+public class Customer extends Party {
     private final LocalDate conversionDate;
-    private final List<String> messages;
+
+    public Customer(String name, String email, String phone, LocalDate creationDate, List<String> messages, LocalDate conversionDate) {
+        super(name, email, phone, creationDate, messages);
+        this.conversionDate = conversionDate;
+    }
 }
