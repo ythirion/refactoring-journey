@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Getter
@@ -14,31 +15,34 @@ public class Order {
     private final ArrayList<Product> products;
 
     public String generateStatement() {
-        if (customer != null && !customer.getName().isEmpty() && products.size() > 0) {
-            StringBuilder statement = new StringBuilder();
+        checkState();
+        double total = AmountCalculator.calculatePrice(this, true, customer.getAge());
 
-            appendBanner(statement);
-            for (Product p : products) {
-                appendProductDetails(statement, p);
-            }
-            double total = AmountCalculator.calculatePrice(this, true, customer.getAge());
-
-            appendTotal(statement, total);
-
-            return statement.toString();
-        } else throw new IllegalArgumentException("InvalidOrder");
+        return createStatement()
+                .append(formatProducts() + "\n")
+                .append(formatTotal(total))
+                .toString();
     }
 
-    private void appendBanner(StringBuilder statement) {
-        statement.append("Statement for : " + customer + "\n");
+    private void checkState() {
+        if (customer == null || customer.getName().isEmpty() || products.isEmpty()) {
+            throw new IllegalArgumentException("InvalidOrder");
+        }
     }
 
-    private void appendProductDetails(StringBuilder statement, Product p) {
-        statement.append("Product: " + p.getName() + " Price: " + p.getPrice() + "\n");
+    private StringBuilder createStatement() {
+        return new StringBuilder("Statement for : " + customer + "\n");
     }
 
-    private void appendTotal(StringBuilder statement, double total) {
-        statement.append("Total: " + total + "€");
+    private String formatProducts() {
+        return getProducts()
+                .stream()
+                .map(product -> "Product: " + product.getName() + " Price: " + product.getPrice())
+                .collect(Collectors.joining("\n"));
+    }
+
+    private String formatTotal(double total) {
+        return "Total: " + total + "€";
     }
 
     public Double totalPrice() {
