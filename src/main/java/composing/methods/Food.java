@@ -1,26 +1,21 @@
 package composing.methods;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 import java.time.LocalDate;
 
 @Builder
+@AllArgsConstructor
 public class Food {
     private final LocalDate expirationDate;
     private final Boolean approvedForConsumption;
     private final Integer inspectorId;
 
-    public Food(LocalDate expirationDate, Boolean approvedForConsumption, Integer inspectorId) {
-        this.expirationDate = expirationDate;
-        this.approvedForConsumption = approvedForConsumption;
-        this.inspectorId = inspectorId;
-    }
-
     public boolean isEdible() {
-        if (this.expirationDate.isAfter(LocalDate.now()) && this.approvedForConsumption == true && this.inspectorId != null) {
-            return true;
-        } else {
-            return false;
-        }
+        boolean isFresh = this.expirationDate.isAfter(LocalDate.now());
+        boolean hasBeenInspected = this.inspectorId != null;
+
+        return isFresh && approvedForConsumption && hasBeenInspected;
     }
 }
