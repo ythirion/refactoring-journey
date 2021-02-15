@@ -57,9 +57,9 @@ public class pullUpMethodsOrFields {
 
             piece.start();
             Thread.sleep(pieceDuration);
-            piece.end();
+            piece.stop();
 
-            assertThat(piece.calculateElapsedTimes()).isGreaterThanOrEqualTo(pieceDuration);
+            assertThat(piece.getElapsedTime()).isGreaterThanOrEqualTo(pieceDuration);
         }
 
         @Nested
