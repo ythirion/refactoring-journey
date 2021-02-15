@@ -15,12 +15,11 @@ public class OrderHelper {
         return (customerAge / nbOfProducts) < 5;
     }
 
-    public static int calculateNewStock(Stock stock, int outFromStock) {
-        stock.setNbOfItems(stock.getNbOfItems() - outFromStock);
+    public static Stock calculateNewStock(Stock stock, int outFromStock) {
+        int newStock = stock.getNbOfItems() - outFromStock;
 
-        if (stock.getNbOfItems() < MINIMUM_ITEMS_IN_STOCK) {
-            return stock.getNbOfItems() + MINIMUM_ITEMS_IN_STOCK;
-        }
-        return stock.getNbOfItems();
+        return newStock < MINIMUM_ITEMS_IN_STOCK ?
+                new Stock(newStock + MINIMUM_ITEMS_IN_STOCK)
+                : new Stock(newStock);
     }
 }

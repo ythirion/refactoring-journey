@@ -1,10 +1,10 @@
 package composing.methods;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 
 @AllArgsConstructor
-@Data
+@Getter
 public class Stock {
-    private int nbOfItems;
+    private final int nbOfItems;
 }
