@@ -152,17 +152,37 @@ N/A
 
 ### Practice
 {: .no_toc}
-* Open `Employee` in `simplifying.method.calls` package
-* Rename every method with a "shitty" name
+* Open `Customer` and `Prospect` in `dealing.with.generalization` package
+* Create a base Superclass
+
+```java
+@AllArgsConstructor
+public class Customer {
+    private final String name;
+    private final String email;
+    private final String phone;
+    private final LocalDate creationDate;
+    private final LocalDate conversionDate;
+    private final List<String> messages;
+}
+
+@AllArgsConstructor
+public class Prospect {
+    private final String name;
+    private final String email;
+    private final String phone;
+    private final LocalDate creationDate;
+    private final List<String> messages;
+}
+```
 
 ### Shortcuts
 {: .no_toc}
-???
+* Right Click in the file
+* Select Refactor | Extract Superclass
+* Follow the instructions
 
-| IntelliJ | Eclipse |
-|---|---|
-| Shift+F6 | Alt+Shift+R |
-| ⇧+F6 | ⌥+⌘+R |
+![Extract Superclass](../img/extract-superclass.webp)
 
 ### Benefits
 {: .no_toc}
