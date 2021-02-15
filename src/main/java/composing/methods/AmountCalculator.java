@@ -1,37 +1,26 @@
 package composing.methods;
 
 public class AmountCalculator {
-    public static double calculatePrice(double amount, int age){
-        double discountBasedOnAge = 0;
-
-        if(age <= 16){
-            discountBasedOnAge = 0.35 * amount;
-        } else if(age >= 60){
-            discountBasedOnAge = 0.2 * amount;
-        }
+    public static double calculatePrice(double amount, int age) {
+        double discountBasedOnAge = calculateDiscountBasedOnAge(amount, age);
         return amount - discountBasedOnAge;
     }
 
-    public static double calculatePrice(Order order, boolean applyAgeDiscount, int age){
-        double result = 0.0;
-        double discount = 0.0;
-        double resultWithDiscount = 0.0;
+    public static double calculatePrice(Order order, boolean applyAgeDiscount, int age) {
+        double total = order.totalPrice();
+        double discount = applyAgeDiscount ? calculateDiscountBasedOnAge(total, age) : 0.0;
 
-        for (Product product: order.getProducts()) {
-            result += product.getPrice();
+        return total - discount;
+    }
+
+    private static double calculateDiscountBasedOnAge(double amount, int age) {
+        double ratio = 0;
+
+        if (age <= 16) {
+            ratio = 0.35;
+        } else if (age >= 60) {
+            ratio = 0.2;
         }
-
-        if(applyAgeDiscount) {
-            double discountBasedOnAge = 0;
-            if (age <= 16) {
-                discountBasedOnAge = 0.35 * result;
-            } else if (age >= 60) {
-                discountBasedOnAge = 0.2 * result;
-            }
-            discount = discountBasedOnAge;
-        }
-        resultWithDiscount = result - discount;
-
-        return resultWithDiscount;
+        return ratio * amount;
     }
 }
