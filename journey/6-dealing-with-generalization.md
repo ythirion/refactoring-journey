@@ -124,6 +124,7 @@ public class TheaterPiece extends Event {
 * Select everything you want to pull
 
 ![Pull Members Up](../img/pull-members-up.webp)
+* More info [here](https://www.jetbrains.com/help/idea/pull-members-up.html)
 
 ### Benefits
 {: .no_toc}
@@ -183,6 +184,7 @@ public class Prospect {
 * Follow the instructions
 
 ![Extract Superclass](../img/extract-superclass.webp)
+* More info [here](https://www.jetbrains.com/help/idea/extract-superclass.html)
 
 ### Benefits
 {: .no_toc}
@@ -192,3 +194,85 @@ public class Prospect {
 ### Drawbacks
 {: .no_toc}
 * Cannot apply this technique to classes that already have a superclass
+
+## Extract Interface
+### Code Smells
+{: .no_toc}
+* Multiple classes are using the same part of a class interface
+* Part of the interface in two classes is the same
+
+### Technique
+{: .no_toc}
+* Create an empty interface
+* Declare common operations in the interface
+* Declare the necessary classes as implementing the interface
+* Change type declarations in the client code to use the new interface/abstraction
+
+> Extracting an interface allows isolating only common interfaces, not common code. 
+> If classes contain Duplicate Code, extracting the interface won’t help you to deduplicate.
+
+### Practice
+{: .no_toc}
+* Open `TriAthlete` and `JumpyAthlete` in `dealing.with.generalization` package
+* Extract a common Interface
+* Use this new Interface in the client code (tests)
+
+```java
+@AllArgsConstructor
+public class TriAthlete {
+    private final String name;
+
+    public void swim() {
+        System.out.println(name + " started swimming");
+    }
+
+    public void cycle() {
+        System.out.println(name + " started cycling");
+    }
+
+    public void run() {
+        System.out.println(name + " started running");
+    }
+}
+
+@AllArgsConstructor
+public class JumpyAthlete {
+    private final String name;
+
+    public void swim() {
+        System.out.println(name + " started swimming");
+    }
+
+    public void cycle() {
+        System.out.println(name + " started cycling");
+    }
+
+    public void run() {
+        System.out.println(name + " started running");
+    }
+
+    public void jump() {
+        System.out.println(name + " is skydiving");
+    }
+}
+```
+
+### Shortcuts
+{: .no_toc}
+* Right Click in the file
+* Select Refactor | Extract Superclass
+* Follow the instructions
+
+![Extract Interface](../img/extract-interface.webp)
+* More info [here](https://www.jetbrains.com/help/idea/extract-interface.html)
+
+### Benefits
+{: .no_toc}
+* More explicit code
+* Small interfaces (check Interface Segregation Principle from [S.O.L.I.D Principles](https://yoan-thirion.gitbook.io/knowledge-base/software-craftsmanship/code-katas/write-s.o.l.i.d-code))
+
+### Drawbacks
+{: .no_toc}
+N/A
+
+> BONUS : Use default interface to refactor this code
