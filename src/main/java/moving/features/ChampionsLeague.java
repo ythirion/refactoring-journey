@@ -13,7 +13,7 @@ public class ChampionsLeague {
 
     public String nextStageTable() {
         return teams.stream()
-                .map(team -> team.getName() + " - " + team.getLeague().getCountry())
+                .map(team -> team.getName() + " - " + team.getCountry())
                 .collect(Collectors.joining("\n"));
     }
 }
