@@ -7,12 +7,13 @@ import java.util.LinkedHashMap;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class replaceMethodWithMethodObject {
+    private final StockReportGenerator reportGenerator = new StockReportGenerator();
     private final Warehouse warehouse = new Warehouse(9, new LinkedHashMap<>() {{
         put(Product.builder().name("Iphone 12").price(989).build(), 568);
         put(Product.builder().name("Super Mario 3D World").price(59.67).build(), 98);
         put(Product.builder().name("Blu Ray Avengers End Game").price(28.99).build(), 568);
         put(Product.builder().name("Liverpool FC T-Shirt").price(68).build(), 78);
-    }});
+    }}, reportGenerator);
 
     @Test
     public void generateStockReport() {

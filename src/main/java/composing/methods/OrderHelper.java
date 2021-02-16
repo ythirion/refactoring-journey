@@ -17,9 +17,9 @@ public class OrderHelper {
 
     public static Stock calculateNewStock(Stock stock, int outFromStock) {
         int newStock = stock.getNbOfItems() - outFromStock;
-
-        return newStock < MINIMUM_ITEMS_IN_STOCK ?
-                new Stock(newStock + MINIMUM_ITEMS_IN_STOCK)
-                : new Stock(newStock);
+        
+        return new Stock(newStock < MINIMUM_ITEMS_IN_STOCK ?
+                newStock + MINIMUM_ITEMS_IN_STOCK
+                : newStock);
     }
 }

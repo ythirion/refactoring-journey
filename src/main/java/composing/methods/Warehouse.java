@@ -1,22 +1,26 @@
 package composing.methods;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import java.util.LinkedHashMap;
 
 @AllArgsConstructor
+@Getter
 public class Warehouse {
     private final int id;
     private final LinkedHashMap<Product, Integer> stock;
+    private final StockReportGenerator reportGenerator;
 
     public String generateStockReport() {
-        StringBuilder report = new StringBuilder();
-        report.append("Report for warehouse : " + id + "\n");
+        return new StockReportGenerator().generate(this);
+    }
 
-        stock.forEach((key, value) -> report.append("Product: " + key.getName() + " Price: " + key.getPrice() + " Stock : " + value + " units\n"));
-
-        report.append("Total: " + stock.entrySet().stream().map(kvp -> kvp.getKey().getPrice() * kvp.getValue()).reduce(0.0, Double::sum) + "€");
-
-        return report.toString();
+    public double calculateStockValue() {
+        return stock
+                .entrySet()
+                .stream()
+                .map(kvp -> kvp.getKey().getPrice() * kvp.getValue())
+                .reduce(0.0, Double::sum);
     }
 }
