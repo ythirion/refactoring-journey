@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static simplifying.method.calls.Notification.createNotification;
 
 public class useFactoryMethod {
     @Nested
@@ -19,24 +20,24 @@ public class useFactoryMethod {
 
             @Test
             public void when_channel_is_null() {
-                assertExceptionThrown(() -> new Notification(null));
+                assertExceptionThrown(() -> createNotification(null));
             }
 
             @Test
             public void when_channel_is_empty() {
-                assertExceptionThrown(() -> new Notification(""));
+                assertExceptionThrown(() -> createNotification(""));
             }
 
             @Test
             public void when_channel_is_not_authorized() {
-                assertExceptionThrown(() -> new Notification("Unauthorized"));
+                assertExceptionThrown(() -> createNotification("Unauthorized"));
             }
         }
 
         @Nested
         public class instantiate {
             private void assertNotificationNotNull(String channel) {
-                Notification notification = new Notification(channel);
+                Notification notification = createNotification(channel);
                 assertThat(notification).isNotNull();
             }
 
