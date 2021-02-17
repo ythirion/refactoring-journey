@@ -1,7 +1,7 @@
 ---
 layout: default
 title: IDE Cheat sheets
-nav_order: 2
+nav_order: 3
 ---
 
 ## IDE Cheat sheets
