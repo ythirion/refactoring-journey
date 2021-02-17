@@ -111,6 +111,8 @@ Rename : `can be used to rename anything`
 * Open `Lottery` in `simplifying.method.calls` package
 * Remove safely every Dead parameter
 
+> Don't forget to clean the tests as well
+
 ```java
 public class Lottery {
     private static final Random RANDOM = new Random(42);
@@ -269,7 +271,17 @@ public class AccountingService {
 
 ### Shortcuts
 {: .no_toc}
-?
+* Right Click on the Method name
+* `Refactor | Introduce Parameter Object`
+
+![introduce-parameter-object](../img/introduce-parameter-object.webp)
+
+* Find & Replace in the current file :
+
+| IntelliJ |
+|---|
+| Ctrl+R |
+| ⌘+R |
 
 ### Benefits
 {: .no_toc}
