@@ -18,28 +18,28 @@ public class Employee {
         this.skills = basicSkills;
     }
 
-    public String get() {
+    public String getId() {
         return id;
     }
 
-    public String getN() {
+    public String getName() {
         return name;
     }
 
-    public String getR() {
+    public String getRole() {
         return role;
     }
 
-    public String getP() {
+    public String getCurrentProject() {
         return currentProject;
     }
 
     public boolean isProfessionalService() {
-        return !getR().equals("Assoc");
+        return !getRole().equals("Assoc");
     }
 
     public boolean isIdeal() {
-        return getP().equals("Beach") || getP().isEmpty();
+        return getCurrentProject().equals("Beach") || getCurrentProject().isEmpty();
     }
 
     public boolean hasSomething(String skill) {
