@@ -5,6 +5,36 @@ has_children: true
 nav_order: 1
 ---
 
+<div>
+    <link rel="stylesheet" type="text/css" href="css/konami.css">
+    <script type="text/javascript" src="js/konami.js"></script>
+    <img id="konamiImage" class="konami" src="img/konami.gif"/>
+    <script>
+    function launchEgg() {
+        return new Promise(function (resolve, reject) {
+                var konamiImage = document.getElementById("konamiImage");
+                konamiImage.style.display = 'inherit';
+                var currentPosition = 0;
+
+                var id = setInterval(() => {
+                    if (currentPosition == document.body.offsetWidth) {
+                        clearInterval(id);
+                        konamiImage.style.display = 'none';
+                        resolve();
+                    } else {
+                        currentPosition++;
+                        konamiImage.style.left = currentPosition + 'px';
+                    }
+            }, 10);
+        });
+    }
+
+    var konami = new Konami(launchEgg);
+    konami.load();
+
+    </script>
+</div>
+
 # Refactoring journey
 
 * Clone the [repository](https://github.com/ythirion/refactoring-journey)
