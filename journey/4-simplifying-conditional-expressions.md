@@ -77,7 +77,6 @@ public class AuthorizationService {
 * Identical code in all branches of a conditional
 
 ### Technique
-### Technique
 {: .no_toc}
 * Move the code outside of the conditional :
     * If the duplicated code is `at the beginning` of the conditional branches
