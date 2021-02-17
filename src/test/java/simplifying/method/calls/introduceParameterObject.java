@@ -54,7 +54,7 @@ public class introduceParameterObject {
 
     @Test
     public void findBillsInvoicedBetween2Dates() {
-        ArrayList<Bill> bills = accountingService.findBillsInvoicedBetween(LocalDate.of(2020, 1, 1), LocalDate.of(2020, 12, 31));
+        ArrayList<Bill> bills = accountingService.findBillsInvoicedBetween(new Period(LocalDate.of(2020, 1, 1), LocalDate.of(2020, 12, 31)));
 
         assertThat(bills.size()).isEqualTo(6);
         assertThat(bills.stream().mapToDouble(Bill::getAmount).sum()).isEqualTo(372792.99);
@@ -62,7 +62,7 @@ public class introduceParameterObject {
 
     @Test
     public void findBillsDueBetween2Dates() {
-        ArrayList<Bill> bills = accountingService.findBillsDueBetween(LocalDate.of(1980, 10, 1), LocalDate.of(2019, 1, 31));
+        ArrayList<Bill> bills = accountingService.findBillsDueBetween(new Period(LocalDate.of(1980, 10, 1), LocalDate.of(2019, 1, 31)));
 
         assertThat(bills.size()).isEqualTo(1);
         assertThat(bills.stream().mapToDouble(Bill::getAmount).sum()).isEqualTo(23_789);
@@ -70,7 +70,7 @@ public class introduceParameterObject {
 
     @Test
     public void findBillsPaidBetween2Dates() {
-        ArrayList<Bill> bills = accountingService.findBillsPaidBetween(LocalDate.of(1980, 10, 1), LocalDate.of(2020, 12, 31));
+        ArrayList<Bill> bills = accountingService.findBillsPaidBetween(new Period(LocalDate.of(1980, 10, 1), LocalDate.of(2020, 12, 31)));
 
         assertThat(bills.size()).isEqualTo(4);
         assertThat(bills.stream().mapToDouble(Bill::getAmount).sum()).isEqualTo(194_929.99);

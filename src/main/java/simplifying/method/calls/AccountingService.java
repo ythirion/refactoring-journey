@@ -12,26 +12,27 @@ import java.util.stream.Collectors;
 public class AccountingService {
     private final List<Bill> bills;
 
-    public ArrayList<Bill> findBillsInvoicedBetween(LocalDate from, LocalDate to) {
-        return findBills(Bill::getInvoicedDate, from, to);
+    public ArrayList<Bill> findBillsInvoicedBetween(Period period) {
+        return findBills(Bill::getInvoicedDate, period);
     }
 
-    public ArrayList<Bill> findBillsDueBetween(LocalDate from, LocalDate to) {
-        return findBills(Bill::getDueDate, from, to);
+    public ArrayList<Bill> findBillsDueBetween(Period period) {
+        return findBills(Bill::getDueDate, period);
     }
 
-    public ArrayList<Bill> findBillsPaidBetween(LocalDate from, LocalDate to) {
-        return findBills(Bill::getPaymentDate, from, to);
+    public ArrayList<Bill> findBillsPaidBetween(Period period) {
+        return findBills(Bill::getPaymentDate, period);
     }
 
-    private ArrayList<Bill> findBills(Function<Bill, LocalDate> dateSelector, LocalDate from, LocalDate to) {
+    private ArrayList<Bill> findBills(Function<Bill, LocalDate> dateSelector, Period period) {
         return bills.stream()
-                .filter(bill -> isInRange(dateSelector.apply(bill), from, to))
+                .filter(bill -> isInRange(dateSelector.apply(bill), period))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    private boolean isInRange(LocalDate dateToCheck, LocalDate from, LocalDate to) {
+    private boolean isInRange(LocalDate dateToCheck, Period period) {
         return dateToCheck != null &&
-                (dateToCheck.isAfter(from) || dateToCheck.isEqual(from)) && (dateToCheck.isBefore(to) || dateToCheck.isEqual(to));
+                (dateToCheck.isAfter(period.getFrom()) || dateToCheck.isEqual(period.getFrom())) &&
+                (dateToCheck.isBefore(period.getTo()) || dateToCheck.isEqual(period.getTo()));
     }
 }
