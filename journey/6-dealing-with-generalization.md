@@ -120,7 +120,7 @@ public class TheaterPiece extends Event {
 {: .no_toc}
 * Highlight *stuff* you want to pull up then :
 * Then Right Click
-* Select Refactor | Pull members Up
+* Select `Refactor | Pull members Up`
 * Select everything you want to pull
 
 ![Pull Members Up](../img/pull-members-up.webp)
@@ -180,7 +180,7 @@ public class Prospect {
 ### Shortcuts
 {: .no_toc}
 * Right Click in the file
-* Select Refactor | Extract Superclass
+* Select `Refactor | Extract Superclass
 * Follow the instructions
 
 ![Extract Superclass](../img/extract-superclass.webp)
@@ -260,7 +260,7 @@ public class JumpyAthlete {
 ### Shortcuts
 {: .no_toc}
 * Right Click in the file
-* Select Refactor | Extract Superclass
+* Select `Refactor | Extract Superclass
 * Follow the instructions
 
 ![Extract Interface](../img/extract-interface.webp)
@@ -275,4 +275,4 @@ public class JumpyAthlete {
 {: .no_toc}
 N/A
 
-> BONUS : Use default interface to refactor this code
+`BONUS : Use default interface to refactor this code`

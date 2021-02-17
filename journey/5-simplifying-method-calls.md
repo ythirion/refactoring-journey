@@ -292,7 +292,7 @@ public class AccountingService {
 {: .no_toc}
 * N/A
 
-> BONUS : Add a minimumAmount parameter to each find method and change the code accordingly
+`BONUS : Add a minimumAmount parameter to each find method and change the code accordingly`
 
 ## Use Factory or Factory Methods
 ### Code Smells

@@ -99,7 +99,7 @@ public class Wizard {
 ### Shortcuts
 {: .no_toc}
 * Right Click in the file
-* Refactor | Encapsulate Fields  
+* `Refactor | Encapsulate Fields`  
 
 ![extract class](../img/encapsulateFields.webp)
 * Then configure the encapsulation

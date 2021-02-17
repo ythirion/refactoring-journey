@@ -73,14 +73,15 @@ public class Order {
 * Open `AmountCalculator` in `composing.methods` package
 * Extract methods to remove code duplication
 * `The power of your IDE you will use`
-    * Start by trying to extract this piece of code
+    * Start by trying to extract this piece of code :
     ```java
-              double discountBasedOnAge = 0;
-              if (age <= 16) {
-                  discountBasedOnAge = 0.35 * result;
-              } else if (age >= 60) {
-                  discountBasedOnAge = 0.2 * result;
-              }
+      double discountBasedOnAge = 0;
+      if (age <= 16) {
+          discountBasedOnAge = 0.35 * result;
+      } else if (age >= 60) {
+          discountBasedOnAge = 0.2 * result;
+      }
+    ```
  
 ### Shortcuts
 {: .no_toc}
@@ -276,7 +277,7 @@ public class Warehouse {
 ### Shortcuts
 {: .no_toc}
 * With IntelliJ select the content of the `generateStockReport` method
-* Go into your **Refactor** menu and select **Replace Method with Method Object...**
+* Go into your **Refactor** menu : `Refactor | Replace Method with Method Object...`
 ![refactoring-journey](../img/replaceMethodWithMethodObject.webp)
 * More info [here](https://www.jetbrains.com/help/idea/extract-into-class-refactorings.html#extract_method_object)
 

@@ -69,13 +69,14 @@ public class AuthorizationService {
 {: .no_toc}
 * N/A
 
-> BONUS : what do you think about the tests ?  / Would you favor mocks over instantiating concrete objects ?
+`BONUS : what do you think about the tests ?  / Would you favor mocks over instantiating concrete objects ?`
 
 ## Consolidate Duplicate Conditional Fragments
 ### Code Smells
 {: .no_toc}
 * Identical code in all branches of a conditional
 
+### Technique
 ### Technique
 {: .no_toc}
 * Move the code outside of the conditional :
