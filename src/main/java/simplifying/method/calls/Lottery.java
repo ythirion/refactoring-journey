@@ -6,14 +6,14 @@ public class Lottery {
     private static final Random RANDOM = new Random(42);
     private final HashMap<UUID, LotteryTicket> tickets = new HashMap<>();
 
-    public String purchaseTicketForCustomer(UUID id, String name) {
-        String ticketNumber = generateTicketNumber(null);
+    public String purchaseTicketForCustomer(UUID id) {
+        String ticketNumber = generateTicketNumber();
         tickets.put(id, new LotteryTicket(ticketNumber, id));
 
         return ticketNumber;
     }
 
-    public LotteryTicket drawWinner(double ticketPrice, double prizeAmount) {
+    public LotteryTicket drawWinner() {
         if (tickets.isEmpty()) {
             throw new IllegalStateException("No tickets");
         }
@@ -24,7 +24,7 @@ public class Lottery {
         return randomizedTickets.get(0);
     }
 
-    private String generateTicketNumber(String format) {
+    private String generateTicketNumber() {
         return String.format("%06d", RANDOM.nextInt(1000000));
     }
 }
