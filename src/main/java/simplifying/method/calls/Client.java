@@ -1,28 +1,29 @@
 package simplifying.method.calls;
 
-import lombok.Getter;
+import lombok.AllArgsConstructor;
 
 import java.util.HashMap;
 import java.util.stream.Collectors;
 
+@AllArgsConstructor
 public class Client {
     private final HashMap<String, Double> orderLines;
-    @Getter
-    private double totalAmount;
-
-    public Client(HashMap<String, Double> orderLines) {
-        this.orderLines = orderLines;
-    }
 
     public String toStatement() {
         return orderLines.entrySet().stream()
                 .map(entry -> formatLine(entry.getKey(), entry.getValue()))
                 .collect(Collectors.joining("\n"))
-                .concat("\nTotal : " + totalAmount + "€");
+                .concat("\nTotal : " + calculateTotalAmount() + "€");
     }
 
     private String formatLine(String name, Double value) {
-        totalAmount += value;
         return name + " for " + value + "€";
+    }
+
+    private double calculateTotalAmount() {
+        return orderLines.values()
+                .stream()
+                .mapToDouble(d -> d)
+                .sum();
     }
 }
