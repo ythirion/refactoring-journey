@@ -1,22 +1,20 @@
 package simplifying.conditional.expressions;
 
 public class AuthorizationService {
+    public static final int MAJORITY = 18;
+
     public boolean isAuthorized(User user, String action) {
-        if (action == null) {
-            return false;
-        }
-        if (action.equals("")) {
-            return false;
-        }
-        if (user.getAge() < 18) {
-            return false;
-        }
-        if (user.isDisabled()) {
-            return false;
-        }
-        if (!user.isLoyal()) {
-            return false;
-        }
-        return true;
+        return isActionValid(action)
+                && isUserAuthorized(user);
+    }
+
+    private static boolean isActionValid(String action) {
+        return action != null && !action.equals("");
+    }
+
+    private boolean isUserAuthorized(User user) {
+        return user.getAge() >= MAJORITY
+                && !user.isDisabled()
+                && user.isLoyal();
     }
 }

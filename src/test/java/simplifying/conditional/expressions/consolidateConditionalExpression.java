@@ -31,6 +31,12 @@ public class consolidateConditionalExpression {
     }
 
     @Test
+    public void authorization_service_do_not_authorize_on_age_less_than_12() {
+        User tooYoungUser = User.builder().age(4).isLoyal(true).build();
+        assertThat(authorizationService.isAuthorized(tooYoungUser, ACTION)).isFalse();
+    }
+
+    @Test
     public void authorization_service_authorize_loyal_major_enabled_user() {
         User authorizedUser = User.builder().age(23).isLoyal(true).build();
         assertThat(authorizationService.isAuthorized(authorizedUser, ACTION)).isTrue();
