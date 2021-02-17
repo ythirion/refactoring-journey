@@ -1,7 +1,7 @@
 package simplifying.conditional.expressions;
 
 public class AuthorizationService {
-    public static final int MAJORITY = 18;
+    private static final int MAJORITY = 18;
 
     public boolean isAuthorized(User user, String action) {
         return isActionValid(action)
