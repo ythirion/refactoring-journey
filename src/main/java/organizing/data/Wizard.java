@@ -1,12 +1,13 @@
 package organizing.data;
 
-public class Wizard {
-    public String weapon;
-    public String magicStick;
-    public String name;
-    public int life;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-    public Wizard(String name) {
-        this.name = name;
-    }
+@AllArgsConstructor
+@Getter
+public class Wizard {
+    private final String name;
+    private final String magicStick;
+    private final String weapon;
+    private final int life;
 }
