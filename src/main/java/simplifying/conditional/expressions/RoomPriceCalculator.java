@@ -17,22 +17,37 @@ public class RoomPriceCalculator {
 
     public double calculatePriceFor(int numberOfRooms,
                                     LocalDate selectedDate) {
-        double price;
+        checkSelectedDate(selectedDate);
+        checkNumberOfRooms(numberOfRooms);
 
-        if (selectedDate.isAfter(today) && (selectedDate.isBefore(HIGH_SEASON_START_DATE) || selectedDate.isAfter(HIGH_SEASON_END_DATE))) {
-            if (numberOfRooms <= 0) {
-                throw new IllegalArgumentException("Invalid Number of Rooms");
-            }
-            price = numberOfRooms * regularPrice * lowSeasonRate + lowSeasonExtraCharge;
-        } else if (selectedDate.isAfter(today)) {
-            price = numberOfRooms * regularPrice * highSeasonRate;
+        double regularPrice = numberOfRooms * this.regularPrice;
 
-            if (numberOfRooms <= 0) {
-                throw new IllegalArgumentException("Invalid Number of Rooms");
-            }
-        } else {
+        return isLowSeason(selectedDate) ?
+                calculateLowSeasonPrice(regularPrice) :
+                calculateHighSeasonPrice(regularPrice);
+    }
+
+    private void checkNumberOfRooms(int numberOfRooms) {
+        if (numberOfRooms <= 0) {
+            throw new IllegalArgumentException("Invalid Number of Rooms");
+        }
+    }
+
+    private void checkSelectedDate(LocalDate selectedDate) {
+        if (!selectedDate.isAfter(today)) {
             throw new IllegalArgumentException("Selected date should be in the future");
         }
-        return price;
+    }
+
+    private boolean isLowSeason(LocalDate selectedDate) {
+        return selectedDate.isBefore(HIGH_SEASON_START_DATE) || selectedDate.isAfter(HIGH_SEASON_END_DATE);
+    }
+
+    private double calculateLowSeasonPrice(double regularPrice) {
+        return regularPrice * lowSeasonRate + lowSeasonExtraCharge;
+    }
+
+    private double calculateHighSeasonPrice(double regularPrice) {
+        return regularPrice * highSeasonRate;
     }
 }
