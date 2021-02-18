@@ -29,6 +29,8 @@ Before any changes :
     * IntelliJ or Eclipse
 * [Lombok plugin](https://www.baeldung.com/lombok-ide)
 
+## Solutions
+A refactored version of the code is available in the `solution` branch
 
 <div>
     <link rel="stylesheet" type="text/css" href="css/konami.css">
