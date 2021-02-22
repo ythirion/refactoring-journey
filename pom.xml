@@ -12,6 +12,7 @@
         <sonar.projectKey>ythirion_refactoring-journey</sonar.projectKey>
         <sonar.organization>ythirion</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
     </properties>
     <build>
         <plugins>
