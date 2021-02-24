@@ -180,7 +180,7 @@ public class Prospect {
 ### Shortcuts
 {: .no_toc}
 * Right Click in the file
-* Select `Refactor | Extract Superclass
+* Select `Refactor | Extract Superclass`
 * Follow the instructions
 
 ![Extract Superclass](../img/extract-superclass.webp)
@@ -260,7 +260,7 @@ public class JumpyAthlete {
 ### Shortcuts
 {: .no_toc}
 * Right Click in the file
-* Select `Refactor | Extract Superclass
+* Select `Refactor | Extract Interface`
 * Follow the instructions
 
 ![Extract Interface](../img/extract-interface.webp)
