@@ -49,11 +49,11 @@ public class Order {
             StringBuilder statement = new StringBuilder();
 
             //Add banner
-            statement.append("Statement for : " + customer + "\n");
+            statement.append("Statement for : " + customer + "%n");
 
             for (Product p : products) {
                 // Add details.
-                statement.append("Product: " + p.getName() + " Price: " + p.getPrice() + "\n");
+                statement.append("Product: " + p.getName() + " Price: " + p.getPrice() + "%n");
             }
             double total = AmountCalculator.calculatePrice(this, true, customer.getAge());
             statement.append("Total: " + total + "€");
@@ -262,9 +262,9 @@ public class Warehouse {
 
     public String generateStockReport() {
         StringBuilder report = new StringBuilder();
-        report.append("Report for warehouse : " + id + "\n");
+        report.append("Report for warehouse : " + id + "%n");
 
-        stock.forEach((key, value) -> report.append("Product: " + key.getName() + " Price: " + key.getPrice() + " Stock : " + value + " units\n"));
+        stock.forEach((key, value) -> report.append("Product: " + key.getName() + " Price: " + key.getPrice() + " Stock : " + value + " units%n"));
 
         report.append("Total: " + stock.entrySet().stream().map(kvp -> kvp.getKey().getPrice() * kvp.getValue()).reduce(0.0, Double::sum) + "€");
 

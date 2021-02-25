@@ -12,8 +12,8 @@ public class Client {
     public String toStatement() {
         return orderLines.entrySet().stream()
                 .map(entry -> formatLine(entry.getKey(), entry.getValue()))
-                .collect(Collectors.joining("\n"))
-                .concat("\nTotal : " + calculateTotalAmount() + "€");
+                .collect(Collectors.joining("%n"))
+                .concat("%nTotal : " + calculateTotalAmount() + "€");
     }
 
     private String formatLine(String name, Double value) {

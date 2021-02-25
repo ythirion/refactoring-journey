@@ -19,7 +19,7 @@ public class Order {
         double total = AmountCalculator.calculatePrice(this, true, customer.getAge());
 
         return createStatement()
-                .append(formatProducts() + "\n")
+                .append(formatProducts() + "%n")
                 .append(formatTotal(total))
                 .toString();
     }
@@ -31,14 +31,14 @@ public class Order {
     }
 
     private StringBuilder createStatement() {
-        return new StringBuilder("Statement for : " + customer + "\n");
+        return new StringBuilder("Statement for : " + customer + "%n");
     }
 
     private String formatProducts() {
         return getProducts()
                 .stream()
                 .map(product -> "Product: " + product.getName() + " Price: " + product.getPrice())
-                .collect(Collectors.joining("\n"));
+                .collect(Collectors.joining("%n"));
     }
 
     private String formatTotal(double total) {

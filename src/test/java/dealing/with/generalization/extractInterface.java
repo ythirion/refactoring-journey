@@ -18,7 +18,7 @@ public class extractInterface {
     }
 
     private void assertConsoleOut(String expected) {
-        assertThat(console.toString()).isEqualTo(expected + "\n");
+        assertThat(console.toString()).isEqualToIgnoringNewLines(expected);
     }
 
     @Nested

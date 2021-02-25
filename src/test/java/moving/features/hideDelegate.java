@@ -34,21 +34,21 @@ public class hideDelegate {
     @Test
     public void nextStageTable() {
         assertThat(championsLeague2020.nextStageTable())
-                .isEqualTo("FC Barcelone - Spain\n" +
-                        "PSG - France\n" +
-                        "RB Leipzig - German\n" +
-                        "FC Liverpool - England\n" +
-                        "Seville FC - Spain\n" +
-                        "Borussia Dortmund - German\n" +
-                        "FC Porto - Portugal\n" +
-                        "Juventus Turin - Italy\n" +
-                        "Lazio Rome - Italy\n" +
-                        "Bayern Münich - German\n" +
-                        "Atletic de Madrid - Spain\n" +
-                        "Chelsea - England\n" +
-                        "Atalanta Bergame - Italy\n" +
-                        "Real Madrid - Spain\n" +
-                        "Borussia M'Gladbach - German\n" +
+                .isEqualTo("FC Barcelone - Spain%n" +
+                        "PSG - France%n" +
+                        "RB Leipzig - German%n" +
+                        "FC Liverpool - England%n" +
+                        "Seville FC - Spain%n" +
+                        "Borussia Dortmund - German%n" +
+                        "FC Porto - Portugal%n" +
+                        "Juventus Turin - Italy%n" +
+                        "Lazio Rome - Italy%n" +
+                        "Bayern Münich - German%n" +
+                        "Atletic de Madrid - Spain%n" +
+                        "Chelsea - England%n" +
+                        "Atalanta Bergame - Italy%n" +
+                        "Real Madrid - Spain%n" +
+                        "Borussia M'Gladbach - German%n" +
                         "Manchester City - England");
     }
 }

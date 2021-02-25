@@ -20,10 +20,10 @@ public class extractMethods {
     @Test
     public void generateStatement() {
         assertThat(order.generateStatement())
-                .isEqualTo("Statement for : Customer{name='Mando', age=35}\n" +
-                        "Product: Blu Ray Tenet Price: 31.0\n" +
-                        "Product: Book Fundamentals of Software Architecture Price: 54.22\n" +
-                        "Product: T-Shirt Geek Kaamelott Price: 25.9\n" +
+                .isEqualTo("Statement for : Customer{name='Mando', age=35}%n" +
+                        "Product: Blu Ray Tenet Price: 31.0%n" +
+                        "Product: Book Fundamentals of Software Architecture Price: 54.22%n" +
+                        "Product: T-Shirt Geek Kaamelott Price: 25.9%n" +
                         "Total: 111.12€");
     }
 
