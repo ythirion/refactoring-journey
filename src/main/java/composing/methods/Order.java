@@ -18,11 +18,11 @@ public class Order {
             StringBuilder statement = new StringBuilder();
 
             //Add banner
-            statement.append("Statement for : " + customer + "\n");
+            statement.append("Statement for : " + customer + "%n");
 
             for (Product p : products) {
                 // Add details.
-                statement.append("Product: " + p.getName() + " Price: " + p.getPrice() + "\n");
+                statement.append("Product: " + p.getName() + " Price: " + p.getPrice() + "%n");
             }
             double total = AmountCalculator.calculatePrice(this, true, customer.getAge());
             statement.append("Total: " + total + "€");

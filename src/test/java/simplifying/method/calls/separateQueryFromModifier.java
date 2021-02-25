@@ -19,10 +19,10 @@ public class separateQueryFromModifier {
         String statement = client.toStatement();
 
         assertThat(client.getTotalAmount()).isEqualTo(130.97);
-        assertThat(statement).isEqualTo("Tenet Deluxe Edition for 45.99€\n" +
-                "Inception for 30.5€\n" +
-                "The Dark Knight for 30.5€\n" +
-                "Interstellar for 23.98€\n" +
+        assertThat(statement).isEqualTo("Tenet Deluxe Edition for 45.99€%n" +
+                "Inception for 30.5€%n" +
+                "The Dark Knight for 30.5€%n" +
+                "Interstellar for 23.98€%n" +
                 "Total : 130.97€");
     }
 }

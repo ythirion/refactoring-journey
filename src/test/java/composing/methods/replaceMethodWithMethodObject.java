@@ -16,11 +16,11 @@ public class replaceMethodWithMethodObject {
 
     @Test
     public void generateStockReport() {
-        assertThat(warehouse.generateStockReport()).isEqualTo("Report for warehouse : 9\n" +
-                "Product: Iphone 12 Price: 989.0 Stock : 568 units\n" +
-                "Product: Super Mario 3D World Price: 59.67 Stock : 98 units\n" +
-                "Product: Blu Ray Avengers End Game Price: 28.99 Stock : 568 units\n" +
-                "Product: Liverpool FC T-Shirt Price: 68.0 Stock : 78 units\n" +
+        assertThat(warehouse.generateStockReport()).isEqualTo("Report for warehouse : 9%n" +
+                "Product: Iphone 12 Price: 989.0 Stock : 568 units%n" +
+                "Product: Super Mario 3D World Price: 59.67 Stock : 98 units%n" +
+                "Product: Blu Ray Avengers End Game Price: 28.99 Stock : 568 units%n" +
+                "Product: Liverpool FC T-Shirt Price: 68.0 Stock : 78 units%n" +
                 "Total: 589369.98€");
     }
 }
