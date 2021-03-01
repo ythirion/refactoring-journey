@@ -35,6 +35,7 @@ nav_order: 1
 {: .no_toc}
 * Open `Order` in `composing.methods` package
 * Extract methods to improve readability / reduce complexity
+    * Comments here can help you split your code 
 
 ```java
 @AllArgsConstructor

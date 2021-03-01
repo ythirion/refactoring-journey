@@ -91,6 +91,7 @@ public class AuthorizationService {
 ### Practice
 {: .no_toc}
 * Open `PriceCalculator` in `simplifying.conditional.expressions` package
+* Identify duplication
 * Remove duplicate code by using your IDE
 
 ```java
@@ -115,7 +116,6 @@ public class PriceCalculator {
 
     }
 }
-
 ```
 
 ### Shortcuts

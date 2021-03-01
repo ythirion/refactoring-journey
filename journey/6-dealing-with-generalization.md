@@ -198,8 +198,8 @@ public class Prospect {
 ## Extract Interface
 ### Code Smells
 {: .no_toc}
-* Multiple classes are using the same part of a class interface
-* Part of the interface in two classes is the same
+* Several classes are declaring the same behaviors or/and properties
+* Parts of several classes are the same
 
 ### Technique
 {: .no_toc}
