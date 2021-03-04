@@ -44,17 +44,17 @@ public class extractClass {
             .build();
 
     @Test
-    public void mane_can_dribble_pogba() {
+    void mane_can_dribble_pogba() {
         assertThat(mane.canDribble(pogba)).isTrue();
     }
 
     @Test
-    public void pogba_can_dribble_mane() {
+    void pogba_can_dribble_mane() {
         assertThat(pogba.canDribble(mane)).isTrue();
     }
 
     @Test
-    public void pogba_cannot_dribble_vanDijk() {
+    void pogba_cannot_dribble_vanDijk() {
         assertThat(pogba.canDribble(vanDijk)).isFalse();
     }
 }

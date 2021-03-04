@@ -14,7 +14,7 @@ public class inlineTemps {
     private final Faker faker = new Faker();
 
     @Test
-    public void deserveDiscount() {
+    void deserveDiscount() {
         Order orderDeservingDiscount = Order.builder().products(new ArrayList<>(List.of(Product.builder().name("Something expensive").price(1000.01).build()))).build();
         Order orderNotDeservingDiscount = Order.builder().products(new ArrayList<>(List.of(Product.builder().name("Something less expensive").price(1000).build()))).build();
 
@@ -23,7 +23,7 @@ public class inlineTemps {
     }
 
     @Test
-    public void deserveDiscountBasedOnCustomer() {
+    void deserveDiscountBasedOnCustomer() {
         Customer customer = Customer.builder().age(47).name("Robert Pires").build();
         Order orderDeservingDiscount = Order.builder().customer(customer).products(generateFakeProducts(12)).build();
         Order orderNotDeservingDiscount = Order.builder().customer(customer).products(generateFakeProducts(9)).build();

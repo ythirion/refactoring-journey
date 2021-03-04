@@ -32,7 +32,7 @@ public class hideDelegate {
             new Team("Manchester City", premierLeague)));
 
     @Test
-    public void nextStageTable() {
+    void nextStageTable() {
         assertThat(championsLeague2020.nextStageTable())
                 .isEqualTo("FC Barcelone - Spain%n" +
                         "PSG - France%n" +

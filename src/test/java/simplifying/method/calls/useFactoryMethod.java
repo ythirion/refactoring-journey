@@ -19,17 +19,17 @@ public class useFactoryMethod {
             }
 
             @Test
-            public void when_channel_is_null() {
+            void when_channel_is_null() {
                 assertExceptionThrown(() -> createNotification(null));
             }
 
             @Test
-            public void when_channel_is_empty() {
+            void when_channel_is_empty() {
                 assertExceptionThrown(() -> createNotification(""));
             }
 
             @Test
-            public void when_channel_is_not_authorized() {
+            void when_channel_is_not_authorized() {
                 assertExceptionThrown(() -> createNotification("Unauthorized"));
             }
         }
@@ -42,18 +42,18 @@ public class useFactoryMethod {
             }
 
             @Test
-            public void when_channel_is_SMS() {
+            void when_channel_is_SMS() {
                 assertNotificationNotNull("SMS");
             }
 
             @Test
-            public void when_channel_is_EMAIL() {
+            void when_channel_is_EMAIL() {
                 assertNotificationNotNull("EMAIL");
 
             }
 
             @Test
-            public void when_channel_is_PUSH() {
+            void when_channel_is_PUSH() {
                 assertNotificationNotNull("PUSH");
             }
         }

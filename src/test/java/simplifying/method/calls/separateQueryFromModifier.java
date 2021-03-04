@@ -15,7 +15,7 @@ public class separateQueryFromModifier {
     }});
 
     @Test
-    public void client_should_return_statement() {
+    void client_should_return_statement() {
         String statement = client.toStatement();
 
         assertThat(statement).isEqualTo("Tenet Deluxe Edition for 45.99€%n" +

@@ -7,7 +7,7 @@ public abstract class Event {
     private long startTime = 0;
     private long stopTime = 0;
 
-    public Event(String description) {
+    protected Event(String description) {
         this.description = description;
     }
 

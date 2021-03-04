@@ -16,7 +16,7 @@ public class replaceMethodWithMethodObject {
     }}, reportGenerator);
 
     @Test
-    public void generateStockReport() {
+    void generateStockReport() {
         assertThat(warehouse.generateStockReport()).isEqualTo("Report for warehouse : 9%n" +
                 "Product: Iphone 12 Price: 989.0 Stock : 568 units%n" +
                 "Product: Super Mario 3D World Price: 59.67 Stock : 98 units%n" +

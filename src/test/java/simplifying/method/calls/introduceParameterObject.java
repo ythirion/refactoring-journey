@@ -53,7 +53,7 @@ public class introduceParameterObject {
     ));
 
     @Test
-    public void findBillsInvoicedBetween2Dates() {
+    void findBillsInvoicedBetween2Dates() {
         ArrayList<Bill> bills = accountingService.findBillsInvoicedBetween(new Period(LocalDate.of(2020, 1, 1), LocalDate.of(2020, 12, 31)));
 
         assertThat(bills.size()).isEqualTo(6);
@@ -61,7 +61,7 @@ public class introduceParameterObject {
     }
 
     @Test
-    public void findBillsDueBetween2Dates() {
+    void findBillsDueBetween2Dates() {
         ArrayList<Bill> bills = accountingService.findBillsDueBetween(new Period(LocalDate.of(1980, 10, 1), LocalDate.of(2019, 1, 31)));
 
         assertThat(bills.size()).isEqualTo(1);
@@ -69,7 +69,7 @@ public class introduceParameterObject {
     }
 
     @Test
-    public void findBillsPaidBetween2Dates() {
+    void findBillsPaidBetween2Dates() {
         ArrayList<Bill> bills = accountingService.findBillsPaidBetween(new Period(LocalDate.of(1980, 10, 1), LocalDate.of(2020, 12, 31)));
 
         assertThat(bills.size()).isEqualTo(4);

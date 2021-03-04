@@ -13,12 +13,12 @@ public class removeParameter {
     private Lottery lottery;
 
     @BeforeEach
-    public void init() {
+    void init() {
         lottery = new Lottery();
     }
 
     @Test
-    public void lottery_allows_customer_to_purchase_a_ticket() {
+    void lottery_allows_customer_to_purchase_a_ticket() {
         UUID customerId = UUID.randomUUID();
         String ticketNumber = lottery.purchaseTicketForCustomer(customerId);
 
@@ -27,13 +27,13 @@ public class removeParameter {
     }
 
     @Test
-    public void lottery_throws_an_exception_on_draw_without_tickets() {
+    void lottery_throws_an_exception_on_draw_without_tickets() {
         assertThatExceptionOfType(IllegalStateException.class)
                 .isThrownBy(() -> lottery.drawWinner());
     }
 
     @Test
-    public void lottery_draws_a_winning_ticket() {
+    void lottery_draws_a_winning_ticket() {
         List<String> purchasedTickets = List.of(
                 lottery.purchaseTicketForCustomer(UUID.randomUUID()),
                 lottery.purchaseTicketForCustomer(UUID.randomUUID()),

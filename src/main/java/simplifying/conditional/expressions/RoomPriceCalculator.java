@@ -20,11 +20,11 @@ public class RoomPriceCalculator {
         checkSelectedDate(selectedDate);
         checkNumberOfRooms(numberOfRooms);
 
-        double regularPrice = numberOfRooms * this.regularPrice;
+        double price = numberOfRooms * this.regularPrice;
 
         return isLowSeason(selectedDate) ?
-                calculateLowSeasonPrice(regularPrice) :
-                calculateHighSeasonPrice(regularPrice);
+                calculateLowSeasonPrice(price) :
+                calculateHighSeasonPrice(price);
     }
 
     private void checkNumberOfRooms(int numberOfRooms) {

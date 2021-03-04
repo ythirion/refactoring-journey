@@ -6,20 +6,20 @@ import static org.assertj.core.api.Assertions.*;
 
 public class extractConstants {
     @Test
-    public void validatePassword() {
+    void validatePassword() {
         String validPassword = "OJ°0I°09121l.";
         assertThatCode(() -> Utils.validatePassword(validPassword)).doesNotThrowAnyException();
     }
 
     @Test
-    public void invalidatePassword() {
+    void invalidatePassword() {
         String invalidPassword = "Im invalid";
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> Utils.validatePassword(invalidPassword));
     }
 
     @Test
-    public void calculatePotentialEnergy() {
+    void calculatePotentialEnergy() {
         assertThat(Utils.calculatePotentialEnergy(1, 1)).isEqualTo(9.81);
         assertThat(Utils.calculatePotentialEnergy(98.9897, 160.987)).isEqualTo(156332.7, offset(0.01));
         assertThat(Utils.calculatePotentialEnergy(0, 1)).isEqualTo(0);

@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class removeAssignmentsToParameters {
     @Test
-    public void updateStock() {
+    void updateStock() {
         Stock stock = new Stock(5);
         Stock newStock = OrderHelper.calculateNewStock(stock, 3);
 

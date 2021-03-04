@@ -18,13 +18,13 @@ public class extractVariables {
     private final Food expiredFood = Food.builder().approvedForConsumption(true).expirationDate(LocalDate.now().minusDays(20)).inspectorId(IDENTIFIED_INSPECTOR).build();
 
     @Test
-    public void edibleFood() {
+    void edibleFood() {
         assertThat(edible1.isEdible()).isTrue();
         assertThat(edible2.isEdible()).isTrue();
     }
 
     @Test
-    public void notEdibleFood() {
+    void notEdibleFood() {
         assertThat(notInspectedFood.isEdible()).isFalse();
         assertThat(notApprovedForConsumptionFood.isEdible()).isFalse();
         assertThat(expiredFood.isEdible()).isFalse();

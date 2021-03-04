@@ -1,6 +1,6 @@
 package simplifying.conditional.expressions;
 
-import java.util.HashMap;
+import java.util.Map;
 import java.util.function.BiFunction;
 
 public class Calculator {
@@ -9,12 +9,12 @@ public class Calculator {
     public static final String DIVIDE = "divide";
     public static final String SUBTRACT = "subtract";
 
-    private static final HashMap<String, BiFunction<Integer, Integer, Integer>> supportedOperations = new HashMap<>() {{
-        put(ADD, Integer::sum);
-        put(MULTIPLY, (a, b) -> a * b);
-        put(DIVIDE, (a, b) -> a / b);
-        put(SUBTRACT, (a, b) -> a - b);
-    }};
+    private static final Map<String, BiFunction<Integer, Integer, Integer>> supportedOperations = Map.of(
+            ADD, Integer::sum,
+            MULTIPLY, (a, b) -> a * b,
+            DIVIDE, (a, b) -> a / b,
+            SUBTRACT, (a, b) -> a - b
+    );
 
     public static int calculate(int a,
                                 int b,
