@@ -1,6 +1,0 @@
-{
-  "groupName": "all",
-  "extends": [
-    "config:base"
-  ]
-}
