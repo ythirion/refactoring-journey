@@ -1,10 +1,6 @@
 {
+  "groupName": "all",
   "extends": [
     "config:base"
-  ],
-  "packageRules": [
-    {
-      "groupName": "all"
-    }
   ]
 }
