@@ -6,6 +6,7 @@
 
     <groupId>org.ythirion.refactoring.journey</groupId>
     <artifactId>org.ythirion.refactoring.journey</artifactId>
+    <name>Refactoring journey</name>
     <version>1.0-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
