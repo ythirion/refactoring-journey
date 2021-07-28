@@ -1,6 +1,8 @@
 package org.ythirion.refactoring.journey
 package composing.methods
 
+import composing.methods.AmountCalculator.calculatePrice
+
 import org.scalactic.Tolerance.convertNumericToPlusOrMinusWrapper
 import org.scalatest.funsuite.AnyFunSuite
 
@@ -31,7 +33,7 @@ class extractMethods extends AnyFunSuite {
   }
 
   private def assertPrice(amount: Double, age: Int, expectedResult: Double, applyAgeDiscount: Boolean = false) = {
-    assert(AmountCalculator.calculatePrice(amount, age) == expectedResult)
+    assert(calculatePrice(amount, age) == expectedResult)
   }
 
   test("calculatePriceForOrders") {
@@ -43,6 +45,6 @@ class extractMethods extends AnyFunSuite {
   }
 
   private def assertOrderPrice(applyAgeDiscount: Boolean, age: Int, expectedResult: Double) = {
-    assert(AmountCalculator.calculatePrice(order, applyAgeDiscount, age) === expectedResult +- 0.01)
+    assert(calculatePrice(order, applyAgeDiscount, age) === expectedResult +- 0.01)
   }
 }
