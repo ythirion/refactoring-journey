@@ -1,13 +1,13 @@
 package org.ythirion.refactoring.journey
 package organizing.data
 
-import scala.util.Try
+import scala.util.{Failure, Success, Try}
 
 object Utils {
   def validatePassword(password: String): Try[Boolean] = {
-    Try {
-      if (password.length < 12) throw new IllegalArgumentException("minimum password length is not respected")
-      true
+    password match {
+      case p if (p.length < 12) => Failure(new IllegalArgumentException("minimum password length is not respected"))
+      case _ => Success(true)
     }
   }
 
