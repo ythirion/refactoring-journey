@@ -8,12 +8,12 @@ import org.scalatest.funsuite.AnyFunSuite
 
 class extractMethods extends AnyFunSuite {
   private val products: List[Product] =
-    List(new Product("Blu Ray Tenet", 31.0),
-      new Product("Book Fundamentals of Software Architecture", 54.22),
-      new Product("T-Shirt Geek Kaamelott", 25.90))
+    List(Product("Blu Ray Tenet", 31.0),
+      Product("Book Fundamentals of Software Architecture", 54.22),
+      Product("T-Shirt Geek Kaamelott", 25.90))
 
-  private val customer: Customer = new Customer("Mando", 35)
-  private val order: Order = new Order(customer, products)
+  private val customer: Customer = Customer("Mando", 35)
+  private val order: Order = Order(customer, products)
 
   test("generate statement") {
     assert(order.generateStatement ==
@@ -32,7 +32,7 @@ class extractMethods extends AnyFunSuite {
     assertPrice(14.5, 80, 11.6)
   }
 
-  private def assertPrice(amount: Double, age: Int, expectedResult: Double, applyAgeDiscount: Boolean = false) = {
+  private def assertPrice(amount: Double, age: Int, expectedResult: Double) = {
     assert(calculatePrice(amount, age) == expectedResult)
   }
 

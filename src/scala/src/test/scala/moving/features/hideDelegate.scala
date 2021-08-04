@@ -4,14 +4,14 @@ package moving.features
 import org.scalatest.funsuite.AnyFunSuite
 
 class hideDelegate extends AnyFunSuite {
-  val liga = League("Spain")
-  val premierLeague = League("England")
-  val ligue1 = League("France")
-  val bundesliga = League("German")
-  val ligaNos = League("Portugal")
-  val serieA = League("Italy")
+  private val liga = League("Spain")
+  private val premierLeague = League("England")
+  private val ligue1 = League("France")
+  private val bundesliga = League("German")
+  private val ligaNos = League("Portugal")
+  private val serieA = League("Italy")
 
-  val championsLeague2020 = ChampionsLeague(List(
+  private val championsLeague2020 = ChampionsLeague(List(
     Team("FC Barcelone", liga),
     Team("PSG", ligue1),
     Team("RB Leipzig", bundesliga),
@@ -27,7 +27,7 @@ class hideDelegate extends AnyFunSuite {
     Team("Atalanta Bergame", serieA),
     Team("Real Madrid", liga),
     Team("Borussia M'Gladbach", bundesliga),
-    Team("Manchester City", premierLeague)));
+    Team("Manchester City", premierLeague)))
 
   test("") {
     assert(championsLeague2020.nextStageTable ==

@@ -14,7 +14,7 @@ object OrderHelper {
     val nbOfProducts = order.products.size
     val customerAge = order.customer.age
 
-    val result = (customerAge / nbOfProducts)
+    val result = customerAge / nbOfProducts
     result < 5
   }
 
