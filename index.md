@@ -8,6 +8,9 @@ nav_order: 1
 # Refactoring journey
 [![CodeScene Code Health](https://codescene.io/projects/13150/status-badges/code-health)](https://codescene.io/projects/13150) [![CodeScene System Mastery](https://codescene.io/projects/13150/status-badges/system-mastery)](https://codescene.io/projects/13150) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ythirion_refactoring-journey&metric=alert_status)](https://sonarcloud.io/dashboard?id=ythirion_refactoring-journey) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=ythirion_refactoring-journey&metric=code_smells)](https://sonarcloud.io/dashboard?id=ythirion_refactoring-journey) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=ythirion_refactoring-journey&metric=coverage)](https://sonarcloud.io/dashboard?id=ythirion_refactoring-journey) [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=ythirion_refactoring-journey&metric=sqale_index)](https://sonarcloud.io/dashboard?id=ythirion_refactoring-journey)
 
+> This journey is available in java and scala
+
+## How to start ?
 * Clone the [repository](https://github.com/ythirion/refactoring-journey)
 
 `Lazy you will be`-> use your IDE
@@ -32,24 +35,3 @@ Before any changes :
 
 ## Solutions
 A refactored version of the code is available in the `solution` branch
-
-
-
-<div id="exTab3" class="container">	
-<ul  class="nav nav-pills">
-			<li class="active">
-        <a  href="#1b" data-toggle="tab">Overview</a>
-			</li>
-			<li><a href="#2b" data-toggle="tab">Using nav-pills</a>
-			</li>
-		</ul>
-
-			<div class="tab-content clearfix">
-			  <div class="tab-pane active" id="1b">
-          <h3>Same as example 1 but we have now styled the tab's corner</h3>
-				</div>
-				<div class="tab-pane" id="2b">
-          <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
-				</div>
-			</div>
-  </div>
