@@ -3,4 +3,4 @@ package simplifying.method.calls
 
 import java.util.UUID
 
-class LotteryTicket(val number: String, val customerId: UUID)
+case class LotteryTicket(number: String, customerId: UUID)

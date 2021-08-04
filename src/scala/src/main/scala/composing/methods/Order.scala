@@ -1,7 +1,7 @@
 package org.ythirion.refactoring.journey
 package composing.methods
 
-class Order(val customer: Customer, val products: List[Product]) {
+case class Order(customer: Customer, products: List[Product]) {
   def generateStatement: String = {
     if (customer != null && customer.name.nonEmpty && products.nonEmpty) {
 

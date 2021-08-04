@@ -1,4 +1,4 @@
 package org.ythirion.refactoring.journey
 package composing.methods
 
-class Product(val name: String, val price: Double)
+case class Product(name: String, price: Double)

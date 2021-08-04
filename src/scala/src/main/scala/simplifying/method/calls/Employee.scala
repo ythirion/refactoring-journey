@@ -3,10 +3,10 @@ package simplifying.method.calls
 
 import java.util.UUID
 
-class Employee(val name: String,
-               val role: String,
-               val currentProject: String,
-               val skills: List[String]) {
+case class Employee(name: String,
+                    role: String,
+                    currentProject: String,
+                    skills: List[String]) {
   lazy val id: String = UUID.randomUUID.toString
 
   def get: String = id
