@@ -1,26 +1,30 @@
 package org.ythirion.refactoring.journey
 package composing.methods
 
+import com.github.javafaker.Faker
 import org.scalatest.funsuite.AnyFunSuite
 
 class inlineTemps extends AnyFunSuite {
-  /*
-  private val faker: Faker = new Faker
+  private val faker = new Faker
+  private val customer = Customer("Robert Pires", 47)
 
-    @Test  def deserveDiscount(): Unit =  { val orderDeservingDiscount: Order = Order.builder.products(new ArrayList[Product](List.of(Product.builder.name("Something expensive").price(1000.01).build))).build
-val orderNotDeservingDiscount: Order = Order.builder.products(new ArrayList[Product](List.of(Product.builder.name("Something less expensive").price(1000).build))).build
-assertThat(OrderHelper.deserveDiscount(orderDeservingDiscount)).isTrue
-assertThat(OrderHelper.deserveDiscount(orderNotDeservingDiscount)).isFalse
-}
+  test("deserve discount") {
+    val orderDeservingDiscount = Order(customer, List(Product("Something expensive", 1000.01)))
+    val orderNotDeservingDiscount = Order(customer, List(Product("Something less expensive", 1000)))
 
-    @Test  def deserveDiscountBasedOnCustomer(): Unit =  { val customer: Customer = Customer.builder.age(47).name("Robert Pires").build
-val orderDeservingDiscount: Order = Order.builder.customer(customer).products(generateFakeProducts(12)).build
-val orderNotDeservingDiscount: Order = Order.builder.customer(customer).products(generateFakeProducts(9)).build
-assertThat(OrderHelper.deserveDiscountBasedOnCustomer(orderDeservingDiscount)).isTrue
-assertThat(OrderHelper.deserveDiscountBasedOnCustomer(orderNotDeservingDiscount)).isFalse
-}
+    assert(OrderHelper.deserveDiscount(orderDeservingDiscount))
+    assert(!OrderHelper.deserveDiscount(orderNotDeservingDiscount))
+  }
 
-    private def generateFakeProducts(times: Int): ArrayList[Product] =  { return Stream.iterate(0, (i: Integer) => i + 1).limit(times).map((i: Integer) => Product.builder.name(faker.commerce.productName).build).collect(Collectors.toCollection(ArrayList.`new`))
-}
-   */
+  test("deserveDiscountBasedOnCustomer") {
+    val orderDeservingDiscount: Order = Order(customer, generateFakeProducts(12))
+    val orderNotDeservingDiscount: Order = Order(customer, generateFakeProducts(9))
+
+    assert(OrderHelper.deserveDiscountBasedOnCustomer(orderDeservingDiscount))
+    assert(!OrderHelper.deserveDiscountBasedOnCustomer(orderNotDeservingDiscount))
+  }
+
+  private def generateFakeProducts(times: Int): List[Product] = {
+    (0 until times).map(_ => Product(faker.commerce().productName(), faker.commerce().price().toDouble)).toList
+  }
 }
