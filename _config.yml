@@ -5,5 +5,3 @@ footer_content: "Journey proposed by <a href=\"https://www.linkedin.com/in/yoant
 exclude:
   - README.md
 ga_tracking: G-ZQCK3NZ3CB
-plugins:
-  - jekyll-code-tabs
