@@ -19,8 +19,8 @@ object OrderHelper {
   }
 
   def calculateNewStock(stock: Stock, outFromStock: Int): Int = {
-    val newStock = stock.copy(stock.nbOfItems - outFromStock)
-    if (newStock.nbOfItems < MINIMUM_ITEMS_IN_STOCK) return stock.nbOfItems + MINIMUM_ITEMS_IN_STOCK
-    newStock.nbOfItems
+    stock.nbOfItems = stock.nbOfItems - outFromStock
+    if (stock.nbOfItems < MINIMUM_ITEMS_IN_STOCK) return stock.nbOfItems + MINIMUM_ITEMS_IN_STOCK
+    stock.nbOfItems
   }
 }
