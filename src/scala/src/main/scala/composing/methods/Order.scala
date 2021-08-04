@@ -13,7 +13,7 @@ case class Order(customer: Customer, products: List[Product]) {
         // Add details.
         statement.append(s"Product: ${p.name} Price: ${p.price}\n")
       }
-      val total = AmountCalculator.calculatePrice(this, true, customer.age)
+      val total = AmountCalculator.calculatePrice(this, applyAgeDiscount = true, customer.age)
       statement.append("Total: " + total + "€")
       statement.toString
     }

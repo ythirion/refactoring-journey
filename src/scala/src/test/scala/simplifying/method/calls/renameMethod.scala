@@ -5,7 +5,7 @@ import org.scalatest.funsuite.AnyFunSuite
 
 class renameMethod extends AnyFunSuite {
   test("john doe is a perfect employee") {
-    val johnDoe = new Employee(
+    val johnDoe = Employee(
       "John Doe",
       "?",
       "Beach",

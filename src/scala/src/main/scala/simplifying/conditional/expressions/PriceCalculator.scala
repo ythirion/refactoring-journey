@@ -15,6 +15,6 @@ case class PriceCalculator(isSaleDay: Boolean) {
   }
 
   private def notifySales(amount: Double): Unit = {
-    println("Notify sales")
+    println(s"Notify sales $amount")
   }
 }

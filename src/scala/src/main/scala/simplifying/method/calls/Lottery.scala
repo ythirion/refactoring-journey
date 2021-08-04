@@ -14,7 +14,7 @@ class Lottery {
 
   def purchaseTicketForCustomer(id: UUID, name: String): String = {
     val ticketNumber: String = generateTicketNumber("")
-    tickets(id) = new LotteryTicket(ticketNumber, id)
+    tickets(id) = LotteryTicket(ticketNumber, id)
     ticketNumber
   }
 
