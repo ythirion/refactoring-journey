@@ -32,3 +32,25 @@ Before any changes :
 
 ## Solutions
 A refactored version of the code is available in the `solution` branch
+
+{% codetabs %}
+
+{% codetab C %}
+```c
+printf("Hello, world!");
+```
+{% endcodetab %}
+
+{% codetab Go %}
+```go
+fmt.Println("Hello, world!")
+```
+{% endcodetab %}
+
+{% codetab Python %}
+```python
+print("Hello, world!")
+```
+{% endcodetab %}
+
+{% endcodetabs %}
