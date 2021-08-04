@@ -58,7 +58,7 @@ public class Player {
 ### Shortcuts
 {: .no_toc}
 * Right Click in the file
-* `Refactor | Extract Delegate`
+* ` Refactor | Extract Delegate`
 ![extract class](../img/extract-delegate.webp)
 * Then configure the extraction
 * More info [here](https://www.jetbrains.com/help/idea/extract-into-class-refactorings.html#extract_delegate)
