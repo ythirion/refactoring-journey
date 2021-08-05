@@ -14,7 +14,6 @@ class separateQueryFromModifier extends AnyFunSuite {
   test("client should generate a statement") {
     val statement = client.toStatement
 
-    assert(client.totalAmount == 130.97)
     assert(statement ==
       """Tenet Deluxe Edition for 45.99€
         |Inception for 30.5€
