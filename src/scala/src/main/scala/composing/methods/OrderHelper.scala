@@ -5,8 +5,7 @@ object OrderHelper {
   private val MINIMUM_ITEMS_IN_STOCK = 10
 
   def deserveDiscount(order: Order): Boolean = {
-    val price = order.totalPrice
-    price > 1000
+    order.totalPrice > 1000
   }
 
   // Customer deserves a discount if customer age / number of products < 5
@@ -14,8 +13,7 @@ object OrderHelper {
     val nbOfProducts = order.products.size
     val customerAge = order.customer.age
 
-    val result = customerAge / nbOfProducts
-    result < 5
+    customerAge / nbOfProducts < 5
   }
 
   def calculateNewStock(stock: Stock, outFromStock: Int): Int = {
