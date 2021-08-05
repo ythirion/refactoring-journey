@@ -18,23 +18,23 @@ class removeParameter extends AnyFunSuite with BeforeAndAfterEach {
   }
 
   test("lottery allows customer to purchase a ticket") {
-    val ticketNumber = lottery.purchaseTicketForCustomer(UUID.randomUUID, "Mando")
+    val ticketNumber = lottery.purchaseTicketForCustomer(UUID.randomUUID)
     assert(ticketNumber.length == 6)
     assert(ticketNumber.matches("\\d+"))
   }
 
   test("lottery returns a Failure when draw without bought tickets") {
-    val result = lottery.drawWinner(TICKET_PRICE, PRIZE_AMOUNT)
+    val result = lottery.drawWinner()
     assert(result.isEmpty)
   }
 
   test("lottery returns a winning ticket") {
     val purchasedTickets = List(
-      lottery.purchaseTicketForCustomer(UUID.randomUUID, "Grogu"),
-      lottery.purchaseTicketForCustomer(UUID.randomUUID, "Moff Gideon"),
-      lottery.purchaseTicketForCustomer(UUID.randomUUID, "Bo-Katan")
+      lottery.purchaseTicketForCustomer(UUID.randomUUID),
+      lottery.purchaseTicketForCustomer(UUID.randomUUID),
+      lottery.purchaseTicketForCustomer(UUID.randomUUID)
     )
-    val result = lottery.drawWinner(TICKET_PRICE, PRIZE_AMOUNT)
+    val result = lottery.drawWinner()
     assert(purchasedTickets.contains(result.value.number))
   }
 }
