@@ -11,13 +11,13 @@ class renameMethod extends AnyFunSuite {
       "Beach",
       List("Hunter", "Accountant"))
 
-    assert(johnDoe.get != null)
-    assert(johnDoe.getN == "John Doe")
-    assert(johnDoe.getR == "?")
-    assert(johnDoe.getP == "Beach")
-    assert(johnDoe.isProfessionalService)
-    assert(johnDoe.isIdeal)
-    assert(johnDoe.hasSomething("Accountant"))
-    assert(!johnDoe.hasSomething("Football"))
+    assert(johnDoe.getId != null)
+    assert(johnDoe.name == "John Doe")
+    assert(johnDoe.role == "?")
+    assert(johnDoe.currentProject == "Beach")
+    assert(johnDoe.isWorking)
+    assert(johnDoe.hasIdealJob)
+    assert(johnDoe.isSkilledAt("Accountant"))
+    assert(!johnDoe.isSkilledAt("Football"))
   }
 }
