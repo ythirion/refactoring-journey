@@ -8,12 +8,7 @@ case class Player(firstName: String,
                   birthDate: LocalDate,
                   height: Int,
                   weight: Int,
-                  rating: Int,
-                  pace: Int,
-                  shooting: Int,
-                  passing: Int,
-                  dribbling: Int,
-                  defending: Int,
-                  physicality: Int) {
-  def canDribble(otherPlayer: Player): Boolean = physicality + dribbling > otherPlayer.physicality + otherPlayer.defending
+                  attributes: Attributes) {
+  def canDribble(otherPlayer: Player): Boolean =
+    attributes.physicality + attributes.dribbling > otherPlayer.attributes.physicality + otherPlayer.attributes.defending
 }
