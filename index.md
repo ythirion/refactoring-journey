@@ -34,4 +34,5 @@ Before any changes :
 * [Lombok plugin](https://www.baeldung.com/lombok-ide)
 
 ## Solutions
-A refactored version of the code is available in the `solution` branch
+* A refactored version of the code is available in the `solution` branch
+* A step by step solution guide for Scala is available [here](https://github.com/ythirion/refactoring-journey/blob/solution/solutions/scala/scala-refactoring-facilitator-guide.md)
