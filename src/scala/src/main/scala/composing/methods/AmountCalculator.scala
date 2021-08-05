@@ -2,32 +2,33 @@ package org.ythirion.refactoring.journey
 package composing.methods
 
 object AmountCalculator {
-  def calculatePrice(amount: Double, age: Int): Double = {
-    var discountBasedOnAge = .0
-    if (age <= 16) discountBasedOnAge = 0.35 * amount
-    else if (age >= 60) discountBasedOnAge = 0.2 * amount
+  private val youngDiscount = 0.35
+  private val oldDiscount = 0.2
 
-    amount - discountBasedOnAge
+  def calculatePrice(amount: Double,
+                     age: Int): Double = {
+    calculatePrice(amount, applyAgeDiscount = true, age)
   }
 
   def calculatePrice(order: Order,
                      applyAgeDiscount: Boolean,
                      age: Int): Double = {
-    var result = .0
-    var discount = .0
-    var resultWithDiscount = .0
-    for (product <- order.products) {
-      result += product.price
-    }
-    if (applyAgeDiscount) {
-      var discountBasedOnAge = 0d
+    calculatePrice(order.totalPrice, applyAgeDiscount, age)
+  }
 
-      if (age <= 16) discountBasedOnAge = 0.35 * result
-      else if (age >= 60) discountBasedOnAge = 0.2 * result
+  private def calculatePrice(amount: Double,
+                             applyAgeDiscount: Boolean = true,
+                             age: Int): Double = {
+    val discount = if (applyAgeDiscount) calculateDiscountBasedOnAge(amount, age) else 0
+    amount - discount
+  }
 
-      discount = discountBasedOnAge
+  private def calculateDiscountBasedOnAge(amount: Double,
+                                          age: Int): Double = {
+    age match {
+      case young if young <= 16 => youngDiscount * amount
+      case old if old >= 60 => oldDiscount * amount
+      case _ => 0
     }
-    resultWithDiscount = result - discount
-    resultWithDiscount
   }
 }
