@@ -5,10 +5,10 @@ import org.scalatest.funsuite.AnyFunSuite
 
 class encapsulateFields extends AnyFunSuite {
   test("Harry Potter") {
-    val harryPotter = new Wizard("Harry Potter")
-    harryPotter.life = 100
-    harryPotter.magicStick = Some("Bâton de la Mort")
-    harryPotter.weapon = Some("None")
+    val harryPotter = Wizard("Harry Potter",
+      Some("Bâton de la Mort"),
+      Some("None"),
+      100)
 
     assert(harryPotter.life == 100)
   }
