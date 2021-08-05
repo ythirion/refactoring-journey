@@ -1,30 +1,43 @@
 package org.ythirion.refactoring.journey
 package simplifying.method.calls
 
+import simplifying.method.calls.Notification.{email, push, sms}
+
+import org.scalatest.TryValues.convertTryToSuccessOrFailure
 import org.scalatest.funsuite.AnyFunSuite
 
+import scala.util.Try
+
 class useFactoryMethod extends AnyFunSuite {
-  test("throw an illegal argument exception when channel is null") {
-    assertThrows[IllegalArgumentException](new Notification(null))
+  private def assertFailure(notification: Try[Notification]): Unit = {
+    assert(notification.failure.exception.getMessage == "Invalid channel provided")
   }
 
-  test("throw an illegal argument exception when channel is empty") {
-    assertThrows[IllegalArgumentException](new Notification(""))
+  private def assertSuccess(notification: Try[Notification]): Unit = {
+    assert(notification.success.value != null)
   }
 
-  test("throw an illegal argument exception when channel is not authorized") {
-    assertThrows[IllegalArgumentException](new Notification("Unauthorized"))
+  test("return a failure when channel is null") {
+    assertFailure(Notification.create(null))
+  }
+
+  test("return a failure when channel is empty") {
+    assertFailure(Notification.create(""))
+  }
+
+  test("return a failure when channel is not authorized") {
+    assertFailure(Notification.create("Unauthorized"))
   }
 
   test("instantiate when channel is SMS") {
-    assert(new Notification("SMS") != null)
+    assertSuccess(Notification.create(sms))
   }
 
   test("instantiate when channel is EMAIL") {
-    assert(new Notification("EMAIL") != null)
+    assertSuccess(Notification.create(email))
   }
 
   test("instantiate when channel is PUSH") {
-    assert(new Notification("PUSH") != null)
+    assertSuccess(Notification.create(push))
   }
 }

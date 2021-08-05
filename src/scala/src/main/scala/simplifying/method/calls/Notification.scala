@@ -1,22 +1,20 @@
 package org.ythirion.refactoring.journey
 package simplifying.method.calls
 
-import simplifying.method.calls.Notification.authorizedChannels
+import scala.util.{Failure, Success, Try}
 
-class Notification {
-  private var channel: String = null
-
-  def this(channel: String) {
-    this
-
-    channel match {
-      case c if c == null || c.isEmpty || !authorizedChannels.contains(c) => throw new IllegalArgumentException("Invalid channel provided")
-      case _ =>
-    }
-    this.channel = channel
-  }
-}
+case class Notification private(channel: String)
 
 object Notification {
-  val authorizedChannels = List("SMS", "EMAIL", "PUSH")
+  val sms = "SMS"
+  val email = "EMAIL"
+  val push = "PUSH"
+
+  val authorizedChannels = List(sms, email, push)
+
+  def create(channel: String): Try[Notification] = {
+    if (channel == null || channel.isEmpty || !authorizedChannels.contains(channel))
+      Failure(new IllegalArgumentException("Invalid channel provided"))
+    else Success(Notification(channel))
+  }
 }
