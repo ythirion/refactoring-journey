@@ -2,13 +2,18 @@ package org.ythirion.refactoring.journey
 package simplifying.conditional.expressions
 
 class AuthorizationService {
+  private val majority = 18
+
   def isAuthorized(user: Option[User], action: String): Boolean = {
-    if (action == null) return false
-    if (action == "") return false
-    if (user.isEmpty) return false
-    if (user.get.age < 18) return false
-    if (user.get.isDisabled) return false
-    if (!user.get.isLoyal) return false
-    true
+    def isActionValid(action: String) = action != null && action.nonEmpty
+
+    def canAuthorizeUser(user: Option[User]): Boolean = {
+      user match {
+        case Some(u) => u.age > majority && !u.isDisabled && u.isLoyal
+        case None => false
+      }
+    }
+
+    isActionValid(action) && canAuthorizeUser((user))
   }
 }

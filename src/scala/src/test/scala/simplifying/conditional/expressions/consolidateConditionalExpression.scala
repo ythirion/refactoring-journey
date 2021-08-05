@@ -29,6 +29,11 @@ class consolidateConditionalExpression extends AnyFlatSpec {
     assert(!authorizationService.isAuthorized(notLoyalUser, ACTION))
   }
 
+  "Authorization service" should "not authorize when user is minor" in {
+    val minorUser = Some(User(17, isDisabled = false, isLoyal = true))
+    assert(!authorizationService.isAuthorized(minorUser, ACTION))
+  }
+
   "Authorization service" should "authorize when user is enabled, loyal and major" in {
     val loyalAndMajorUser = Some(User(42, isDisabled = false, isLoyal = true))
     assert(authorizationService.isAuthorized(loyalAndMajorUser, ACTION))
