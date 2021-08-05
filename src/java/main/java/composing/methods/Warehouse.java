@@ -13,7 +13,7 @@ public class Warehouse {
     private final StockReportGenerator reportGenerator;
 
     public String generateStockReport() {
-        return new StockReportGenerator().generate(this);
+        return reportGenerator.generate(this);
     }
 
     public double calculateStockValue() {

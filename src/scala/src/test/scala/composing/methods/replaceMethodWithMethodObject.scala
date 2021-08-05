@@ -9,7 +9,7 @@ class replaceMethodWithMethodObject extends AnyFunSuite {
     Product("Super Mario 3D World", 59.67) -> 98,
     Product("Blu Ray Avengers End Game", 28.99) -> 568,
     Product("Liverpool FC T-Shirt", 68) -> 78
-  ))
+  ), { warehouse => StockReportGenerator.generate(warehouse) })
 
   test("generate stock report") {
     assert(warehouse.generateStockReport ==
