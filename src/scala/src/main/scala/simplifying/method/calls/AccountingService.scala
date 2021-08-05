@@ -4,26 +4,26 @@ package simplifying.method.calls
 import java.time.LocalDate
 
 case class AccountingService(bills: List[Bill]) {
-  def findBillsInvoicedBetween(from: LocalDate, to: LocalDate): List[Bill] = {
-    findBills(bill => Option(bill.invoicedDate), from, to)
+  def findBillsInvoicedBetween(period: Period): List[Bill] = {
+    findBills(bill => Option(bill.invoicedDate), period)
   }
 
-  def findBillsDueBetween(from: LocalDate, to: LocalDate): List[Bill] = {
-    findBills(bill => Option(bill.dueDate), from, to)
+  def findBillsDueBetween(period: Period): List[Bill] = {
+    findBills(bill => Option(bill.dueDate), period)
   }
 
-  def findBillsPaidBetween(from: LocalDate, to: LocalDate): List[Bill] = {
-    findBills(bill => bill.paymentDate, from, to)
+  def findBillsPaidBetween(period: Period): List[Bill] = {
+    findBills(bill => bill.paymentDate, period)
   }
 
-  private def isInRange(dateToCheck: Option[LocalDate], from: LocalDate, to: LocalDate): Boolean = {
+  private def findBills(dateSelector: Bill => Option[LocalDate], period: Period) = {
+    bills.filter(bill => isInRange(dateSelector(bill), period))
+  }
+
+  private def isInRange(dateToCheck: Option[LocalDate], period: Period): Boolean = {
     dateToCheck match {
-      case Some(date) => (date.isAfter(from) || date.isEqual(from)) && (date.isBefore(to) || date.isEqual(to))
+      case Some(date) => (date.isAfter(period.from) || date.isEqual(period.from)) && (date.isBefore(period.to) || date.isEqual(period.to))
       case None => false
     }
-  }
-
-  private def findBills(dateSelector: Bill => Option[LocalDate], from: LocalDate, to: LocalDate) = {
-    bills.filter(bill => isInRange(dateSelector(bill), from, to))
   }
 }

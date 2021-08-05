@@ -23,21 +23,21 @@ class introduceParameterObject extends AnyFunSuite {
 
   test("find bills invoiced between 2 dates") {
     assertResult(
-      accountingService.findBillsInvoicedBetween(LocalDate.of(2020, 1, 1), LocalDate.of(2020, 12, 31)),
+      accountingService.findBillsInvoicedBetween(Period(LocalDate.of(2020, 1, 1), LocalDate.of(2020, 12, 31))),
       expectedSize = 6,
       expectedTotal = 372792.99)
   }
 
   test("find bills due between 2 dates") {
     assertResult(
-      accountingService.findBillsDueBetween(LocalDate.of(1980, 10, 1), LocalDate.of(2019, 1, 31)),
+      accountingService.findBillsDueBetween(Period(LocalDate.of(1980, 10, 1), LocalDate.of(2019, 1, 31))),
       expectedSize = 1,
       expectedTotal = 23_789)
   }
 
   test("find bills paid between 2 dates") {
     assertResult(
-      accountingService.findBillsPaidBetween(LocalDate.of(1980, 10, 1), LocalDate.of(2020, 12, 31)),
+      accountingService.findBillsPaidBetween(Period(LocalDate.of(1980, 10, 1), LocalDate.of(2020, 12, 31))),
       expectedSize = 4,
       expectedTotal = 194_929.99)
   }
