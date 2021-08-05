@@ -15,7 +15,7 @@ class pullUpMethodsOrFields extends AnyFunSuite {
     Thread.sleep(concertDuration)
     concert.stop()
 
-    assert(concert.getElapsedTime >= concertDuration)
+    assert(concert.calculateElapsedTime >= concertDuration)
   }
 
   test("concert returns a failure when calling start on an already started concert") {
@@ -28,13 +28,13 @@ class pullUpMethodsOrFields extends AnyFunSuite {
 
     piece.start()
     Thread.sleep(pieceDuration)
-    piece.end()
+    piece.stop()
 
     assert(piece.calculateElapsedTime >= pieceDuration)
   }
 
   test("theater piece returns a failure when calling start on an already started piece") {
     piece.start()
-    assert(piece.start().failure.exception.getMessage == "Piece is already in progress")
+    assert(piece.start().failure.exception.getMessage == "TheaterPiece is already in progress")
   }
 }
