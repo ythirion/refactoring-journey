@@ -3,22 +3,28 @@ package composing.methods
 
 case class Order(customer: Customer, products: List[Product]) {
   def generateStatement: String = {
-    if (customer != null && customer.name.nonEmpty && products.nonEmpty) {
+    checkState()
+    val total = AmountCalculator.calculatePrice(this, applyAgeDiscount = true, customer.age)
 
-      val statement = new StringBuilder
-      //Add banner
-      statement.append(s"Statement for : $customer\n")
-
-      for (p <- products) {
-        // Add details.
-        statement.append(s"Product: ${p.name} Price: ${p.price}\n")
-      }
-      val total = AmountCalculator.calculatePrice(this, applyAgeDiscount = true, customer.age)
-      statement.append("Total: " + total + "€")
-      statement.toString
-    }
-    else throw new IllegalArgumentException("InvalidOrder")
+    createStatement()
+      .append(formatProducts()).append("\n")
+      .append(formatTotal(total))
+      .toString()
   }
+
+  private def checkState(): Unit = {
+    if (customer == null || customer.name.isEmpty || products.isEmpty) {
+      throw new IllegalArgumentException("InvalidOrder")
+    }
+  }
+
+  private def createStatement(): StringBuilder = new StringBuilder(s"Statement for : $customer\n")
+
+  private def formatProducts(): String =
+    products.map(p => s"Product: ${p.name} Price: ${p.price}")
+      .mkString("\n")
+
+  private def formatTotal(total: Double): String = s"Total: ${total}€"
 
   def totalPrice: Double = {
     products
