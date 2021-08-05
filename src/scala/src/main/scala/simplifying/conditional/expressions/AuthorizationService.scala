@@ -14,6 +14,6 @@ class AuthorizationService {
       }
     }
 
-    isActionValid(action) && canAuthorizeUser((user))
+    isActionValid(action) && canAuthorizeUser(user)
   }
 }
