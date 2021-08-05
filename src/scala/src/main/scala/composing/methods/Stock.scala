@@ -1,4 +1,4 @@
 package org.ythirion.refactoring.journey
 package composing.methods
 
-class Stock(var nbOfItems: Int)
+case class Stock(nbOfItems: Int)

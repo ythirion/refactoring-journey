@@ -7,7 +7,8 @@ class removeAssignmentsToParameters extends AnyFunSuite {
   test("Update stock") {
     val stock = new Stock(5)
     val newStock = OrderHelper.calculateNewStock(stock, 3)
-    assert(stock.nbOfItems == 2)
+    // Stock stays untouched
+    assert(stock.nbOfItems == 5)
     assert(newStock == 12)
   }
 }
