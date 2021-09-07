@@ -6,4 +6,9 @@ It is hosted on github pages [here](https://ythirion.github.io/refactoring-journ
 
 ![refactoring-journey](img/refactoring-journey.webp)
 
+We will refactor code : `Improve the Design of existing code.`  
+The approach (Kent Beck wisdom) :
+1. First, make the change easy (**refactor**)
+2. Then, make the easy change
+
 Step by step solution for Scala available [here](solutions/scala/scala-refactoring-facilitator-guide.md)
