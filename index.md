@@ -23,7 +23,7 @@ nav_order: 1
 We will refactor code : `Improve the Design of existing code.`  
 The approach (Kent Beck wisdom) :
 1. First, make the change easy (**refactor**)
-2. Then, make the easy change (**fix the bug**)
+2. Then, make the easy change 
 
 Before any changes :
 * Check the tests
