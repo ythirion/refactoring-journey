@@ -1,9 +1,8 @@
-package org.ythirion.refactoring.journey
 package simplifying.method.calls
 
 import java.time.LocalDate
 
-case class AccountingService(bills: List[Bill]) {
+class AccountingService(bills: List[Bill]) {
   def findBillsInvoicedBetween(period: Period): List[Bill] = {
     findBills(bill => Option(bill.invoicedDate), period)
   }
@@ -16,14 +15,20 @@ case class AccountingService(bills: List[Bill]) {
     findBills(bill => bill.paymentDate, period)
   }
 
-  private def findBills(dateSelector: Bill => Option[LocalDate], period: Period) = {
+  private def findBills(
+      dateSelector: Bill => Option[LocalDate],
+      period: Period
+  ) = {
     bills.filter(bill => isInRange(dateSelector(bill), period))
   }
 
-  private def isInRange(dateToCheck: Option[LocalDate], period: Period): Boolean = {
-    dateToCheck match {
-      case Some(date) => (date.isAfter(period.from) || date.isEqual(period.from)) && (date.isBefore(period.to) || date.isEqual(period.to))
-      case None => false
-    }
+  private def isInRange(
+      dateToCheck: Option[LocalDate],
+      period: Period
+  ): Boolean = {
+    dateToCheck.exists(date =>
+      (date.isAfter(period.from) || date.isEqual(period.from)) && (date
+        .isBefore(period.to) || date.isEqual(period.to))
+    )
   }
 }

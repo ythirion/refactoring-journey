@@ -1,14 +1,8 @@
-package org.ythirion.refactoring.journey
 package dealing.`with`.generalization
 
-case class Concert(description: String) extends Event {
-  private var volume: Int = 0
+final case class Concert(description: String, volume: Int = 0) extends Event {
 
-  def volumeUp(increase: Int): Unit = {
-    volume += increase
-  }
+  def volumeUp(increase: Int): Concert = copy(volume = volume + increase)
 
-  def volumeDown(decrease: Int): Unit = {
-    volume -= decrease
-  }
+  def volumeDown(decrease: Int): Concert = copy(volume = volume - decrease)
 }

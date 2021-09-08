@@ -1,27 +1,32 @@
-package org.ythirion.refactoring.journey
 package composing.methods
 
 import composing.methods.AmountCalculator.calculatePrice
-
 import org.scalactic.Tolerance.convertNumericToPlusOrMinusWrapper
 import org.scalatest.funsuite.AnyFunSuite
 
+import scala.util.Success
+
 class extractMethods extends AnyFunSuite {
   private val products: List[Product] =
-    List(Product("Blu Ray Tenet", 31.0),
+    List(
+      Product("Blu Ray Tenet", 31.0),
       Product("Book Fundamentals of Software Architecture", 54.22),
-      Product("T-Shirt Geek Kaamelott", 25.90))
+      Product("T-Shirt Geek Kaamelott", 25.90)
+    )
 
   private val customer: Customer = Customer("Mando", 35)
   private val order: Order = Order(customer, products)
 
   test("generate statement") {
-    assert(order.generateStatement ==
-      """Statement for : Customer{name='Mando', age=35}
+    assert(
+      order.generateStatement == Success(
+        """Statement for : Customer{name='Mando', age=35}
         |Product: Blu Ray Tenet Price: 31.0
         |Product: Book Fundamentals of Software Architecture Price: 54.22
         |Product: T-Shirt Geek Kaamelott Price: 25.9
-        |Total: 111.12€""".stripMargin)
+        |Total: 111.12€""".stripMargin
+      )
+    )
   }
 
   test("calculate price") {
@@ -44,7 +49,13 @@ class extractMethods extends AnyFunSuite {
     assertOrderPrice(applyAgeDiscount = false, 70, 111.12)
   }
 
-  private def assertOrderPrice(applyAgeDiscount: Boolean, age: Int, expectedResult: Double) = {
-    assert(calculatePrice(order, applyAgeDiscount, age) === expectedResult +- 0.01)
+  private def assertOrderPrice(
+      applyAgeDiscount: Boolean,
+      age: Int,
+      expectedResult: Double
+  ) = {
+    assert(
+      calculatePrice(order, applyAgeDiscount, age) === expectedResult +- 0.01
+    )
   }
 }

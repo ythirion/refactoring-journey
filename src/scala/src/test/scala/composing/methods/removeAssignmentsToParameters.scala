@@ -1,4 +1,3 @@
-package org.ythirion.refactoring.journey
 package composing.methods
 
 import org.scalatest.funsuite.AnyFunSuite

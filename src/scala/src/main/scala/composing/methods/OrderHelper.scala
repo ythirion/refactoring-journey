@@ -1,8 +1,7 @@
-package org.ythirion.refactoring.journey
 package composing.methods
 
 object OrderHelper {
-  private val MINIMUM_ITEMS_IN_STOCK = 10
+  private val MinimumItemsInStock = 10
 
   def deserveDiscount(order: Order): Boolean = {
     order.totalPrice > 1000
@@ -18,6 +17,7 @@ object OrderHelper {
 
   def calculateNewStock(stock: Stock, outFromStock: Int): Int = {
     val newStock = stock.nbOfItems - outFromStock
-    if (newStock < MINIMUM_ITEMS_IN_STOCK) newStock + MINIMUM_ITEMS_IN_STOCK else stock.nbOfItems
+    if (newStock < MinimumItemsInStock) newStock + MinimumItemsInStock
+    else stock.nbOfItems
   }
 }

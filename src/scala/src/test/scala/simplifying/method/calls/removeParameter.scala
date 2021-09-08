@@ -1,4 +1,3 @@
-package org.ythirion.refactoring.journey
 package simplifying.method.calls
 
 import org.scalatest.BeforeAndAfterEach
@@ -8,8 +7,8 @@ import org.scalatest.funsuite.AnyFunSuite
 import java.util.UUID
 
 class removeParameter extends AnyFunSuite with BeforeAndAfterEach {
-  val TICKET_PRICE = 20
-  val PRIZE_AMOUNT = 109_908_786
+  val TicketPrice = 20
+  val PrizeAmount = 109_908_786
   var lottery: Lottery = _
 
   override def beforeEach(): Unit = {
