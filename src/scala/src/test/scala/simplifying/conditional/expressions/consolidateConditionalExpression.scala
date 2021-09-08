@@ -1,4 +1,3 @@
-package org.ythirion.refactoring.journey
 package simplifying.conditional.expressions
 
 import org.scalatest.flatspec.AnyFlatSpec

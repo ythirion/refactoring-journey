@@ -1,7 +1,6 @@
-package org.ythirion.refactoring.journey
 package simplifying.conditional.expressions
 
-case class PriceCalculator(isSaleDay: Boolean) {
+final case class PriceCalculator(isSaleDay: Boolean) {
   def calculatePrice(price: Double): Double = {
     var total = .0
     if (isSaleDay) {

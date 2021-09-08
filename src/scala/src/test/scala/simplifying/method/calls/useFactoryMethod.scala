@@ -1,4 +1,3 @@
-package org.ythirion.refactoring.journey
 package simplifying.method.calls
 
 import org.scalatest.funsuite.AnyFunSuite
@@ -17,14 +16,14 @@ class useFactoryMethod extends AnyFunSuite {
   }
 
   test("instantiate when channel is SMS") {
-    assert(new Notification("SMS") != null)
+    assert(new Notification("SMS").isInstanceOf[Notification])
   }
 
   test("instantiate when channel is EMAIL") {
-    assert(new Notification("EMAIL") != null)
+    assert(new Notification("EMAIL").isInstanceOf[Notification])
   }
 
   test("instantiate when channel is PUSH") {
-    assert(new Notification("PUSH") != null)
+    assert(new Notification("PUSH").isInstanceOf[Notification])
   }
 }

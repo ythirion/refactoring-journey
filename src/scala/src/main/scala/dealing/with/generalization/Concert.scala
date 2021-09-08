@@ -1,9 +1,8 @@
-package org.ythirion.refactoring.journey
 package dealing.`with`.generalization
 
 import scala.util.{Failure, Success, Try}
 
-case class Concert(description: String) extends Event {
+final case class Concert(description: String) extends Event {
   private var running: Boolean = false
   private var startTime: Long = 0
   private var stopTime: Long = 0
@@ -12,8 +11,7 @@ case class Concert(description: String) extends Event {
   def start(): Try[Boolean] = {
     if (running) {
       Failure(new IllegalStateException("Concert is already in progress"))
-    }
-    else {
+    } else {
       startTime = System.currentTimeMillis()
       running = true
 

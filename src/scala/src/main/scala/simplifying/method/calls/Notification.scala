@@ -1,19 +1,17 @@
-package org.ythirion.refactoring.journey
 package simplifying.method.calls
 
 import simplifying.method.calls.Notification.authorizedChannels
 
 class Notification {
-  private var channel: String = null
+  private var channel: Option[String] = None
 
   def this(channel: String) {
     this
-
     channel match {
-      case c if c == null || c.isEmpty || !authorizedChannels.contains(c) => throw new IllegalArgumentException("Invalid channel provided")
-      case _ =>
+      case c if c == null || c.isEmpty || !authorizedChannels.contains(c) =>
+        throw new IllegalArgumentException("Invalid channel provided")
+      case _ => this.channel = Some(channel)
     }
-    this.channel = channel
   }
 }
 

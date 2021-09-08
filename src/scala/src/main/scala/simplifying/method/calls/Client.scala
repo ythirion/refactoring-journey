@@ -1,5 +1,6 @@
-package org.ythirion.refactoring.journey
 package simplifying.method.calls
+
+import scala.util.Properties.lineSeparator
 
 class Client(val orderLines: Map[String, Double]) {
   var totalAmount: Double = 0
@@ -10,7 +11,8 @@ class Client(val orderLines: Map[String, Double]) {
   }
 
   def toStatement: String =
-    orderLines.map { case (product, price) => formatLine(product, price) }
-      .mkString("\n")
-      .concat(s"\nTotal : ${totalAmount}€")
+    orderLines
+      .map { case (product, price) => formatLine(product, price) }
+      .mkString(lineSeparator)
+      .concat(s"${lineSeparator}Total : ${totalAmount}€")
 }

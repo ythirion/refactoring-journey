@@ -1,4 +1,3 @@
-package org.ythirion.refactoring.journey
 package dealing.`with`.generalization
 
 import org.scalamock.scalatest.MockFactory
