@@ -1,4 +1,3 @@
-package org.ythirion.refactoring.journey
 package composing.methods
 
 import com.github.javafaker.Faker
@@ -9,22 +8,28 @@ class inlineTemps extends AnyFunSuite {
   private val customer = Customer("Robert Pires", 47)
 
   test("deserve discount") {
-    val orderDeservingDiscount = Order(customer, List(Product("Something expensive", 1000.01)))
-    val orderNotDeservingDiscount = Order(customer, List(Product("Something less expensive", 1000)))
+    val orderDeservingDiscount =
+      Order(customer, List(Product("Something expensive", 1000.01)))
+    val orderNotDeservingDiscount =
+      Order(customer, List(Product("Something less expensive", 1000)))
 
     assert(OrderHelper.deserveDiscount(orderDeservingDiscount))
     assert(!OrderHelper.deserveDiscount(orderNotDeservingDiscount))
   }
 
   test("deserveDiscountBasedOnCustomer") {
-    val orderDeservingDiscount: Order = Order(customer, generateFakeProducts(12))
-    val orderNotDeservingDiscount: Order = Order(customer, generateFakeProducts(9))
+    val orderDeservingDiscount: Order =
+      Order(customer, generateFakeProducts(12))
+    val orderNotDeservingDiscount: Order =
+      Order(customer, generateFakeProducts(9))
 
     assert(OrderHelper.deserveDiscountBasedOnCustomer(orderDeservingDiscount))
-    assert(!OrderHelper.deserveDiscountBasedOnCustomer(orderNotDeservingDiscount))
+    assert(
+      !OrderHelper.deserveDiscountBasedOnCustomer(orderNotDeservingDiscount)
+    )
   }
 
   private def generateFakeProducts(times: Int): List[Product] = {
-    (0 until times).map(_ => Product(faker.commerce().productName(), faker.commerce().price().toDouble)).toList
+    (0 until times).map(_ => Product(faker.commerce().productName(), 0)).toList
   }
 }

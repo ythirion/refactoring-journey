@@ -1,4 +1,3 @@
-package org.ythirion.refactoring.journey
 package composing.methods
 
 object AmountCalculator {
@@ -10,9 +9,11 @@ object AmountCalculator {
     amount - discountBasedOnAge
   }
 
-  def calculatePrice(order: Order,
-                     applyAgeDiscount: Boolean,
-                     age: Int): Double = {
+  def calculatePrice(
+      order: Order,
+      applyAgeDiscount: Boolean,
+      age: Int
+  ): Double = {
     var result = .0
     var discount = .0
     var resultWithDiscount = .0

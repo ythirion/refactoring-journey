@@ -1,4 +1,3 @@
-package org.ythirion.refactoring.journey
 package simplifying.conditional.expressions
 
 import org.scalatest.funsuite.AnyFunSuite
@@ -21,6 +20,8 @@ class replaceConditionalWithPolymorphism extends AnyFunSuite {
   }
 
   test("calculator should throw exception on unsupported operator") {
-    assertThrows[IllegalArgumentException](Calculator.calculate(84, 23, "unsupported operator"))
+    assertThrows[IllegalArgumentException](
+      Calculator.calculate(84, 23, "unsupported operator")
+    )
   }
 }

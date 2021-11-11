@@ -1,4 +1,3 @@
-package org.ythirion.refactoring.journey
 package simplifying.method.calls
 
 import java.util.UUID
@@ -6,7 +5,7 @@ import scala.collection.mutable
 import scala.util.Random
 
 object Lottery {
-  private val RANDOM: Random = new Random(42)
+  private val random: Random = new Random(42)
 }
 
 class Lottery {
@@ -18,13 +17,16 @@ class Lottery {
     ticketNumber
   }
 
-  def drawWinner(ticketPrice: Double, prizeAmount: Double): Option[LotteryTicket] = {
+  def drawWinner(
+      ticketPrice: Double,
+      prizeAmount: Double
+  ): Option[LotteryTicket] = {
     tickets.values match {
       case Nil => None
-      case v => Random.shuffle(v).headOption
+      case v   => Random.shuffle(v).headOption
     }
   }
 
   private def generateTicketNumber(format: String): String =
-    String.format("%06d", Lottery.RANDOM.nextInt(1000000))
+    String.format("%06d", Lottery.random.nextInt(1000000))
 }

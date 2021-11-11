@@ -1,4 +1,3 @@
-package org.ythirion.refactoring.journey
 package simplifying.method.calls
 
 import org.scalatest.BeforeAndAfterEach
@@ -18,7 +17,8 @@ class removeParameter extends AnyFunSuite with BeforeAndAfterEach {
   }
 
   test("lottery allows customer to purchase a ticket") {
-    val ticketNumber = lottery.purchaseTicketForCustomer(UUID.randomUUID, "Mando")
+    val ticketNumber =
+      lottery.purchaseTicketForCustomer(UUID.randomUUID, "Mando")
     assert(ticketNumber.length == 6)
     assert(ticketNumber.matches("\\d+"))
   }

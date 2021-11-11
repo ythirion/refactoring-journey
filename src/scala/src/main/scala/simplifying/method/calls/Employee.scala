@@ -1,12 +1,13 @@
-package org.ythirion.refactoring.journey
 package simplifying.method.calls
 
 import java.util.UUID
 
-case class Employee(name: String,
-                    role: String,
-                    currentProject: String,
-                    skills: List[String]) {
+final case class Employee(
+    name: String,
+    role: String,
+    currentProject: String,
+    skills: List[String]
+) {
   lazy val id: String = UUID.randomUUID.toString
 
   def get: String = id
@@ -17,7 +18,7 @@ case class Employee(name: String,
 
   def getP: String = currentProject
 
-  def isProfessionalService: Boolean = !(getR == "Assoc")
+  def isProfessionalService: Boolean = getR != "Assoc"
 
   def isIdeal: Boolean = getP == "Beach" || getP.isEmpty
 

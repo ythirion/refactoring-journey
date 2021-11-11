@@ -1,4 +1,3 @@
-package org.ythirion.refactoring.journey
 package organizing.data
 
 class Wizard(val name: String) {

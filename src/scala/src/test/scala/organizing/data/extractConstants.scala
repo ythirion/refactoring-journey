@@ -1,4 +1,3 @@
-package org.ythirion.refactoring.journey
 package organizing.data
 
 import organizing.data.Utils.{calculatePotentialEnergy, validatePassword}
@@ -16,7 +15,11 @@ class extractConstants extends AnyFunSuite {
 
   test("validPassword returns a failure for password not following pwd rules") {
     val invalidPassword = "Im invalid"
-    assert(validatePassword(invalidPassword).failure.exception.getMessage == "minimum password length is not respected")
+    assert(
+      validatePassword(
+        invalidPassword
+      ).failure.exception.getMessage == "minimum password length is not respected"
+    )
   }
 
   test("calculate potential energy") {

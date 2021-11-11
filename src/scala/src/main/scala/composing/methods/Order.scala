@@ -1,23 +1,29 @@
-package org.ythirion.refactoring.journey
 package composing.methods
 
-case class Order(customer: Customer, products: List[Product]) {
-  def generateStatement: String = {
-    if (customer != null && customer.name.nonEmpty && products.nonEmpty) {
+import scala.util.Properties.lineSeparator
+import scala.util.{Failure, Success, Try}
 
-      val statement = new StringBuilder
+final case class Order(customer: Customer, products: List[Product]) {
+  def generateStatement: Try[String] = {
+    if (customer.name.nonEmpty && products.nonEmpty) {
       //Add banner
-      statement.append(s"Statement for : $customer\n")
+      val statement: String = s"Statement for : $customer$lineSeparator"
+      // Add details
+      val statementWithProduct: String =
+        products.foldLeft(statement)((acc, p) =>
+          acc + s"Product: ${p.name} Price: ${p.price}$lineSeparator"
+        )
+      // Add total
+      val total: Double = AmountCalculator.calculatePrice(
+        this,
+        applyAgeDiscount = true,
+        customer.age
+      )
+      val statementWithProductAndTotal: String =
+        statementWithProduct + "Total: " + total + "€"
 
-      for (p <- products) {
-        // Add details.
-        statement.append(s"Product: ${p.name} Price: ${p.price}\n")
-      }
-      val total = AmountCalculator.calculatePrice(this, applyAgeDiscount = true, customer.age)
-      statement.append("Total: " + total + "€")
-      statement.toString
-    }
-    else throw new IllegalArgumentException("InvalidOrder")
+      Success(statementWithProductAndTotal)
+    } else Failure(new IllegalArgumentException("InvalidOrder"))
   }
 
   def totalPrice: Double = {
