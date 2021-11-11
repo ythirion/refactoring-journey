@@ -22,6 +22,8 @@ nav_order: 4
 ![](img/legacy-code-commitstrip.webp)
 
 ## Great web sites
+[10 I Statements about refactoring](https://www.geepawhill.org/2021/08/17/ten-i-statements-about-refactoring/)
+
 [![refactoring guru](img/refactoring-guru.webp)](https://refactoring.guru/refactoring)
 
 [![Source making](img/sourcemaking.webp)](https://sourcemaking.com/design_patterns)
