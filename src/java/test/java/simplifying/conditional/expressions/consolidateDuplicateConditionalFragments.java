@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
 
-public class consolidateDuplicateConditionalFragments {
+class consolidateDuplicateConditionalFragments {
     @Test
     void priceCalculator_should_return_half_price_on_sale_day() {
         PriceCalculator priceCalculator = new PriceCalculator(true);

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class removeAssignmentsToParameters {
+class removeAssignmentsToParameters {
     @Test
     void updateStock() {
         Stock stock = new Stock(5);

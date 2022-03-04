@@ -8,7 +8,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
 
-public class extractMethods {
+class extractMethods {
     private final ArrayList<Product> products = new ArrayList<>(
             List.of(Product.builder().name("Blu Ray Tenet").price(31.0).build(),
                     Product.builder().name("Book Fundamentals of Software Architecture").price(54.22).build(),

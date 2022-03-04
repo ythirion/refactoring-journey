@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class extractClass {
+class extractClass {
     private final Player mane = Player.builder()
             .birthDate(LocalDate.of(1992, 10, 4))
             .firstName("Sadio").lastName("Mané")

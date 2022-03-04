@@ -8,11 +8,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static simplifying.method.calls.Notification.createNotification;
 
-public class useFactoryMethod {
+class useFactoryMethod {
     @Nested
-    public class notification_should {
+    class notification_should {
         @Nested
-        public class throw_an_illegal_argument_exception {
+        class throw_an_illegal_argument_exception {
             private void assertExceptionThrown(ThrowableAssert.ThrowingCallable throwingCallable) {
                 assertThatExceptionOfType(IllegalArgumentException.class)
                         .isThrownBy(throwingCallable);
@@ -35,7 +35,7 @@ public class useFactoryMethod {
         }
 
         @Nested
-        public class instantiate {
+        class instantiate {
             private void assertNotificationNotNull(String channel) {
                 Notification notification = createNotification(channel);
                 assertThat(notification).isNotNull();

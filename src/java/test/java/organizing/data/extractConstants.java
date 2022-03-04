@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class extractConstants {
+class extractConstants {
     @Test
     void validatePassword() {
         String validPassword = "OJ°0I°09121l.";

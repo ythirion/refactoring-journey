@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class introduceParameterObject {
+class introduceParameterObject {
     private final AccountingService accountingService = new AccountingService(List.of(
             Bill.builder()
                     .amount(23_789)

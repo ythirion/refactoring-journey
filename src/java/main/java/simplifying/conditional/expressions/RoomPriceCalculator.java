@@ -2,18 +2,17 @@ package simplifying.conditional.expressions;
 
 import lombok.AllArgsConstructor;
 
+import java.time.Clock;
 import java.time.LocalDate;
 
 @AllArgsConstructor
 public class RoomPriceCalculator {
-    private static final LocalDate HIGH_SEASON_START_DATE = LocalDate.of(LocalDate.now().getYear(), 6, 30);
-    private static final LocalDate HIGH_SEASON_END_DATE = LocalDate.of(LocalDate.now().getYear(), 10, 31);
-
     private final LocalDate today;
     private final double regularPrice;
     private final double highSeasonRate;
     private final double lowSeasonRate;
     private final double lowSeasonExtraCharge;
+    private final Clock clock;
 
     public double calculatePriceFor(int numberOfRooms,
                                     LocalDate selectedDate) {
@@ -40,7 +39,7 @@ public class RoomPriceCalculator {
     }
 
     private boolean isLowSeason(LocalDate selectedDate) {
-        return selectedDate.isBefore(HIGH_SEASON_START_DATE) || selectedDate.isAfter(HIGH_SEASON_END_DATE);
+        return selectedDate.isBefore(highSeasonStartDate()) || selectedDate.isAfter(highSeasonEndDate());
     }
 
     private double calculateLowSeasonPrice(double regularPrice) {
@@ -49,5 +48,13 @@ public class RoomPriceCalculator {
 
     private double calculateHighSeasonPrice(double regularPrice) {
         return regularPrice * highSeasonRate;
+    }
+
+    private LocalDate highSeasonStartDate() {
+        return LocalDate.of(LocalDate.now(clock).getYear(), 6, 30);
+    }
+
+    private LocalDate highSeasonEndDate() {
+        return LocalDate.of(LocalDate.now(clock).getYear(), 10, 31);
     }
 }

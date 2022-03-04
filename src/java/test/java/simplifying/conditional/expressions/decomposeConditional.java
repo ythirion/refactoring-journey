@@ -3,11 +3,14 @@ package simplifying.conditional.expressions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.time.Clock;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneOffset;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class decomposeConditional {
+class decomposeConditional {
     private final double highSeasonRate = 2.86;
     private final double lowSeasonRate = 0.89;
     private final double lowSeasonExtraCharge = 50;
@@ -19,10 +22,11 @@ public class decomposeConditional {
                     regularPrice,
                     highSeasonRate,
                     lowSeasonRate,
-                    lowSeasonExtraCharge);
+                    lowSeasonExtraCharge,
+                    Clock.fixed(Instant.parse("2021-01-01T00:00:01Z"), ZoneOffset.UTC));
 
     @Nested
-    public class roomPriceCalculator_should_throws_illegal_argument_exception {
+    class roomPriceCalculator_should_throws_illegal_argument_exception {
         private final LocalDate highSeasonDate = LocalDate.of(2021, 9, 1);
         LocalDate lowSeasonDate = LocalDate.of(2021, 12, 20);
 

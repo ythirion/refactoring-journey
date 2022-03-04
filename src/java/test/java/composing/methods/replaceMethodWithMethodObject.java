@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class replaceMethodWithMethodObject {
+class replaceMethodWithMethodObject {
     private final StockReportGenerator reportGenerator = new StockReportGenerator();
     private final Warehouse warehouse = new Warehouse(9, new LinkedHashMap<>() {{
         put(Product.builder().name("Iphone 12").price(989).build(), 568);
