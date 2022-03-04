@@ -2,6 +2,7 @@ package simplifying.method.calls
 
 import scala.util.Properties.lineSeparator
 
+// Too easy ? Change it with a foldLeft or reduceLeft
 class Client(val orderLines: Map[String, Double]) {
   def toStatement: String =
     orderLines

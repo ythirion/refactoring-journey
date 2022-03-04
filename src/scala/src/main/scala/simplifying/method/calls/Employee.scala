@@ -8,11 +8,10 @@ final case class Employee(
     currentProject: String,
     skills: List[String]
 ) {
-  lazy val getId: String = id
-  lazy val isWorking: Boolean = role != "Assoc"
-  lazy val hasIdealJob: Boolean =
-    currentProject == "Beach" || currentProject.isEmpty
   private lazy val id: String = UUID.randomUUID.toString
 
+  lazy val getId: String = id
+  lazy val isWorking: Boolean = role != "Assoc"
+  lazy val hasIdealJob: Boolean = currentProject == "Beach" || currentProject.isEmpty
   def isSkilledAt(skill: String): Boolean = skills.contains(skill)
 }

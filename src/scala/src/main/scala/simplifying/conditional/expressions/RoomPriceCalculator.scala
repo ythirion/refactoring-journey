@@ -1,36 +1,25 @@
 package simplifying.conditional.expressions
 
-import java.time.LocalDate
+import java.time.{Clock, LocalDate}
 
 class RoomPriceCalculator(
-    val today: LocalDate,
-    val regularPrice: Double,
-    val highSeasonRate: Double,
-    val lowSeasonRate: Double,
-    val lowSeasonExtraCharge: Double
+    regularPrice: Double,
+    highSeasonRate: Double,
+    lowSeasonRate: Double,
+    lowSeasonExtraCharge: Double,
+    clock: Clock = Clock.systemDefaultZone()
 ) {
 
-  private val highSeasonStartDate = LocalDate.of(LocalDate.now.getYear, 6, 30)
-  private val highSeasonEndDate = LocalDate.of(LocalDate.now.getYear, 10, 31)
+  private val HighSeasonEndDate = LocalDate.of(LocalDate.now(clock).getYear, 10, 31)
+  private val HighSeasonStartDate = LocalDate.of(LocalDate.now(clock).getYear, 6, 30)
 
-  def calculatePriceFor(
-      numberOfRooms: Int,
-      selectedDate: LocalDate
-  ): Option[Double] = {
+  def calculatePriceFor(numberOfRooms: Int, selectedDate: LocalDate): Option[Double] = {
+    def isLowSeason = selectedDate.isBefore(HighSeasonStartDate) || selectedDate.isAfter(HighSeasonEndDate)
+    def calculatePrice(seasonPrice: Double => Double): Double = seasonPrice(numberOfRooms * regularPrice)
+    def lowSeasonPrice: Double = calculatePrice(x => x * lowSeasonRate + lowSeasonExtraCharge)
+    def highSeasonPrice: Double = calculatePrice(x => x * highSeasonRate)
 
-    def isLowSeason =
-      selectedDate.isBefore(highSeasonStartDate) || selectedDate.isAfter(
-        highSeasonEndDate
-      )
-    def calculatePrice(seasonPrice: Double => Double): Double =
-      seasonPrice(numberOfRooms * regularPrice)
-    def lowSeasonPrice: Double =
-      calculatePrice({ x => x * lowSeasonRate + lowSeasonExtraCharge })
-    def highSeasonPrice: Double = calculatePrice({ x => x * highSeasonRate })
-
-    if (selectedDate.isBefore(today) || numberOfRooms <= 0)
-      None
-    else
-      Some(if (isLowSeason) lowSeasonPrice else highSeasonPrice)
+    if (selectedDate.isBefore(LocalDate.now(clock)) || numberOfRooms <= 0) None
+    else Some(if (isLowSeason) lowSeasonPrice else highSeasonPrice)
   }
 }

@@ -7,8 +7,10 @@ final case class Food(
     approvedForConsumption: Boolean,
     inspectorId: Option[Int]
 ) {
-  lazy val isEdible: Boolean =
-    isFresh && approvedForConsumption && hasBeenInspected
-  val isFresh: Boolean = expirationDate.isAfter(LocalDate.now)
   val hasBeenInspected: Boolean = inspectorId.isDefined
+
+  def isFresh: Boolean = expirationDate.isAfter(LocalDate.now)
+
+  def isEdible: Boolean =
+    isFresh && approvedForConsumption && hasBeenInspected
 }
