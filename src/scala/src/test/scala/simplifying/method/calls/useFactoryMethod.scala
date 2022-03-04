@@ -3,10 +3,6 @@ package simplifying.method.calls
 import org.scalatest.funsuite.AnyFunSuite
 
 class useFactoryMethod extends AnyFunSuite {
-  test("throw an illegal argument exception when channel is null") {
-    assertThrows[IllegalArgumentException](new Notification(null))
-  }
-
   test("throw an illegal argument exception when channel is empty") {
     assertThrows[IllegalArgumentException](new Notification(""))
   }

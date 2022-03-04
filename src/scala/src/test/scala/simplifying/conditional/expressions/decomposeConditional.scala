@@ -4,7 +4,7 @@ import org.scalactic.Tolerance.convertNumericToPlusOrMinusWrapper
 import org.scalatest.OptionValues.convertOptionToValuable
 import org.scalatest.funsuite.AnyFunSuite
 
-import java.time.LocalDate
+import java.time.{Clock, Instant, LocalDate, ZoneOffset}
 
 class decomposeConditional extends AnyFunSuite {
   private val HighSeasonRate = 2.86
@@ -13,7 +13,7 @@ class decomposeConditional extends AnyFunSuite {
   private val RegularPrice = 156.89
 
   private val roomPriceCalculator = new RoomPriceCalculator(
-    LocalDate.of(2021, 1, 1),
+    Clock.fixed(Instant.parse("2021-01-01T00:01:00Z"), ZoneOffset.UTC),
     RegularPrice,
     HighSeasonRate,
     LowSeasonRate,

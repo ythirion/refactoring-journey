@@ -1,7 +1,8 @@
 package simplifying.conditional.expressions
 
-final case class PriceCalculator(isSaleDay: Boolean) {
-  def calculatePrice(price: Double): Double = {
+object PriceCalculator {
+
+  def calculatePrice(price: Double, isSaleDay: Boolean): Double = {
     var total = .0
     if (isSaleDay) {
       total = price * 0.5

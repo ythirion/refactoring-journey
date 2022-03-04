@@ -5,7 +5,7 @@ import org.scalatest.funsuite.AnyFunSuite
 import java.time.LocalDate
 
 class introduceParameterObject extends AnyFunSuite {
-  private val accountingService = AccountingService(
+  private val accountingService = new AccountingService(
     List(
       Bill(
         23_789,
