@@ -1,16 +1,18 @@
-package org.ythirion.refactoring.journey
 package simplifying.method.calls
 
 import java.util.UUID
 
-case class Employee(name: String,
-                    role: String,
-                    currentProject: String,
-                    skills: List[String]) {
+final case class Employee(
+    name: String,
+    role: String,
+    currentProject: String,
+    skills: List[String]
+) {
+  lazy val getId: String = id
+  lazy val isWorking: Boolean = role != "Assoc"
+  lazy val hasIdealJob: Boolean =
+    currentProject == "Beach" || currentProject.isEmpty
   private lazy val id: String = UUID.randomUUID.toString
 
-  def getId: String = id
-  def isWorking: Boolean = !(role == "Assoc")
-  def hasIdealJob: Boolean = currentProject == "Beach" || currentProject.isEmpty
   def isSkilledAt(skill: String): Boolean = skills.contains(skill)
 }

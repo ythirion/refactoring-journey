@@ -1,4 +1,3 @@
-package org.ythirion.refactoring.journey
 package dealing.`with`.generalization
 
 import org.scalatest.TryValues.convertTryToSuccessOrFailure
@@ -18,9 +17,17 @@ class pullUpMethodsOrFields extends AnyFunSuite {
     assert(concert.calculateElapsedTime >= concertDuration)
   }
 
-  test("concert returns a failure when calling start on an already started concert") {
+  test(
+    "concert returns a failure when calling start on an already started concert"
+  ) {
     concert.start()
-    assert(concert.start().failure.exception.getMessage == "Concert is already in progress")
+    assert(
+      concert
+        .start()
+        .failure
+        .exception
+        .getMessage == "Concert is already in progress"
+    )
   }
 
   test("retrieve piece duration") {
@@ -33,8 +40,16 @@ class pullUpMethodsOrFields extends AnyFunSuite {
     assert(piece.calculateElapsedTime >= pieceDuration)
   }
 
-  test("theater piece returns a failure when calling start on an already started piece") {
+  test(
+    "theater piece returns a failure when calling start on an already started piece"
+  ) {
     piece.start()
-    assert(piece.start().failure.exception.getMessage == "TheaterPiece is already in progress")
+    assert(
+      piece
+        .start()
+        .failure
+        .exception
+        .getMessage == "TheaterPiece is already in progress"
+    )
   }
 }

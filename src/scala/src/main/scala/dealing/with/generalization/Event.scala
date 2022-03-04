@@ -1,4 +1,3 @@
-package org.ythirion.refactoring.journey
 package dealing.`with`.generalization
 
 import scala.util.{Failure, Success, Try}
@@ -10,9 +9,12 @@ abstract class Event {
 
   def start(): Try[Boolean] = {
     if (running) {
-      Failure(new IllegalStateException(s"${this.getClass.getSimpleName} is already in progress"))
-    }
-    else {
+      Failure(
+        new IllegalStateException(
+          s"${this.getClass.getSimpleName} is already in progress"
+        )
+      )
+    } else {
       startTime = System.currentTimeMillis()
       running = true
 
