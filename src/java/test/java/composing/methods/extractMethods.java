@@ -8,7 +8,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
 
-public class extractMethods {
+class extractMethods {
     private final ArrayList<Product> products = new ArrayList<>(
             List.of(Product.builder().name("Blu Ray Tenet").price(31.0).build(),
                     Product.builder().name("Book Fundamentals of Software Architecture").price(54.22).build(),
@@ -18,7 +18,7 @@ public class extractMethods {
     private final Order order = Order.builder().products(products).customer(customer).build();
 
     @Test
-    public void generateStatement() {
+    void generateStatement() {
         assertThat(order.generateStatement())
                 .isEqualTo("Statement for : Customer{name='Mando', age=35}%n" +
                         "Product: Blu Ray Tenet Price: 31.0%n" +
@@ -28,7 +28,7 @@ public class extractMethods {
     }
 
     @Test
-    public void calculatePrice() {
+    void calculatePrice() {
         assertThat(AmountCalculator.calculatePrice(14.5, 16)).isEqualTo(9.425);
         assertThat(AmountCalculator.calculatePrice(14.5, 12)).isEqualTo(9.425);
         assertThat(AmountCalculator.calculatePrice(14.5, 30)).isEqualTo(14.5);
@@ -37,7 +37,7 @@ public class extractMethods {
     }
 
     @Test
-    public void calculatePriceForOrders() {
+    void calculatePriceForOrders() {
         assertThat(AmountCalculator.calculatePrice(order, true, 16)).isEqualTo(72.22, offset(0.01));
         assertThat(AmountCalculator.calculatePrice(order, false, 16)).isEqualTo(111.12, offset(0.01));
         assertThat(AmountCalculator.calculatePrice(order, true, 40)).isEqualTo(111.12, offset(0.01));

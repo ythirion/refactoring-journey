@@ -6,7 +6,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class hideDelegate {
+class hideDelegate {
     private final League liga = new League("Spain");
     private final League premierLeague = new League("England");
     private final League ligue1 = new League("France");
@@ -32,7 +32,7 @@ public class hideDelegate {
             new Team("Manchester City", premierLeague)));
 
     @Test
-    public void nextStageTable() {
+    void nextStageTable() {
         assertThat(championsLeague2020.nextStageTable())
                 .isEqualTo("FC Barcelone - Spain%n" +
                         "PSG - France%n" +

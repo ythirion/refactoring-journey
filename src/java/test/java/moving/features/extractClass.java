@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class extractClass {
+class extractClass {
     private final Player mane = Player.builder()
             .birthDate(LocalDate.of(1992, 10, 4))
             .defending(79).dribbling(90)
@@ -38,17 +38,17 @@ public class extractClass {
             .build();
 
     @Test
-    public void mane_can_dribble_pogba() {
+    void mane_can_dribble_pogba() {
         assertThat(mane.canDribble(pogba)).isTrue();
     }
 
     @Test
-    public void pogba_can_dribble_mane() {
+    void pogba_can_dribble_mane() {
         assertThat(pogba.canDribble(mane)).isTrue();
     }
 
     @Test
-    public void pogba_cannot_dribble_vanDijk() {
+    void pogba_cannot_dribble_vanDijk() {
         assertThat(pogba.canDribble(vanDijk)).isFalse();
     }
 }

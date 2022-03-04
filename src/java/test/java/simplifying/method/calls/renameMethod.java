@@ -6,9 +6,9 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class renameMethod {
+class renameMethod {
     @Test
-    public void john_doe_is_a_model_employee() {
+    void john_doe_is_a_model_employee() {
         Employee johnDoe = new Employee("John Doe", "?", "Beach", List.of("Hunter", "Accountant"));
 
         assertThat(johnDoe.get()).isNotNull();

@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class replaceMethodWithMethodObject {
+class replaceMethodWithMethodObject {
     private final Warehouse warehouse = new Warehouse(9, new LinkedHashMap<>() {{
         put(Product.builder().name("Iphone 12").price(989).build(), 568);
         put(Product.builder().name("Super Mario 3D World").price(59.67).build(), 98);
@@ -15,7 +15,7 @@ public class replaceMethodWithMethodObject {
     }});
 
     @Test
-    public void generateStockReport() {
+    void generateStockReport() {
         assertThat(warehouse.generateStockReport()).isEqualTo("Report for warehouse : 9%n" +
                 "Product: Iphone 12 Price: 989.0 Stock : 568 units%n" +
                 "Product: Super Mario 3D World Price: 59.67 Stock : 98 units%n" +

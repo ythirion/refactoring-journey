@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
-public class pullUpMethodsOrFields {
+class pullUpMethodsOrFields {
     @Nested
-    public class concert_should {
+    class concert_should {
         private Concert concert;
 
         @BeforeEach
@@ -20,7 +20,7 @@ public class pullUpMethodsOrFields {
 
         @SneakyThrows
         @Test
-        public void retrieve_concert_duration() {
+        void retrieve_concert_duration() {
             int concertDuration = 500;
 
             concert.start();
@@ -31,9 +31,9 @@ public class pullUpMethodsOrFields {
         }
 
         @Nested
-        public class throw_an_illegal_state_exception {
+        class throw_an_illegal_state_exception {
             @Test
-            public void when_calling_start_on_an_already_started_concert() {
+            void when_calling_start_on_an_already_started_concert() {
                 concert.start();
                 assertThatExceptionOfType(IllegalStateException.class)
                         .isThrownBy(() -> concert.start());
@@ -42,7 +42,7 @@ public class pullUpMethodsOrFields {
     }
 
     @Nested
-    public class theater_piece_should {
+    class theater_piece_should {
         private TheaterPiece piece;
 
         @BeforeEach
@@ -52,7 +52,7 @@ public class pullUpMethodsOrFields {
 
         @SneakyThrows
         @Test
-        public void retrieve_piece_duration() {
+        void retrieve_piece_duration() {
             int pieceDuration = 500;
 
             piece.start();
@@ -63,9 +63,9 @@ public class pullUpMethodsOrFields {
         }
 
         @Nested
-        public class throw_an_illegal_state_exception {
+        class throw_an_illegal_state_exception {
             @Test
-            public void when_calling_start_on_an_already_started_piece() {
+            void when_calling_start_on_an_already_started_piece() {
                 piece.start();
                 assertThatExceptionOfType(IllegalStateException.class)
                         .isThrownBy(() -> piece.start());

@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class encapsulateFields {
+class encapsulateFields {
     @Test
-    public void harryPotter() {
+    void harryPotter() {
         Wizard harryPotter = new Wizard("Harry Potter");
         harryPotter.life = 100;
         harryPotter.magicStick = "Bâton de la Mort";
