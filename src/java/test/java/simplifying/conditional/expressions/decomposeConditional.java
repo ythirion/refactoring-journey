@@ -3,7 +3,10 @@ package simplifying.conditional.expressions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.time.Clock;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneOffset;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -19,7 +22,8 @@ class decomposeConditional {
                     regularPrice,
                     highSeasonRate,
                     lowSeasonRate,
-                    lowSeasonExtraCharge);
+                    lowSeasonExtraCharge,
+                    Clock.fixed(Instant.parse("2021-01-01T00:00:01Z"), ZoneOffset.UTC));
 
     @Nested
     class roomPriceCalculator_should_throws_illegal_argument_exception {
