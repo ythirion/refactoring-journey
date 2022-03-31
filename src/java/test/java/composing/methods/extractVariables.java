@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class extractVariables {
+class extractVariables {
     private final Integer IDENTIFIED_INSPECTOR = 1;
 
     private final Food edible1 = Food.builder().approvedForConsumption(true).expirationDate(LocalDate.now().plusDays(1)).inspectorId(IDENTIFIED_INSPECTOR).build();

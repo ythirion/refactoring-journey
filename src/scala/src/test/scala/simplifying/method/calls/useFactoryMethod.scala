@@ -2,7 +2,7 @@ package simplifying.method.calls
 
 import org.scalatest.TryValues.convertTryToSuccessOrFailure
 import org.scalatest.funsuite.AnyFunSuite
-import simplifying.method.calls.Notification.{email, push, sms}
+import simplifying.method.calls.Notification.{Email, Push, Sms}
 
 import scala.util.{Success, Try}
 
@@ -11,10 +11,6 @@ class useFactoryMethod extends AnyFunSuite {
     assert(
       notification.failure.exception.getMessage == "Invalid channel provided"
     )
-  }
-
-  test("return a failure when channel is null") {
-    assertFailure(Notification.create(null))
   }
 
   test("return a failure when channel is empty") {
@@ -26,14 +22,14 @@ class useFactoryMethod extends AnyFunSuite {
   }
 
   test("instantiate when channel is SMS") {
-    assert(Notification.create(sms) == Success(Notification(sms)))
+    assert(Notification.create(Sms) == Success(Notification(Sms)))
   }
 
   test("instantiate when channel is EMAIL") {
-    assert(Notification.create(email) == Success(Notification(email)))
+    assert(Notification.create(Email) == Success(Notification(Email)))
   }
 
   test("instantiate when channel is PUSH") {
-    assert(Notification.create(push) == Success(Notification(push)))
+    assert(Notification.create(Push) == Success(Notification(Push)))
   }
 }

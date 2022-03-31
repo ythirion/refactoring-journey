@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
-public class pullUpMethodsOrFields {
+class pullUpMethodsOrFields {
     @Nested
-    public class concert_should {
+    class concert_should {
         private Concert concert;
 
         @BeforeEach
@@ -31,7 +31,7 @@ public class pullUpMethodsOrFields {
         }
 
         @Nested
-        public class throw_an_illegal_state_exception {
+        class throw_an_illegal_state_exception {
             @Test
             void when_calling_start_on_an_already_started_concert() {
                 concert.start();
@@ -42,7 +42,7 @@ public class pullUpMethodsOrFields {
     }
 
     @Nested
-    public class theater_piece_should {
+    class theater_piece_should {
         private TheaterPiece piece;
 
         @BeforeEach
@@ -63,7 +63,7 @@ public class pullUpMethodsOrFields {
         }
 
         @Nested
-        public class throw_an_illegal_state_exception {
+        class throw_an_illegal_state_exception {
             @Test
             void when_calling_start_on_an_already_started_piece() {
                 piece.start();

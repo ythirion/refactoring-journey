@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class consolidateConditionalExpression {
+class consolidateConditionalExpression {
     private final AuthorizationService authorizationService = new AuthorizationService();
     private static final String ACTION = "An Action";
 

@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class separateQueryFromModifier {
+class separateQueryFromModifier {
     private final Client client = new Client(new LinkedHashMap<>() {{
         put("Tenet Deluxe Edition", 45.99);
         put("Inception", 30.50);

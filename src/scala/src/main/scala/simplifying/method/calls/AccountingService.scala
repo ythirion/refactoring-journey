@@ -2,17 +2,13 @@ package simplifying.method.calls
 
 import java.time.LocalDate
 
-class AccountingService(bills: List[Bill]) {
+final class AccountingService(bills: List[Bill]) {
   def findBillsInvoicedBetween(period: Period): List[Bill] = {
     findBills(bill => Option(bill.invoicedDate), period)
   }
 
   def findBillsDueBetween(period: Period): List[Bill] = {
     findBills(bill => Option(bill.dueDate), period)
-  }
-
-  def findBillsPaidBetween(period: Period): List[Bill] = {
-    findBills(bill => bill.paymentDate, period)
   }
 
   private def findBills(
@@ -30,5 +26,9 @@ class AccountingService(bills: List[Bill]) {
       (date.isAfter(period.from) || date.isEqual(period.from)) && (date
         .isBefore(period.to) || date.isEqual(period.to))
     )
+  }
+
+  def findBillsPaidBetween(period: Period): List[Bill] = {
+    findBills(bill => bill.paymentDate, period)
   }
 }

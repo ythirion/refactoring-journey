@@ -1,16 +1,17 @@
 package simplifying.conditional.expressions
 
-final case class PriceCalculator(isSaleDay: Boolean) {
+object PriceCalculator {
   private val SaleDiscount = 0.5
   private val NormalDayDiscount = 0.98
-  private val discountRate: Double =
-    if (isSaleDay) SaleDiscount else NormalDayDiscount
 
-  def calculatePrice(price: Double): Double = {
-    val total = price * discountRate
+  def calculatePrice(price: Double, isSaleDay: Boolean): Double = {
+    val total = price * discountRate(isSaleDay)
     notifySales(total)
     total
   }
+
+  def discountRate(isSaleDay: Boolean): Double =
+    if (isSaleDay) SaleDiscount else NormalDayDiscount
 
   private def notifySales(amount: Double): Unit = {
     println(s"Notify sales $amount")

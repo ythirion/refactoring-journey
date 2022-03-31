@@ -1,11 +1,13 @@
 package composing.methods
 
 object AmountCalculator {
+  private val YoungMaximumAge = 16
   private val YoungDiscount = 0.35
+  private val OldMinimumAge = 60
   private val OldDiscount = 0.2
 
   def calculatePrice(amount: Double, age: Int): Double = {
-    calculatePrice(amount, applyAgeDiscount = true, age)
+    calculate(amount, age)
   }
 
   def calculatePrice(
@@ -13,24 +15,23 @@ object AmountCalculator {
       applyAgeDiscount: Boolean,
       age: Int
   ): Double = {
-    calculatePrice(order.totalPrice, applyAgeDiscount, age)
+    calculate(order.totalPrice, age, applyAgeDiscount)
   }
 
-  private def calculatePrice(
+  private def calculate(
       amount: Double,
-      applyAgeDiscount: Boolean = true,
-      age: Int
+      age: Int,
+      applyAgeDiscount: Boolean = true
   ): Double = {
-    val discount =
-      if (applyAgeDiscount) calculateDiscountBasedOnAge(amount, age) else 0
+    val discount = if (applyAgeDiscount) calculateDiscountBasedOnAge(amount, age) else 0
     amount - discount
   }
 
   private def calculateDiscountBasedOnAge(amount: Double, age: Int): Double = {
     age match {
-      case young if young <= 16 => YoungDiscount * amount
-      case old if old >= 60     => OldDiscount * amount
-      case _                    => 0
+      case young if young <= YoungMaximumAge => YoungDiscount * amount
+      case old if old >= OldMinimumAge       => OldDiscount * amount
+      case _                                 => 0
     }
   }
 }

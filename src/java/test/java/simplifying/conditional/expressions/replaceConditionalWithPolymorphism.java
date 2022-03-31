@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
-public class replaceConditionalWithPolymorphism {
+class replaceConditionalWithPolymorphism {
     @Test
     void calculator_should_support_add() {
         int result = Calculator.calculate(1, 2, Calculator.ADD);

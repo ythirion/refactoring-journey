@@ -9,7 +9,7 @@ import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class extractInterface {
+class extractInterface {
     private final ByteArrayOutputStream console = new ByteArrayOutputStream();
 
     @BeforeEach
@@ -22,7 +22,7 @@ public class extractInterface {
     }
 
     @Nested
-    public class TriAthlete_should {
+    class TriAthlete_should {
         private final TriAthlete triAthlete = new TriAthlete("Alistair Brownlee");
 
         @Test
@@ -45,7 +45,7 @@ public class extractInterface {
     }
 
     @Nested
-    public class JumpyAthlete_should {
+    class JumpyAthlete_should {
         private final JumpyAthlete jumpyAthlete = new JumpyAthlete("A crazy guy");
 
         @Test

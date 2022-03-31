@@ -19,7 +19,7 @@ class extractMethods extends AnyFunSuite {
 
   test("generate statement") {
     assert(
-      order.generateStatement == Success(
+      OrderService.generateStatement(order) == Success(
         """Statement for : Customer{name='Mando', age=35}
         |Product: Blu Ray Tenet Price: 31.0
         |Product: Book Fundamentals of Software Architecture Price: 54.22
