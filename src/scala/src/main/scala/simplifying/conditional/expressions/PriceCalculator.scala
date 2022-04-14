@@ -10,7 +10,7 @@ object PriceCalculator {
     total
   }
 
-  def discountRate(isSaleDay: Boolean): Double =
+  private def discountRate(isSaleDay: Boolean): Double =
     if (isSaleDay) SaleDiscount else NormalDayDiscount
 
   private def notifySales(amount: Double): Unit = {

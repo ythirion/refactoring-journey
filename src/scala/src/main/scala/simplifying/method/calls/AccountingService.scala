@@ -23,8 +23,8 @@ final class AccountingService(bills: List[Bill]) {
       period: Period
   ): Boolean = {
     dateToCheck.exists(date =>
-      (date.isAfter(period.from) || date.isEqual(period.from)) && (date
-        .isBefore(period.to) || date.isEqual(period.to))
+      (date.isAfter(period.from) || date.isEqual(period.from)) &&
+        (date.isBefore(period.to) || date.isEqual(period.to))
     )
   }
 
